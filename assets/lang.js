@@ -18,8 +18,8 @@
   function applyLang(lang) {
     document.documentElement.setAttribute('lang', lang);
     window.localStorage.setItem(STORAGE_KEY, lang);
-    document.querySelectorAll('[data-switch-lang]').forEach(function (el) {
-      el.classList.toggle('active', el.getAttribute('data-switch-lang') === lang);
+    document.querySelectorAll('[data-lang-select]').forEach(function (el) {
+      el.value = lang;
     });
   }
 
@@ -31,10 +31,9 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     applyLang(resolveLang());
-    document.querySelectorAll('[data-switch-lang]').forEach(function (el) {
-      el.addEventListener('click', function (e) {
-        e.preventDefault();
-        switchLang(el.getAttribute('data-switch-lang'));
+    document.querySelectorAll('[data-lang-select]').forEach(function (el) {
+      el.addEventListener('change', function () {
+        switchLang(el.value);
       });
     });
   });
