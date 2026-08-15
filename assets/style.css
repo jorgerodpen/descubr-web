@@ -56,6 +56,9 @@ a { color: var(--primary); }
 }
 
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 22px;
@@ -65,6 +68,18 @@ a { color: var(--primary); }
 }
 
 .wordmark .r { color: var(--primary); }
+
+.wordmark-icon {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+.hero-logo {
+  height: 56px;
+  width: auto;
+  margin-bottom: 20px;
+}
 
 nav.site-nav {
   display: flex;
