@@ -1,0 +1,235 @@
+/* DescubR brand tokens — kept in sync with descubr-mobile/constants/theme.ts (light palette) */
+:root {
+  --background: #FFF8F0;
+  --card: #FFFFFF;
+  --text: #242321;
+  --text-secondary: #77736C;
+  --text-muted: #847F77;
+  --primary: #D63200;
+  --accent-purple: #8B3FE0;
+  --border: #E8E1D5;
+  --code-bg: #FDE7DE;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-display: 'Sora', var(--font-sans);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+[data-i18n] { display: none; }
+html[lang="en"] [data-i18n="en"],
+html[lang="es"] [data-i18n="es"] { display: block; }
+html[lang="en"] span[data-i18n="en"],
+html[lang="es"] span[data-i18n="es"] { display: inline; }
+
+a { color: var(--primary); }
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header / nav */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.2px;
+}
+
+.wordmark .r { color: var(--primary); }
+
+nav.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav.site-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+nav.site-nav a:hover,
+nav.site-nav a.active {
+  color: var(--primary);
+}
+
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.lang-switch a {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+.lang-switch a.active {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+
+/* Main content */
+main {
+  padding: 48px 0 72px;
+}
+
+main h1 {
+  font-family: var(--font-display);
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+
+main .lede {
+  color: var(--text-secondary);
+  font-size: 17px;
+  margin: 0 0 36px;
+}
+
+main h2 {
+  font-family: var(--font-display);
+  font-size: 21px;
+  margin: 36px 0 12px;
+}
+
+main p, main li {
+  color: var(--text);
+  font-size: 15.5px;
+}
+
+main .updated {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 32px;
+}
+
+main ul, main ol {
+  padding-left: 22px;
+}
+
+/* FAQ accordion */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  padding: 16px 18px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: '+';
+  float: right;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.faq-item[open] summary::after { content: '\2212'; }
+
+.faq-item p {
+  padding: 0 18px 16px;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* Cards used on placeholder home + about */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 16px;
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--code-bg);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.site-footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.site-footer a {
+  color: var(--text-muted);
+}
