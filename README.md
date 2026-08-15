@@ -15,6 +15,7 @@ descubr-web/
   privacy/index.html
   assets/style.css   shared brand styles
   assets/lang.js     language detection + switcher (?lang=en|es, localStorage, browser fallback)
+  CNAME              tells GitHub Pages to serve this site at descubr.com
 ```
 
 Every page contains **both languages inline**, wrapped in
@@ -82,26 +83,65 @@ https://jorgerodpen.github.io/descubr-web/privacy/
 Both `/about` and `/about/` should work (GitHub Pages serves the folder's
 `index.html` either way).
 
-### 4. Later: pointing descubr.com at it
+### 4. Pointing descubr.com at it
 
-When you're ready to configure DNS (we'll do this together):
+The repo already has a `CNAME` file containing `descubr.com`, so GitHub
+knows what custom domain this site belongs to as soon as you push. You still
+need to point DNS at GitHub yourself, at whichever registrar/DNS provider
+holds `descubr.com`:
 
-1. Buy/own `descubr.com` and add a `CNAME` file to this repo's root
-   containing just `descubr.com`, **or** set the custom domain in
-   **Settings → Pages → Custom domain**.
-2. At your DNS provider, add either:
-   - An `ALIAS`/`ANAME` record (or 4 `A` records to GitHub's IPs, see
-     [GitHub's docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site))
-     for the apex `descubr.com`, or
-   - A `CNAME` record for `www.descubr.com` → `jorgerodpen.github.io`.
-3. **Do this only once DNS is actually ready** — GitHub Pages redirects the
-   `github.io` URL to the custom domain as soon as it's configured, which
-   would break the site if DNS isn't resolving yet.
-4. Because every link in this site is relative (not `/about/` but `about/`),
-   nothing needs to change in the HTML when you move from
-   `github.io/descubr-web/` to `descubr.com/` — it keeps working at the new
-   root automatically.
-5. Once live on `descubr.com`, update the 3 hardcoded links in the mobile
-   app (`profile.tsx`, `register.tsx`, `accept-terms.tsx`, currently pointed
-   at `https://jorgerodpen.github.io/descubr-web/...`) to use
-   `https://descubr.com/...` instead, and ship an app update.
+**Apex domain (`descubr.com`)** — add four `A` records, all for the root
+(`@`), pointing at GitHub Pages' IPs:
+
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+Optional but recommended, `AAAA` records for IPv6, again all four for `@`:
+
+```
+2606:50c0:8000::153
+2606:50c0:8001::153
+2606:50c0:8002::153
+2606:50c0:8003::153
+```
+
+**`www` subdomain (optional, catches people who type `www.descubr.com`)** —
+add one `CNAME` record:
+
+```
+www  →  jorgerodpen.github.io
+```
+
+(GitHub's IPs occasionally change — worth a quick cross-check against
+[GitHub's current docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)
+before you add them.)
+
+If your DNS provider proxies traffic (e.g. Cloudflare's orange-cloud
+proxy), set the `descubr.com`/`www` records to **DNS only** for now — a
+proxy in front can interfere with GitHub's domain verification and TLS
+issuance until Pages has confirmed the certificate.
+
+**Then, in the repo on GitHub:** Settings → Pages → Custom domain should
+already show `descubr.com` (picked up from the `CNAME` file) — if not,
+type it in and save. GitHub will show a DNS check; once it goes green
+(can take anywhere from a few minutes to ~24h for DNS to propagate), tick
+**Enforce HTTPS**.
+
+**Until DNS is verified**, keep using the `github.io` URL — GitHub
+redirects the `github.io` URL to the custom domain once it's configured,
+so don't flip anything over (or update the app's links, see below) until
+that DNS check is actually green.
+
+Because every link in this site is relative (not `/about/` but `about/`),
+nothing needs to change in the HTML when the site moves from
+`github.io/descubr-web/` to `descubr.com/` — it keeps working at the new
+root automatically.
+
+**Once `descubr.com` is confirmed live**, update the 3 hardcoded links in
+the mobile app (`profile.tsx`, `register.tsx`, `accept-terms.tsx`,
+currently pointed at `https://jorgerodpen.github.io/descubr-web/...`) to
+use `https://descubr.com/...` instead, and ship an app update.
