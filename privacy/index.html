@@ -17,12 +17,22 @@
   <header class="site-header">
     <div class="wrap">
       <a class="wordmark" href="../"><img src="../assets/logo-mark.svg" alt="" width="26" height="26" class="wordmark-icon"><span class="word">Descub<span class="r">R</span></span></a>
-      <nav class="site-nav">
+      <div class="site-nav">
+        <div class="menu-wrap">
+          <button class="menu-toggle" data-menu-toggle type="button" aria-expanded="false" aria-label="Menu">
+            <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
+          </button>
+          <nav class="site-menu" data-menu hidden>
+            <a href="../about/"><span data-i18n="en">About</span><span data-i18n="es">Sobre nosotros</span></a>
+            <a href="../faq/"><span data-i18n="en">FAQ</span><span data-i18n="es">Preguntas frecuentes</span></a>
+            <a href="../privacy/" class="active"><span data-i18n="en">Privacy Policy</span><span data-i18n="es">Política de privacidad</span></a>
+          </nav>
+        </div>
         <select class="lang-select" data-lang-select aria-label="Language / Idioma">
           <option value="en">English</option>
           <option value="es">Español</option>
         </select>
-      </nav>
+      </div>
     </div>
   </header>
 
@@ -298,23 +308,20 @@
         <a href="../faq/"><span data-i18n="en">FAQ</span><span data-i18n="es">Preguntas frecuentes</span></a>
         <a href="../privacy/" class="active"><span data-i18n="en">Privacy Policy</span><span data-i18n="es">Política de privacidad</span></a>
       </nav>
-      <div class="footer-bottom">
-        <span>
-          <span data-i18n="en">&copy; 2026 DescubR. All rights reserved.</span>
-          <span data-i18n="es">&copy; 2026 DescubR. Todos los derechos reservados.</span>
-        </span>
-        <div class="footer-links">
-          <a href="mailto:hello@descubr.com">hello@descubr.com</a>
-          <div class="social-links">
-            <a href="https://www.tiktok.com/@descubr_app" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82c-1.02-.88-1.66-2.17-1.66-3.6h-3.06v13.44c0 1.62-1.32 2.94-2.94 2.94a2.94 2.94 0 0 1 0-5.88c.28 0 .55.04.8.11V9.72a6.02 6.02 0 0 0-.8-.06c-3.32 0-6 2.68-6 6s2.68 6 6 6 6-2.68 6-6V9.2a8.16 8.16 0 0 0 4.76 1.53V7.67a4.85 4.85 0 0 1-3.1-1.85z"/></svg></a>
-            <a href="https://www.instagram.com/descubr_app/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-            <a href="https://x.com/descubr_app" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.5 8.57L23 22h-6.9l-5.4-7.06L4.6 22H1.5l8.02-9.17L1 2h7.06l4.88 6.46L18.9 2zm-1.2 18h1.9L7.4 3.9H5.36L17.7 20z"/></svg></a>
-          </div>
-        </div>
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@descubr_app" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82c-1.02-.88-1.66-2.17-1.66-3.6h-3.06v13.44c0 1.62-1.32 2.94-2.94 2.94a2.94 2.94 0 0 1 0-5.88c.28 0 .55.04.8.11V9.72a6.02 6.02 0 0 0-.8-.06c-3.32 0-6 2.68-6 6s2.68 6 6 6 6-2.68 6-6V9.2a8.16 8.16 0 0 0 4.76 1.53V7.67a4.85 4.85 0 0 1-3.1-1.85z"/></svg></a>
+        <a href="https://www.instagram.com/descubr_app/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://x.com/descubr_app" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.5 8.57L23 22h-6.9l-5.4-7.06L4.6 22H1.5l8.02-9.17L1 2h7.06l4.88 6.46L18.9 2zm-1.2 18h1.9L7.4 3.9H5.36L17.7 20z"/></svg></a>
       </div>
+      <p class="footer-copy">
+        <span data-i18n="en">&copy; 2026 DescubR. All rights reserved.</span>
+        <span data-i18n="es">&copy; 2026 DescubR. Todos los derechos reservados.</span>
+        &nbsp;&middot;&nbsp;<a href="mailto:hello@descubr.com">hello@descubr.com</a>
+      </p>
     </div>
   </footer>
 
   <script src="../assets/lang.js"></script>
+  <script src="../assets/menu.js"></script>
 </body>
 </html>
