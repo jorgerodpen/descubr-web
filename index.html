@@ -69,18 +69,184 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <img src="assets/logo-mark.svg" alt="DescubR" width="56" height="56" class="hero-logo">
-    <div data-i18n="en">
-      <span class="badge">Coming soon</span>
-      <h1>The full DescubR site is on its way</h1>
-      <p class="lede">We're building descubr.com. In the meantime, here's what you came for.</p>
+  <main>
+    <div class="wrap hero">
+      <img src="assets/logo-mark.svg" alt="DescubR" width="56" height="56" class="hero-logo">
+      <div data-i18n="en">
+        <span class="badge">Launching soon in Spain</span>
+        <h1>Self-guided tours, from people who actually know the place</h1>
+        <p class="lede">Pick a tour, walk the route, and unlock video, audio and stories at every stop — at your own pace, no groups, no fixed schedule.</p>
+      </div>
+      <div data-i18n="es">
+        <span class="badge">Muy pronto en España</span>
+        <h1>Tours autoguiados, creados por quienes realmente conocen el lugar</h1>
+        <p class="lede">Elige un tour, recorre la ruta y desbloquea vídeo, audio e historias en cada parada — a tu propio ritmo, sin grupos ni horarios fijos.</p>
+      </div>
+
+      <form class="waitlist-form" data-waitlist-form>
+        <label class="sr-only" for="waitlist-email">
+          <span data-i18n="en">Email address</span>
+          <span data-i18n="es">Correo electrónico</span>
+        </label>
+        <input type="email" id="waitlist-email" required
+               data-i18n-placeholder-en="you@example.com" data-i18n-placeholder-es="tu@ejemplo.com"
+               placeholder="you@example.com">
+        <button type="submit">
+          <span data-i18n="en">Notify me</span>
+          <span data-i18n="es">Avísame</span>
+        </button>
+      </form>
+      <p class="waitlist-note">
+        <span data-i18n="en">We'll email you the moment DescubR launches. No spam.</span>
+        <span data-i18n="es">Te avisaremos en cuanto DescubR esté disponible. Sin spam.</span>
+      </p>
     </div>
-    <div data-i18n="es">
-      <span class="badge">Próximamente</span>
-      <h1>El sitio completo de DescubR está en camino</h1>
-      <p class="lede">Estamos construyendo descubr.com. Mientras tanto, aquí tienes lo que buscabas.</p>
-    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">
+          <span data-i18n="en">How it works</span>
+          <span data-i18n="es">Cómo funciona</span>
+        </h2>
+        <p class="section-lede">
+          <span data-i18n="en">Five steps between you and your next tour.</span>
+          <span data-i18n="es">Cinco pasos entre tú y tu próximo tour.</span>
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-shot">
+              <img src="assets/how-it-works-discover.jpg" width="640" height="1397" loading="lazy"
+                   alt="DescubR nearby map showing tour pins around the user's location">
+            </div>
+            <div class="step-text">
+              <span class="step-number">1</span>
+              <div data-i18n="en">
+                <h3>Find a tour near you</h3>
+                <p>Open the map and see self-guided tours around you, wherever you are.</p>
+              </div>
+              <div data-i18n="es">
+                <h3>Encuentra un tour cerca de ti</h3>
+                <p>Abre el mapa y descubre tours autoguiados a tu alrededor, estés donde estés.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-shot">
+              <img src="assets/how-it-works-route.jpg" width="640" height="1397" loading="lazy"
+                   alt="DescubR tour detail screen showing the route overview and guide profile">
+            </div>
+            <div class="step-text">
+              <span class="step-number">2</span>
+              <div data-i18n="en">
+                <h3>See the route before you go</h3>
+                <p>Check the stops, the guide, and what's included — no surprises.</p>
+              </div>
+              <div data-i18n="es">
+                <h3>Consulta la ruta antes de empezar</h3>
+                <p>Revisa las paradas, el guía y qué incluye — sin sorpresas.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-shot">
+              <img src="assets/how-it-works-stops.jpg" width="640" height="1397" loading="lazy"
+                   alt="DescubR tour stop list showing video, text and other content types ready at each stop">
+            </div>
+            <div class="step-text">
+              <span class="step-number">3</span>
+              <div data-i18n="en">
+                <h3>Check what's waiting at each stop</h3>
+                <p>Every stop shows what you'll get — a video, a story, a short game — before you even start walking.</p>
+              </div>
+              <div data-i18n="es">
+                <h3>Descubre qué te espera en cada parada</h3>
+                <p>Cada parada muestra lo que vas a encontrar — un vídeo, una historia, un breve juego — antes incluso de empezar a caminar.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-shot">
+              <img src="assets/how-it-works-walk.jpg" width="640" height="1397" loading="lazy"
+                   alt="DescubR active tour screen showing walking distance to the next stop">
+            </div>
+            <div class="step-text">
+              <span class="step-number">4</span>
+              <div data-i18n="en">
+                <h3>Walk to the first stop</h3>
+                <p>Follow the distance counter, or tap Get Directions if you'd rather use your usual maps app.</p>
+              </div>
+              <div data-i18n="es">
+                <h3>Camina hasta la primera parada</h3>
+                <p>Sigue el contador de distancia, o toca "Cómo llegar" si prefieres tu app de mapas habitual.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-shot">
+              <img src="assets/how-it-works-unlock.jpg" width="640" height="1397" loading="lazy"
+                   alt="DescubR hidden gem found screen unlocking a stop's video content">
+            </div>
+            <div class="step-text">
+              <span class="step-number">5</span>
+              <div data-i18n="en">
+                <h3>Unlock what's waiting</h3>
+                <p>Arrive, tap "I'm here," and the stop's video, audio or story unlocks on the spot.</p>
+              </div>
+              <div data-i18n="es">
+                <h3>Desbloquea lo que te espera</h3>
+                <p>Llega, toca "Ya estoy aquí" y el vídeo, audio o historia de la parada se desbloquea al instante.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">
+          <span data-i18n="en">A tour for every kind of curiosity</span>
+          <span data-i18n="es">Un tour para cada tipo de curiosidad</span>
+        </h2>
+        <p class="section-lede">
+          <span data-i18n="en">Guides publish tours across all kinds of experiences.</span>
+          <span data-i18n="es">Los guías publican tours de todo tipo de experiencias.</span>
+        </p>
+
+        <div class="type-grid">
+          <span class="type-pill" style="background:#D632001A; color:#D63200;">🚶 <span data-i18n="en">Walking Tour</span><span data-i18n="es">Ruta a pie</span></span>
+          <span class="type-pill" style="background:#E0335B1A; color:#E0335B;">🍽️ <span data-i18n="en">Food Tour</span><span data-i18n="es">Ruta gastronómica</span></span>
+          <span class="type-pill" style="background:#9C4A1F1A; color:#9C4A1F;">📜 <span data-i18n="en">Historical Tour</span><span data-i18n="es">Ruta histórica</span></span>
+          <span class="type-pill" style="background:#3F5CD91A; color:#3F5CD9;">🏛️ <span data-i18n="en">Architecture Tour</span><span data-i18n="es">Ruta de arquitectura</span></span>
+          <span class="type-pill" style="background:#E0399C1A; color:#E0399C;">🎨 <span data-i18n="en">Art Tour</span><span data-i18n="es">Ruta de arte</span></span>
+          <span class="type-pill" style="background:#1E9E4A1A; color:#1E9E4A;">🌿 <span data-i18n="en">Nature Walk</span><span data-i18n="es">Ruta de naturaleza</span></span>
+          <span class="type-pill" style="background:#E0B0001A; color:#B8860B;">🔍 <span data-i18n="en">Scavenger Hunt</span><span data-i18n="es">Búsqueda del tesoro</span></span>
+          <span class="type-pill" style="background:#6B21C91A; color:#6B21C9;">🌙 <span data-i18n="en">Nightlife Tour</span><span data-i18n="es">Ruta nocturna</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="guide-cta">
+          <div data-i18n="en">
+            <h2>Know a place inside out?</h2>
+            <p>Create a self-guided tour and earn every time someone takes it — from anywhere in the world.</p>
+            <a class="button" href="mailto:guides@descubr.com?subject=Guide%20application">Apply to become a guide</a>
+          </div>
+          <div data-i18n="es">
+            <h2>¿Conoces un lugar a fondo?</h2>
+            <p>Crea un tour autoguiado y gana cada vez que alguien lo haga — desde cualquier parte del mundo.</p>
+            <a class="button" href="mailto:guides@descubr.com?subject=Solicitud%20de%20gu%C3%ADa">Solicita ser guía</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -105,5 +271,6 @@
 
   <script src="assets/lang.js"></script>
   <script src="assets/menu.js"></script>
+  <script src="assets/waitlist.js"></script>
 </body>
 </html>

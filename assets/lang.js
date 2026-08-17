@@ -21,6 +21,9 @@
     document.querySelectorAll('[data-lang-select]').forEach(function (el) {
       el.value = lang;
     });
+    document.querySelectorAll('[data-i18n-placeholder-' + lang + ']').forEach(function (el) {
+      el.setAttribute('placeholder', el.getAttribute('data-i18n-placeholder-' + lang));
+    });
   }
 
   function switchLang(lang) {
