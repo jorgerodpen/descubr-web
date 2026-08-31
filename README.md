@@ -9,10 +9,12 @@ Spanish).
 
 ```
 descubr-web/
-  index.html        placeholder homepage (temporary — replace once the real site is ready)
+  index.html          placeholder homepage (temporary — replace once the real site is ready)
   about/index.html
   faq/index.html
-  privacy/index.html
+  privacy/index.html      general Privacy Policy — every user accepts this
+  guide-terms/index.html  guide-only terms — only shown/accepted at "Become a guide", and
+                          re-accepted by existing guides if it's updated (see below)
   assets/style.css   shared brand styles
   assets/lang.js     language detection + switcher (?lang=en|es, localStorage, browser fallback)
   CNAME              tells GitHub Pages to serve this site at descubr.com
@@ -40,6 +42,13 @@ The Privacy Policy has a version/date line near the top
 what data is collected or how it's used, bump that version — and bump
 `PRIVACY_POLICY_VERSION` in `backend/app/config.py` to match, so the app
 prompts existing users to re-accept it.
+
+Guide Terms works the same way but is entirely separate — its own version
+line, its own `GUIDE_TERMS_VERSION` in `backend/app/config.py`, and it only
+prompts *guides* to re-accept (regular users never see it). Bump it when
+you materially change anything guide-specific: tour review rules, profile
+picture review, Pro verification, the inactivity/revocation policy, or
+payout requirements.
 
 ## Deploying to GitHub Pages
 
