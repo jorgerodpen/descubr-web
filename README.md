@@ -13,9 +13,12 @@ descubr-web/
   about/index.html
   faq/index.html
   privacy/index.html      general Privacy Policy — every user accepts this
+  terms/index.html        general Terms of Service — every user accepts this (see below)
   guide-terms/index.html  guide-only terms — only shown/accepted at "Become a guide", and
                           re-accepted by existing guides if it's updated (see below)
-  assets/style.css   shared brand styles
+  legal-notice/index.html Aviso Legal (LSSICE legal notice) — currently placeholders, see below
+  assets/style.css   shared brand styles + self-hosted @font-face rules
+  assets/fonts/      self-hosted Inter/Sora WOFF2 files (see "Fonts" below)
   assets/lang.js     language detection + switcher (?lang=en|es, localStorage, browser fallback)
   CNAME              tells GitHub Pages to serve this site at descubr.com
 ```
@@ -49,6 +52,33 @@ prompts *guides* to re-accept (regular users never see it). Bump it when
 you materially change anything guide-specific: tour review rules, profile
 picture review, Pro verification, the inactivity/revocation policy, or
 payout requirements.
+
+Terms of Service has its own version line and its own
+`TERMS_OF_SERVICE_VERSION` in `backend/app/config.py`, but shares the same
+mobile re-accept screen as the Privacy Policy (`accept-terms.tsx`) — bumping
+either version forces every user through that screen once. Bump it when you
+materially change the access license, the withdrawal-right waiver, user
+content licensing, liability terms, or anything else user-facing.
+
+The Legal Notice currently ships with placeholder fields (`[LEGAL NAME]`,
+`[NIF]`, `[REGISTERED ADDRESS]`) — fill these in with real values before
+accepting real payments. See the HTML comment at the top of
+`legal-notice/index.html` for the two practical ways to do this without
+publishing a home address.
+
+## Fonts
+
+Inter and Sora are self-hosted (`assets/fonts/*.woff2`), not loaded from
+Google Fonts — the site's own Privacy Policy claims no third-party trackers,
+and a live request to `fonts.googleapis.com`/`fonts.gstatic.com` would leak
+every visitor's IP to Google. Both files are variable fonts covering the
+Latin subset (all EN/ES copy on this site fits in that range), declared in
+`assets/style.css` with a `font-weight: 400 700` range so 400/500/600/700 all
+resolve correctly from the same file. To refresh or add a weight/script,
+fetch `https://fonts.googleapis.com/css2?family=<name>:wght@<weights>` with
+a modern-browser `User-Agent` header, download the resulting `.woff2` URLs,
+and update the `@font-face` blocks accordingly — no need to re-add the
+Google-hosted `<link>` tags.
 
 ## Deploying to GitHub Pages
 
