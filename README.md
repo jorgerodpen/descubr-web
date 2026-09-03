@@ -172,15 +172,16 @@ type it in and save. GitHub will show a DNS check; once it goes green
 
 **Until DNS is verified**, keep using the `github.io` URL — GitHub
 redirects the `github.io` URL to the custom domain once it's configured,
-so don't flip anything over (or update the app's links, see below) until
-that DNS check is actually green.
+so don't flip anything over until that DNS check is actually green.
 
 Because every link in this site is relative (not `/about/` but `about/`),
 nothing needs to change in the HTML when the site moves from
 `github.io/descubr-web/` to `descubr.com/` — it keeps working at the new
 root automatically.
 
-**Once `descubr.com` is confirmed live**, update the 3 hardcoded links in
-the mobile app (`profile.tsx`, `register.tsx`, `accept-terms.tsx`,
-currently pointed at `https://jorgerodpen.github.io/descubr-web/...`) to
-use `https://descubr.com/...` instead, and ship an app update.
+**Status: `descubr.com` DNS is live** and the mobile app's links
+(`profile.tsx`, `register.tsx`, `accept-terms.tsx`, `accept-guide-terms.tsx`,
+`become-guide.tsx`, `tour-detail/[id].tsx`) already point at
+`https://descubr.com/...`, not the `github.io` URL. Steps 1–4 above are kept
+as reference for re-creating this deploy from scratch, not as an in-progress
+checklist.

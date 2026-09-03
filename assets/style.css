@@ -576,6 +576,35 @@ main ul, main ol {
 }
 
 /* Home page — guide CTA */
+/* Lighter-weight than .guide-cta — a note inside "How it works", not a
+   standalone section CTA, so it shouldn't compete with the guide CTA below it. */
+.referral-note {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+  padding: 20px 24px;
+  background: var(--primary);
+  background: color-mix(in srgb, var(--primary) 8%, var(--card));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.referral-note-icon {
+  font-size: 28px;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.referral-note p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.referral-note strong {
+  color: var(--text);
+}
+
 .guide-cta {
   text-align: center;
   background: var(--card);
