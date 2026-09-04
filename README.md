@@ -20,8 +20,29 @@ descubr-web/
   assets/style.css   shared brand styles + self-hosted @font-face rules
   assets/fonts/      self-hosted Inter/Sora WOFF2 files (see "Fonts" below)
   assets/lang.js     language detection + switcher (?lang=en|es, localStorage, browser fallback)
+  assets/theme.js    dark-mode toggle, sticky-header glass state, reading-progress bar,
+                      back-to-top button, and the docs table-of-contents scroll-spy — every
+                      feature no-ops when its markup isn't on the page, so it's included on
+                      every page
   CNAME              tells GitHub Pages to serve this site at descubr.com
 ```
+
+Privacy, Terms, Guide Terms and the Legal Notice additionally get a sticky
+table-of-contents sidebar and a card layout (`.docs-shell` / `.toc` /
+`.doc-card` in `assets/style.css`), generated from each page's `<h2>`
+headings — every heading has an `id="en-N"`/`id="es-N"` and a hover-to-copy
+`#` anchor. When you add, remove, or reorder an `<h2>` in one of those
+pages, keep the matching `<a href="#en-N">`/`<a href="#es-N">` link in the
+`.toc-list` block in sync (same order, same count) — nothing recomputes it
+for you.
+
+Dark mode uses the mobile app's dark palette (see `constants/theme.ts` in
+`descubr-mobile`), applied automatically via `prefers-color-scheme` and
+override-able with the header's toggle button (persisted in
+`localStorage` under `descubr-theme`). Add new colors as CSS custom
+properties in `assets/style.css`'s `:root` block (light) and mirror them in
+both the `@media (prefers-color-scheme: dark)` block and the
+`:root[data-theme="dark"]` block — see the comments there.
 
 Every page contains **both languages inline**, wrapped in
 `<div data-i18n="en">…</div>` / `<div data-i18n="es">…</div>` blocks.

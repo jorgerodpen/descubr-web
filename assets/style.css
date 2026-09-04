@@ -29,12 +29,48 @@
   --text-secondary: #77736C;
   --text-muted: #847F77;
   --primary: #D63200;
+  --primary-ink: #FFFFFF;
   --accent-purple: #8B3FE0;
   --border: #E8E1D5;
   --code-bg: #FDE7DE;
+  --shadow-rgb: 36, 35, 33;
 
   --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
   --font-display: 'Sora', var(--font-sans);
+}
+
+/* Dark palette — kept in sync with descubr-mobile/constants/theme.ts (dark
+   palette). Applies automatically to OS dark mode, and can be forced either
+   way by the header toggle (assets/theme.js), which stamps data-theme on
+   <html> and persists the choice in localStorage. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #242321;
+    --card: #302F2C;
+    --text: #F4F1EA;
+    --text-secondary: #C8C2B8;
+    --text-muted: #918C83;
+    --primary: #EB3700;
+    --primary-ink: #FFFFFF;
+    --accent-purple: #A66BF0;
+    --border: #4A4742;
+    --code-bg: #3A2620;
+    --shadow-rgb: 0, 0, 0;
+  }
+}
+
+:root[data-theme="dark"] {
+  --background: #242321;
+  --card: #302F2C;
+  --text: #F4F1EA;
+  --text-secondary: #C8C2B8;
+  --text-muted: #918C83;
+  --primary: #EB3700;
+  --primary-ink: #FFFFFF;
+  --accent-purple: #A66BF0;
+  --border: #4A4742;
+  --code-bg: #3A2620;
+  --shadow-rgb: 0, 0, 0;
 }
 
 * { box-sizing: border-box; }
@@ -46,6 +82,11 @@ html, body {
   color: var(--text);
   font-family: var(--font-sans);
   line-height: 1.6;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
 }
 
 [data-i18n] { display: none; }
@@ -55,6 +96,15 @@ html[lang="en"] span[data-i18n="en"],
 html[lang="es"] span[data-i18n="es"] { display: inline; }
 
 a { color: var(--primary); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
 
 .sr-only {
   position: absolute;
@@ -76,8 +126,19 @@ a { color: var(--primary); }
 
 /* Header / nav */
 .site-header {
-  border-bottom: 1px solid var(--border);
-  background: var(--card);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.site-header.scrolled {
+  border-bottom-color: var(--border);
+  box-shadow: 0 8px 28px rgba(var(--shadow-rgb), .10);
 }
 
 .site-header .wrap {
@@ -200,6 +261,35 @@ a { color: var(--primary); }
 .lang-select:focus {
   color: var(--primary);
   border-color: var(--primary);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.theme-toggle .icon-moon { display: none; }
+
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: inline-block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: inline-block; }
 }
 
 /* Main content */
@@ -637,4 +727,176 @@ main ul, main ol {
 
 .guide-cta .button:hover {
   opacity: 0.92;
+}
+
+/* Home page — hero route motif (decorative path linking three "stops",
+   echoing the app's own walk-between-stops mechanic) */
+.hero {
+  position: relative;
+}
+
+.route-motif {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  width: 300px;
+  height: 270px;
+  z-index: 0;
+  opacity: .8;
+}
+
+@media (max-width: 640px) {
+  .route-motif { display: none; }
+}
+
+/* ================= Reading progress bar ================= */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+}
+
+/* ================= Docs pages (Privacy / Terms / Guide Terms / Legal Notice) ================= */
+main.docs-main {
+  padding: 40px 0 90px;
+}
+
+.docs-shell {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.toc {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-left: 2px solid var(--border);
+  padding-left: 14px;
+}
+
+.toc-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.toc-list a {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 0 6px 14px;
+  margin-left: -16px;
+  border-left: 2px solid transparent;
+}
+
+.toc-list a:hover {
+  color: var(--text);
+}
+
+.toc-list a.active {
+  color: var(--primary);
+  font-weight: 700;
+  border-left-color: var(--primary);
+}
+
+.doc-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 40px 44px;
+  box-shadow: 0 16px 40px rgba(var(--shadow-rgb), .07);
+}
+
+.doc-card section,
+.doc-card h2 {
+  scroll-margin-top: 96px;
+}
+
+.doc-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.doc-card h2 .anchor {
+  opacity: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity .12s ease;
+}
+
+.doc-card h2:hover .anchor,
+.doc-card h2 .anchor:focus-visible {
+  opacity: 1;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(var(--shadow-rgb), .18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 40;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+@media (max-width: 860px) {
+  .docs-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .toc {
+    display: none;
+  }
+
+  .doc-card {
+    padding: 28px 22px;
+  }
 }

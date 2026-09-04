@@ -3,6 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('descubr-theme'); } catch (e) {}
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    })();
+  </script>
   <title>Terms of Service — DescubR</title>
   <meta name="description" content="The terms that apply when you create a DescubR account, buy a tour, or use the app.">
   <link rel="canonical" href="https://descubr.com/terms/">
@@ -22,6 +31,8 @@
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+
+  <div class="progress" aria-hidden="true"><div class="progress-fill" data-progress-fill></div></div>
 
   <header class="site-header">
     <div class="wrap">
@@ -43,14 +54,53 @@
           <option value="en">English</option>
           <option value="es">Español</option>
         </select>
+        <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2M10 16.2v2M3.7 3.7l1.4 1.4M14.9 14.9l1.4 1.4M1.8 10h2M16.2 10h2M3.7 16.3l1.4-1.4M14.9 5.1l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.2 12.4A7.2 7.2 0 1 1 7.6 2.8a5.6 5.6 0 0 0 9.6 9.6Z"/></svg></button>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="docs-main">
+    <div class="docs-shell">
+      <nav class="toc" aria-label="Table of contents / Tabla de contenidos">
+        <span class="toc-label" data-i18n="en">On this page</span>
+        <span class="toc-label" data-i18n="es">En esta página</span>
+        <div class="toc-list" data-i18n="en">
+          <a href="#en-1">1. The service</a>
+          <a href="#en-2">2. Accounts and eligibility</a>
+          <a href="#en-3">3. Purchases and payment</a>
+          <a href="#en-4">4. Access license, not a sale</a>
+          <a href="#en-5">5. Right of withdrawal</a>
+          <a href="#en-6">6. Your content</a>
+          <a href="#en-7">7. Guide content</a>
+          <a href="#en-8">8. Descoins</a>
+          <a href="#en-9">9. Intellectual property</a>
+          <a href="#en-10">10. Disclaimers and liability</a>
+          <a href="#en-11">11. Suspension and termination</a>
+          <a href="#en-12">12. Governing law and disputes</a>
+          <a href="#en-13">13. Changes to these Terms</a>
+          <a href="#en-14">14. Contact</a>
+        </div>
+        <div class="toc-list" data-i18n="es">
+          <a href="#es-1">1. El servicio</a>
+          <a href="#es-2">2. Cuentas y elegibilidad</a>
+          <a href="#es-3">3. Compras y pago</a>
+          <a href="#es-4">4. Licencia de acceso, no una venta</a>
+          <a href="#es-5">5. Derecho de desistimiento</a>
+          <a href="#es-6">6. Tu contenido</a>
+          <a href="#es-7">7. Contenido de los guías</a>
+          <a href="#es-8">8. Descoins</a>
+          <a href="#es-9">9. Propiedad intelectual</a>
+          <a href="#es-10">10. Renuncias y responsabilidad</a>
+          <a href="#es-11">11. Suspensión y cancelación</a>
+          <a href="#es-12">12. Ley aplicable y resolución de conflictos</a>
+          <a href="#es-13">13. Cambios en estos Términos</a>
+          <a href="#es-14">14. Contacto</a>
+        </div>
+      </nav>
 
-    <!-- ================= ENGLISH ================= -->
-    <div data-i18n="en">
+      <article class="doc-card">
+        <!-- ================= ENGLISH ================= -->
+        <div data-i18n="en">
       <h1>Terms of Service</h1>
       <p class="updated">Version 1.0 — last updated September 1, 2026</p>
 
@@ -63,26 +113,26 @@
         Terms</a>, which apply on top of, not instead of, these Terms.
       </p>
 
-      <h2>1. The service</h2>
+      <h2 id="en-1">1. The service<a class="anchor" href="#en-1" aria-label="Link to this section">#</a></h2>
       <p>DescubR is a marketplace of self-guided tours: guides publish tours
         made of stops that unlock video, audio, text, or an interactive game
         as you reach them, and travelers buy access to walk those tours at
         their own pace. We operate the platform; we don't lead, supervise,
         or accompany any tour.</p>
 
-      <h2>2. Accounts and eligibility</h2>
+      <h2 id="en-2">2. Accounts and eligibility<a class="anchor" href="#en-2" aria-label="Link to this section">#</a></h2>
       <p>You must be at least 16 years old to create an account, matching
         our Privacy Policy. You're responsible for keeping your login
         credentials secure and for anything that happens under your
         account. One account per person.</p>
 
-      <h2>3. Purchases and payment</h2>
+      <h2 id="en-3">3. Purchases and payment<a class="anchor" href="#en-3" aria-label="Link to this section">#</a></h2>
       <p>Each guide sets their own price and currency for their tours.
         Payments are processed by Stripe; DescubR never sees or stores your
         full card details. Once a purchase completes, you get access to
         that tour for 365 days.</p>
 
-      <h2>4. Access license, not a sale</h2>
+      <h2 id="en-4">4. Access license, not a sale<a class="anchor" href="#en-4" aria-label="Link to this section">#</a></h2>
       <p>Buying a tour gives you a personal, non-transferable, revocable
         license to access that tour's content for as long as your access
         hasn't expired or been revoked — it isn't a sale of the content
@@ -90,7 +140,7 @@
         perform, or resell any part of a tour's video, audio, text, or
         images outside the app.</p>
 
-      <h2>5. Right of withdrawal</h2>
+      <h2 id="en-5">5. Right of withdrawal<a class="anchor" href="#en-5" aria-label="Link to this section">#</a></h2>
       <p>Under EU consumer law, online purchases of digital content
         ordinarily come with a 14-day right of withdrawal. Because a
         DescubR tour is digital content delivered immediately once you pay
@@ -104,21 +154,21 @@
         <a href="mailto:support@descubr.com">support@descubr.com</a> and
         we'll sort it out.</p>
 
-      <h2>6. Your content</h2>
+      <h2 id="en-6">6. Your content<a class="anchor" href="#en-6" aria-label="Link to this section">#</a></h2>
       <p>Reviews, ratings, and reports you submit are yours, but by posting
         them you give DescubR a non-exclusive, worldwide license to display
         and use them to operate and promote the platform (for example,
         showing a review on a tour's page). Don't post anything illegal,
         defamatory, or that infringes someone else's rights.</p>
 
-      <h2>7. Guide content</h2>
+      <h2 id="en-7">7. Guide content<a class="anchor" href="#en-7" aria-label="Link to this section">#</a></h2>
       <p>Tours are created and owned by the guides who publish them, subject
         to a content review before anything goes live — see the
         <a href="../guide-terms/">Guide Terms</a> for the review process,
         profile pictures, "Pro" verification, account activity
         requirements, and payouts.</p>
 
-      <h2>8. Descoins</h2>
+      <h2 id="en-8">8. Descoins<a class="anchor" href="#en-8" aria-label="Link to this section">#</a></h2>
       <p>Descoins are an in-app reward, not a currency or a financial
         instrument: they have no cash value, can't be transferred between
         accounts, can't be exchanged for cash, and are forfeited if you
@@ -126,13 +176,13 @@
         discount codes on future tours, subject to the caps and cooldowns
         shown there.</p>
 
-      <h2>9. Intellectual property</h2>
+      <h2 id="en-9">9. Intellectual property<a class="anchor" href="#en-9" aria-label="Link to this section">#</a></h2>
       <p>The DescubR name, logo, and app itself (excluding guide-published
         tour content and user-submitted reviews) belong to us. You may not
         copy, modify, or reverse-engineer the app except as the law
         expressly allows.</p>
 
-      <h2>10. Disclaimers and liability</h2>
+      <h2 id="en-10">10. Disclaimers and liability<a class="anchor" href="#en-10" aria-label="Link to this section">#</a></h2>
       <p>Self-guided tours involve walking in real-world locations, often
         without cell coverage guarantees, in traffic, or in areas you don't
         know — use common sense and follow local laws and signage. We don't
@@ -143,13 +193,13 @@
         liability to you is limited to the amount you paid for the tour(s)
         giving rise to the claim.</p>
 
-      <h2>11. Suspension and termination</h2>
+      <h2 id="en-11">11. Suspension and termination<a class="anchor" href="#en-11" aria-label="Link to this section">#</a></h2>
       <p>You can delete your account at any time from Profile → Delete
         Account. We may suspend or terminate an account for violating these
         Terms, our Privacy Policy, or applicable law, for fraud, or for
         abusive behavior toward guides, travelers, or our team.</p>
 
-      <h2>12. Governing law and disputes</h2>
+      <h2 id="en-12">12. Governing law and disputes<a class="anchor" href="#en-12" aria-label="Link to this section">#</a></h2>
       <p>These Terms are governed by Spanish law. If you're an EU consumer,
         this doesn't take away the protections you're entitled to under the
         mandatory consumer-protection laws of your own country of
@@ -157,18 +207,18 @@
         Resolution platform for EU consumers at
         <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
 
-      <h2>13. Changes to these Terms</h2>
+      <h2 id="en-13">13. Changes to these Terms<a class="anchor" href="#en-13" aria-label="Link to this section">#</a></h2>
       <p>We may update these Terms as DescubR evolves. If we make a material
         change, we'll ask you to review and re-accept them the next time you
         open the app.</p>
 
-      <h2>14. Contact</h2>
+      <h2 id="en-14">14. Contact<a class="anchor" href="#en-14" aria-label="Link to this section">#</a></h2>
       <p>Questions about these Terms? Email
         <a href="mailto:hello@descubr.com">hello@descubr.com</a>.</p>
     </div>
 
-    <!-- ================= ESPAÑOL ================= -->
-    <div data-i18n="es">
+        <!-- ================= ESPAÑOL ================= -->
+        <div data-i18n="es">
       <h1>Términos del servicio</h1>
       <p class="updated">Versión 1.0 — última actualización: 1 de septiembre de 2026</p>
 
@@ -181,26 +231,26 @@
         <a href="../guide-terms/">Términos para guías</a> adicionales, que se
         aplican además de, no en lugar de, estos Términos.</p>
 
-      <h2>1. El servicio</h2>
+      <h2 id="es-1">1. El servicio<a class="anchor" href="#es-1" aria-label="Link to this section">#</a></h2>
       <p>DescubR es un marketplace de tours autoguiados: los guías publican
         tours formados por paradas que desbloquean vídeo, audio, texto o un
         juego interactivo al llegar a ellas, y los viajeros compran acceso
         para recorrer esos tours a su propio ritmo. Nosotros operamos la
         plataforma; no dirigimos, supervisamos ni acompañamos ningún tour.</p>
 
-      <h2>2. Cuentas y elegibilidad</h2>
+      <h2 id="es-2">2. Cuentas y elegibilidad<a class="anchor" href="#es-2" aria-label="Link to this section">#</a></h2>
       <p>Debes tener al menos 16 años para crear una cuenta, en línea con
         nuestra Política de privacidad. Eres responsable de mantener seguras
         tus credenciales de acceso y de todo lo que ocurra bajo tu cuenta.
         Una cuenta por persona.</p>
 
-      <h2>3. Compras y pago</h2>
+      <h2 id="es-3">3. Compras y pago<a class="anchor" href="#es-3" aria-label="Link to this section">#</a></h2>
       <p>Cada guía fija su propio precio y moneda para sus tours. Los pagos
         los procesa Stripe; DescubR nunca ve ni almacena los datos completos
         de tu tarjeta. Una vez completada la compra, tienes acceso a ese
         tour durante 365 días.</p>
 
-      <h2>4. Licencia de acceso, no una venta</h2>
+      <h2 id="es-4">4. Licencia de acceso, no una venta<a class="anchor" href="#es-4" aria-label="Link to this section">#</a></h2>
       <p>Comprar un tour te otorga una licencia personal, intransferible y
         revocable para acceder al contenido de ese tour mientras tu acceso
         no haya caducado ni haya sido revocado — no es una venta del
@@ -208,7 +258,7 @@
         comunicar públicamente ni revender ninguna parte del vídeo, audio,
         texto o imágenes de un tour fuera de la app.</p>
 
-      <h2>5. Derecho de desistimiento</h2>
+      <h2 id="es-5">5. Derecho de desistimiento<a class="anchor" href="#es-5" aria-label="Link to this section">#</a></h2>
       <p>Conforme al derecho de consumo de la UE, las compras online de
         contenido digital suelen incluir un derecho de desistimiento de 14
         días. Dado que un tour de DescubR es contenido digital que se
@@ -223,7 +273,7 @@
         <a href="mailto:support@descubr.com">support@descubr.com</a> y lo
         resolveremos.</p>
 
-      <h2>6. Tu contenido</h2>
+      <h2 id="es-6">6. Tu contenido<a class="anchor" href="#es-6" aria-label="Link to this section">#</a></h2>
       <p>Las reseñas, valoraciones y reportes que envías son tuyos, pero al
         publicarlos le das a DescubR una licencia no exclusiva y mundial
         para mostrarlos y usarlos con el fin de operar y promocionar la
@@ -231,14 +281,14 @@
         tour). No publiques nada ilegal, difamatorio o que infrinja los
         derechos de otra persona.</p>
 
-      <h2>7. Contenido de los guías</h2>
+      <h2 id="es-7">7. Contenido de los guías<a class="anchor" href="#es-7" aria-label="Link to this section">#</a></h2>
       <p>Los tours son creados y propiedad de los guías que los publican,
         sujetos a una revisión de contenido antes de publicarse — consulta
         los <a href="../guide-terms/">Términos para guías</a> para el
         proceso de revisión, las fotos de perfil, la verificación "Pro", los
         requisitos de actividad de la cuenta y los cobros.</p>
 
-      <h2>8. Descoins</h2>
+      <h2 id="es-8">8. Descoins<a class="anchor" href="#es-8" aria-label="Link to this section">#</a></h2>
       <p>Los Descoins son una recompensa dentro de la app, no una moneda ni
         un instrumento financiero: no tienen valor en efectivo, no se pueden
         transferir entre cuentas, no se pueden canjear por dinero y se
@@ -246,14 +296,14 @@
         Marketplace por códigos de descuento para futuros tours, sujeto a
         los límites y periodos de espera que se muestran ahí.</p>
 
-      <h2>9. Propiedad intelectual</h2>
+      <h2 id="es-9">9. Propiedad intelectual<a class="anchor" href="#es-9" aria-label="Link to this section">#</a></h2>
       <p>El nombre DescubR, el logotipo y la propia app (excluyendo el
         contenido de los tours publicados por los guías y las reseñas
         enviadas por los usuarios) nos pertenecen. No puedes copiar,
         modificar ni realizar ingeniería inversa de la app salvo en lo que
         la ley permita expresamente.</p>
 
-      <h2>10. Renuncias y responsabilidad</h2>
+      <h2 id="es-10">10. Renuncias y responsabilidad<a class="anchor" href="#es-10" aria-label="Link to this section">#</a></h2>
       <p>Los tours autoguiados implican caminar por lugares reales, a veces
         sin garantía de cobertura móvil, con tráfico o en zonas que no
         conoces — usa el sentido común y sigue la normativa y señalización
@@ -264,14 +314,14 @@
         ley, nuestra responsabilidad total hacia ti se limita al importe
         que pagaste por el/los tour(s) que dieron lugar a la reclamación.</p>
 
-      <h2>11. Suspensión y cancelación</h2>
+      <h2 id="es-11">11. Suspensión y cancelación<a class="anchor" href="#es-11" aria-label="Link to this section">#</a></h2>
       <p>Puedes eliminar tu cuenta en cualquier momento desde Perfil →
         Eliminar cuenta. Podemos suspender o cancelar una cuenta por
         incumplir estos Términos, nuestra Política de privacidad o la ley
         aplicable, por fraude, o por comportamiento abusivo hacia guías,
         viajeros o nuestro equipo.</p>
 
-      <h2>12. Ley aplicable y resolución de conflictos</h2>
+      <h2 id="es-12">12. Ley aplicable y resolución de conflictos<a class="anchor" href="#es-12" aria-label="Link to this section">#</a></h2>
       <p>Estos Términos se rigen por la ley española. Si eres consumidor de
         la UE, esto no elimina la protección que te corresponde conforme a
         las normas imperativas de protección al consumidor de tu país de
@@ -279,17 +329,22 @@
         resolución de litigios en línea para consumidores de la UE en
         <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
 
-      <h2>13. Cambios en estos Términos</h2>
+      <h2 id="es-13">13. Cambios en estos Términos<a class="anchor" href="#es-13" aria-label="Link to this section">#</a></h2>
       <p>Podemos actualizar estos Términos a medida que DescubR evoluciona.
         Si hacemos un cambio material, te pediremos que los revises y los
         aceptes de nuevo la próxima vez que abras la app.</p>
 
-      <h2>14. Contacto</h2>
+      <h2 id="es-14">14. Contacto<a class="anchor" href="#es-14" aria-label="Link to this section">#</a></h2>
       <p>¿Dudas sobre estos Términos? Escríbenos a
         <a href="mailto:hello@descubr.com">hello@descubr.com</a>.</p>
     </div>
-
+      </article>
+    </div>
   </main>
+
+  <button class="back-to-top" data-back-to-top type="button" aria-label="Back to top">
+    <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 15V5M5 10l5-5 5 5"/></svg>
+  </button>
 
   <footer class="site-footer">
     <div class="wrap">
@@ -315,5 +370,6 @@
 
   <script src="../assets/lang.js"></script>
   <script src="../assets/menu.js"></script>
+  <script src="../assets/theme.js"></script>
 </body>
 </html>

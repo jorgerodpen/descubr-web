@@ -3,6 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('descubr-theme'); } catch (e) {}
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    })();
+  </script>
   <title>Guide Terms — DescubR</title>
   <meta name="description" content="Additional terms for DescubR guides, covering tour review, profile pictures, verification, and account activity.">
   <link rel="canonical" href="https://descubr.com/guide-terms/">
@@ -22,6 +31,8 @@
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+
+  <div class="progress" aria-hidden="true"><div class="progress-fill" data-progress-fill></div></div>
 
   <header class="site-header">
     <div class="wrap">
@@ -43,14 +54,43 @@
           <option value="en">English</option>
           <option value="es">Español</option>
         </select>
+        <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2M10 16.2v2M3.7 3.7l1.4 1.4M14.9 14.9l1.4 1.4M1.8 10h2M16.2 10h2M3.7 16.3l1.4-1.4M14.9 5.1l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.2 12.4A7.2 7.2 0 1 1 7.6 2.8a5.6 5.6 0 0 0 9.6 9.6Z"/></svg></button>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="docs-main">
+    <div class="docs-shell">
+      <nav class="toc" aria-label="Table of contents / Tabla de contenidos">
+        <span class="toc-label" data-i18n="en">On this page</span>
+        <span class="toc-label" data-i18n="es">En esta página</span>
+        <div class="toc-list" data-i18n="en">
+          <a href="#en-1">1. Becoming a guide</a>
+          <a href="#en-2">2. Tour content review</a>
+          <a href="#en-3">3. Profile pictures</a>
+          <a href="#en-4">4. "Pro" verification</a>
+          <a href="#en-5">5. Account activity and guide access</a>
+          <a href="#en-6">6. Discounts and pricing</a>
+          <a href="#en-7">7. Payouts</a>
+          <a href="#en-8">8. Changes to these terms</a>
+          <a href="#en-9">9. Contact</a>
+        </div>
+        <div class="toc-list" data-i18n="es">
+          <a href="#es-1">1. Convertirte en guía</a>
+          <a href="#es-2">2. Revisión del contenido de los tours</a>
+          <a href="#es-3">3. Fotos de perfil</a>
+          <a href="#es-4">4. Verificación "Pro"</a>
+          <a href="#es-5">5. Actividad de la cuenta y acceso de guía</a>
+          <a href="#es-6">6. Descuentos y precios</a>
+          <a href="#es-7">7. Cobros</a>
+          <a href="#es-8">8. Cambios en estos términos</a>
+          <a href="#es-9">9. Contacto</a>
+        </div>
+      </nav>
 
-    <!-- ================= ENGLISH ================= -->
-    <div data-i18n="en">
+      <article class="doc-card">
+        <!-- ================= ENGLISH ================= -->
+        <div data-i18n="en">
       <h1>Guide Terms</h1>
       <p class="updated">Version 1.0 — last updated September 1, 2026</p>
 
@@ -63,12 +103,12 @@
         whenever we make a material change to them.
       </p>
 
-      <h2>1. Becoming a guide</h2>
+      <h2 id="en-1">1. Becoming a guide<a class="anchor" href="#en-1" aria-label="Link to this section">#</a></h2>
       <p>Becoming a guide is self-serve — there's no application or waiting
         period to start. The real quality gate is the review process below,
         which applies before any tour of yours goes live.</p>
 
-      <h2>2. Tour content review</h2>
+      <h2 id="en-2">2. Tour content review<a class="anchor" href="#en-2" aria-label="Link to this section">#</a></h2>
       <p>Before a tour is published, and whenever you later change its
         title, description, city, cover image, duration, language, or
         experience type, that change is checked against DescubR's content
@@ -85,18 +125,18 @@
         discarded submission (images, audio, video) isn't guaranteed to be
         kept and may be deleted from our storage.</p>
 
-      <h2>3. Profile pictures</h2>
+      <h2 id="en-3">3. Profile pictures<a class="anchor" href="#en-3" aria-label="Link to this section">#</a></h2>
       <p>If you add a profile picture, it goes through the same kind of
         review before it's shown publicly on your profile. A rejected
         photo is removed from our storage; it doesn't become your live
         photo.</p>
 
-      <h2>4. "Pro" verification</h2>
+      <h2 id="en-4">4. "Pro" verification<a class="anchor" href="#en-4" aria-label="Link to this section">#</a></h2>
       <p>Applying for "Pro" status is optional and requires submitting
         credential details and a supporting document, reviewed by our team.
         We may approve, reject, or request more information.</p>
 
-      <h2>5. Account activity and guide access</h2>
+      <h2 id="en-5">5. Account activity and guide access<a class="anchor" href="#en-5" aria-label="Link to this section">#</a></h2>
       <p>If your guide account has no published tour and no other activity
         — such as editing a draft or submitting one for review — for 60
         days, your guide access is automatically revoked: your account
@@ -109,7 +149,7 @@
         terms or our Privacy Policy, fraudulent activity, or repeated
         content rejections. Where practical, we'll tell you why.</p>
 
-      <h2>6. Discounts and pricing</h2>
+      <h2 id="en-6">6. Discounts and pricing<a class="anchor" href="#en-6" aria-label="Link to this section">#</a></h2>
       <p>Travelers can redeem Descoins (earned through in-app engagement)
         or promotional codes for a discount at checkout. These are
         marketing tools we use platform-wide to increase engagement and
@@ -121,24 +161,24 @@
         the same way you absorb yours, proportionally to your commission
         split.</p>
 
-      <h2>7. Payouts</h2>
+      <h2 id="en-7">7. Payouts<a class="anchor" href="#en-7" aria-label="Link to this section">#</a></h2>
       <p>You need a working payout setup (via our payment processor,
         Stripe) before your tours can be found or purchased by travelers —
         tours from a guide without one are hidden from search and browsing
         until it's set up.</p>
 
-      <h2>8. Changes to these terms</h2>
+      <h2 id="en-8">8. Changes to these terms<a class="anchor" href="#en-8" aria-label="Link to this section">#</a></h2>
       <p>We may update these terms as DescubR evolves. If we make a
         material change, existing guides will be asked to review and
         re-accept them the next time they log in.</p>
 
-      <h2>9. Contact</h2>
+      <h2 id="en-9">9. Contact<a class="anchor" href="#en-9" aria-label="Link to this section">#</a></h2>
       <p>Questions about these terms? Email
         <a href="mailto:hello@descubr.com">hello@descubr.com</a>.</p>
     </div>
 
-    <!-- ================= ESPAÑOL ================= -->
-    <div data-i18n="es">
+        <!-- ================= ESPAÑOL ================= -->
+        <div data-i18n="es">
       <h1>Términos para guías</h1>
       <p class="updated">Versión 1.0 — última actualización: 1 de septiembre de 2026</p>
 
@@ -152,13 +192,13 @@
         guía", y de nuevo cada vez que hagamos un cambio material en
         ellos.</p>
 
-      <h2>1. Convertirte en guía</h2>
+      <h2 id="es-1">1. Convertirte en guía<a class="anchor" href="#es-1" aria-label="Link to this section">#</a></h2>
       <p>Convertirte en guía es un registro automático — no hay solicitud
         ni periodo de espera para empezar. El verdadero filtro de calidad
         es el proceso de revisión descrito abajo, que se aplica antes de
         que cualquiera de tus tours se publique.</p>
 
-      <h2>2. Revisión del contenido de los tours</h2>
+      <h2 id="es-2">2. Revisión del contenido de los tours<a class="anchor" href="#es-2" aria-label="Link to this section">#</a></h2>
       <p>Antes de publicar un tour, y cada vez que después cambies su
         título, descripción, ciudad, imagen de portada, duración, idioma o
         tipo de experiencia, ese cambio se comprueba conforme a los
@@ -176,19 +216,19 @@
         audio, vídeo) no tiene garantizada su conservación y puede
         eliminarse de nuestro almacenamiento.</p>
 
-      <h2>3. Fotos de perfil</h2>
+      <h2 id="es-3">3. Fotos de perfil<a class="anchor" href="#es-3" aria-label="Link to this section">#</a></h2>
       <p>Si añades una foto de perfil, pasa por el mismo tipo de revisión
         antes de mostrarse públicamente en tu perfil. Una foto rechazada se
         elimina de nuestro almacenamiento; no llega a convertirse en tu
         foto activa.</p>
 
-      <h2>4. Verificación "Pro"</h2>
+      <h2 id="es-4">4. Verificación "Pro"<a class="anchor" href="#es-4" aria-label="Link to this section">#</a></h2>
       <p>Solicitar el estado "Pro" es opcional y requiere enviar los datos
         de tu credencial y un documento justificativo, revisados por
         nuestro equipo. Podemos aprobar, rechazar o solicitar más
         información.</p>
 
-      <h2>5. Actividad de la cuenta y acceso de guía</h2>
+      <h2 id="es-5">5. Actividad de la cuenta y acceso de guía<a class="anchor" href="#es-5" aria-label="Link to this section">#</a></h2>
       <p>Si tu cuenta de guía no tiene ningún tour publicado ni ninguna
         otra actividad — como editar un borrador o enviarlo a revisión —
         durante 60 días, tu acceso de guía se revoca automáticamente: tu
@@ -203,7 +243,7 @@
         actividad fraudulenta, o por rechazos de contenido repetidos.
         Cuando sea posible, te explicaremos el motivo.</p>
 
-      <h2>6. Descuentos y precios</h2>
+      <h2 id="es-6">6. Descuentos y precios<a class="anchor" href="#es-6" aria-label="Link to this section">#</a></h2>
       <p>Los viajeros pueden canjear Descoins (ganados por el uso de la
         app) o códigos promocionales para obtener un descuento al pagar.
         Son herramientas de marketing que usamos en toda la plataforma para
@@ -215,24 +255,29 @@
         plataforma asume su parte del descuento igual que tú asumes la
         tuya, de forma proporcional a tu porcentaje de comisión.</p>
 
-      <h2>7. Cobros</h2>
+      <h2 id="es-7">7. Cobros<a class="anchor" href="#es-7" aria-label="Link to this section">#</a></h2>
       <p>Necesitas tener configurado un método de cobro (a través de
         nuestro procesador de pagos, Stripe) para que tus tours puedan
         encontrarse o comprarse — los tours de un guía sin uno configurado
         se ocultan de la búsqueda y la exploración hasta que se complete.</p>
 
-      <h2>8. Cambios en estos términos</h2>
+      <h2 id="es-8">8. Cambios en estos términos<a class="anchor" href="#es-8" aria-label="Link to this section">#</a></h2>
       <p>Podemos actualizar estos términos a medida que DescubR evoluciona.
         Si hacemos un cambio material, pediremos a los guías existentes que
         los revisen y los acepten de nuevo la próxima vez que inicien
         sesión.</p>
 
-      <h2>9. Contacto</h2>
+      <h2 id="es-9">9. Contacto<a class="anchor" href="#es-9" aria-label="Link to this section">#</a></h2>
       <p>¿Dudas sobre estos términos? Escríbenos a
         <a href="mailto:hello@descubr.com">hello@descubr.com</a>.</p>
     </div>
-
+      </article>
+    </div>
   </main>
+
+  <button class="back-to-top" data-back-to-top type="button" aria-label="Back to top">
+    <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 15V5M5 10l5-5 5 5"/></svg>
+  </button>
 
   <footer class="site-footer">
     <div class="wrap">
@@ -258,5 +303,6 @@
 
   <script src="../assets/lang.js"></script>
   <script src="../assets/menu.js"></script>
+  <script src="../assets/theme.js"></script>
 </body>
 </html>
