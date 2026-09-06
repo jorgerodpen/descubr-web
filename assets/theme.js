@@ -1,11 +1,36 @@
 // Dark-mode toggle, sticky-header glass state, reading-progress bar,
-// back-to-top button and docs table-of-contents scroll-spy. Every feature
-// no-ops when its markup isn't on the page, so this one file is safe to
-// include on every page (see the inline theme-init snippet in <head> for
-// the pre-paint half of the dark-mode logic, which avoids a flash).
+// back-to-top button, docs table-of-contents scroll-spy, and scroll-reveal
+// for [data-reveal] elements. Every feature no-ops when its markup isn't on
+// the page, so this one file is safe to include on every page (see the
+// inline theme-init snippet in <head> for the pre-paint half of the
+// dark-mode logic, which avoids a flash).
 (function () {
   var root = document.documentElement;
   var toggle = document.querySelector('[data-theme-toggle]');
+
+  // Scroll-reveal: the 'js' class gates the .js [data-reveal] opacity/transform
+  // rule in style.css, so content stays visible by default if this throws or
+  // IntersectionObserver isn't supported — the class only hides things once
+  // we've also committed to revealing them below.
+  try {
+    root.classList.add('js');
+    var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    if (revealEls.length) {
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(function (el) { revealObserver.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+    }
+  } catch (e) {}
 
   function isDark() {
     var attr = root.getAttribute('data-theme');

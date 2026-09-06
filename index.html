@@ -80,46 +80,63 @@
   </header>
 
   <main>
-    <div class="wrap hero">
-      <svg class="route-motif" viewBox="0 0 420 380" fill="none" aria-hidden="true">
-        <path d="M40 40 C 160 20, 180 140, 300 120 S 380 260, 360 340" stroke="var(--border)" stroke-width="2.5" stroke-dasharray="1 10" stroke-linecap="round"/>
-        <circle cx="40" cy="40" r="5" fill="var(--primary)"/>
-        <circle cx="300" cy="120" r="5" fill="var(--accent-purple)"/>
-        <circle cx="360" cy="340" r="5" fill="var(--border)"/>
-      </svg>
-      <img src="assets/logo-mark.svg" alt="DescubR" width="56" height="56" class="hero-logo">
-      <div data-i18n="en">
-        <span class="badge">Launching soon in Spain</span>
-        <h1>Self-guided tours, from people who actually know the place</h1>
-        <p class="lede">Pick a tour, walk the route, and unlock video, audio and stories at every stop — at your own pace, no groups, no fixed schedule.</p>
-      </div>
-      <div data-i18n="es">
-        <span class="badge">Muy pronto en España</span>
-        <h1>Tours autoguiados, creados por quienes realmente conocen el lugar</h1>
-        <p class="lede">Elige un tour, recorre la ruta y desbloquea vídeo, audio e historias en cada parada — a tu propio ritmo, sin grupos ni horarios fijos.</p>
-      </div>
+    <div class="wrap wrap-wide hero">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div data-i18n="en">
+            <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Launching soon in Spain</span>
+            <h1>Self-guided tours, from people who actually know the place</h1>
+            <p class="lede">Pick a tour, walk the route, and unlock video, audio and stories at every stop — at your own pace, no groups, no fixed schedule.</p>
+          </div>
+          <div data-i18n="es">
+            <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Muy pronto en España</span>
+            <h1>Tours autoguiados, creados por quienes realmente conocen el lugar</h1>
+            <p class="lede">Elige un tour, recorre la ruta y desbloquea vídeo, audio e historias en cada parada — a tu propio ritmo, sin grupos ni horarios fijos.</p>
+          </div>
 
-      <form class="waitlist-form" data-waitlist-form>
-        <label class="sr-only" for="waitlist-email">
-          <span data-i18n="en">Email address</span>
-          <span data-i18n="es">Correo electrónico</span>
-        </label>
-        <input type="email" id="waitlist-email" required
-               data-i18n-placeholder-en="you@example.com" data-i18n-placeholder-es="tu@ejemplo.com"
-               placeholder="you@example.com">
-        <button type="submit">
-          <span data-i18n="en">Notify me</span>
-          <span data-i18n="es">Avísame</span>
-        </button>
-      </form>
-      <p class="waitlist-note">
-        <span data-i18n="en">We'll email you the moment DescubR launches. No spam.</span>
-        <span data-i18n="es">Te avisaremos en cuanto DescubR esté disponible. Sin spam.</span>
-      </p>
+          <form class="waitlist-form" data-waitlist-form>
+            <label class="sr-only" for="waitlist-email">
+              <span data-i18n="en">Email address</span>
+              <span data-i18n="es">Correo electrónico</span>
+            </label>
+            <input type="email" id="waitlist-email" required
+                   data-i18n-placeholder-en="you@example.com" data-i18n-placeholder-es="tu@ejemplo.com"
+                   placeholder="you@example.com">
+            <button type="submit">
+              <span data-i18n="en">Notify me</span>
+              <span data-i18n="es">Avísame</span>
+            </button>
+          </form>
+          <p class="waitlist-note">
+            <span data-i18n="en">We'll email you the moment DescubR launches. No spam.</span>
+            <span data-i18n="es">Te avisaremos en cuanto DescubR esté disponible. Sin spam.</span>
+          </p>
+        </div>
+
+        <div class="hero-visual" data-reveal>
+          <div class="phone-frame">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <img src="assets/how-it-works-discover.jpg" width="640" height="1397" loading="eager"
+                 alt="DescubR nearby map showing self-guided tour pins around Madrid">
+          </div>
+          <div class="float-chip float-chip-a">
+            <span data-i18n="en">📍 Tours near you</span>
+            <span data-i18n="es">📍 Tours cerca de ti</span>
+          </div>
+          <div class="float-chip float-chip-b">
+            <span data-i18n="en">🎧 Video, audio &amp; stories</span>
+            <span data-i18n="es">🎧 Vídeo, audio e historias</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <section class="section">
       <div class="wrap">
+        <span class="kicker">
+          <span data-i18n="en">The process</span>
+          <span data-i18n="es">El proceso</span>
+        </span>
         <h2 class="section-title">
           <span data-i18n="en">How it works</span>
           <span data-i18n="es">Cómo funciona</span>
@@ -130,7 +147,7 @@
         </p>
 
         <div class="steps">
-          <div class="step">
+          <div class="step" data-reveal>
             <div class="step-shot">
               <img src="assets/how-it-works-discover.jpg" width="640" height="1397" loading="lazy"
                    alt="DescubR nearby map showing tour pins around the user's location">
@@ -148,7 +165,7 @@
             </div>
           </div>
 
-          <div class="step">
+          <div class="step" data-reveal>
             <div class="step-shot">
               <img src="assets/how-it-works-route.jpg" width="640" height="1397" loading="lazy"
                    alt="DescubR tour detail screen showing the route overview and guide profile">
@@ -166,7 +183,7 @@
             </div>
           </div>
 
-          <div class="step">
+          <div class="step" data-reveal>
             <div class="step-shot">
               <img src="assets/how-it-works-stops.jpg" width="640" height="1397" loading="lazy"
                    alt="DescubR tour stop list showing video, text and other content types ready at each stop">
@@ -184,7 +201,7 @@
             </div>
           </div>
 
-          <div class="step">
+          <div class="step" data-reveal>
             <div class="step-shot">
               <img src="assets/how-it-works-walk.jpg" width="640" height="1397" loading="lazy"
                    alt="DescubR active tour screen showing walking distance to the next stop">
@@ -202,26 +219,27 @@
             </div>
           </div>
 
-          <div class="step">
+          <div class="step" data-reveal>
             <div class="step-shot">
               <img src="assets/how-it-works-unlock.jpg" width="640" height="1397" loading="lazy"
-                   alt="DescubR hidden gem found screen unlocking a stop's video content">
+                   alt="DescubR screen revealing a stop's hidden Descoin chest with its unlocked video content">
+              <span class="reward-chip" aria-hidden="true">+15 Descoins</span>
             </div>
             <div class="step-text">
               <span class="step-number">5</span>
               <div data-i18n="en">
-                <h3>Unlock what's waiting</h3>
-                <p>Arrive, tap "I'm here," and the stop's video, audio or story unlocks on the spot.</p>
+                <h3>Unlock your hidden Descoin chest</h3>
+                <p>Arrive, tap "I'm here," and reveal it — the video, story or challenge waiting at that spot, plus a handful of Descoins for finding it.</p>
               </div>
               <div data-i18n="es">
-                <h3>Desbloquea lo que te espera</h3>
-                <p>Llega, toca "Ya estoy aquí" y el vídeo, audio o historia de la parada se desbloquea al instante.</p>
+                <h3>Desbloquea tu cofre oculto de Descoins</h3>
+                <p>Llega, toca "Ya estoy aquí" y descúbrelo — el vídeo, historia o reto que te espera en ese punto, más un puñado de Descoins por encontrarlo.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="referral-note">
+        <div class="referral-note" data-reveal>
           <span class="referral-note-icon" aria-hidden="true">🎁</span>
           <p data-i18n="en">
             <strong>Bonus: invite friends.</strong> Share your code from the
@@ -239,6 +257,10 @@
 
     <section class="section">
       <div class="wrap">
+        <span class="kicker">
+          <span data-i18n="en">Experiences</span>
+          <span data-i18n="es">Experiencias</span>
+        </span>
         <h2 class="section-title">
           <span data-i18n="en">A tour for every kind of curiosity</span>
           <span data-i18n="es">Un tour para cada tipo de curiosidad</span>
@@ -248,7 +270,7 @@
           <span data-i18n="es">Los guías publican tours de todo tipo de experiencias.</span>
         </p>
 
-        <div class="type-grid">
+        <div class="type-grid" data-reveal>
           <span class="type-pill" style="background:#D632001A; color:#D63200;">🚶 <span data-i18n="en">Walking Tour</span><span data-i18n="es">Ruta a pie</span></span>
           <span class="type-pill" style="background:#E0335B1A; color:#E0335B;">🍽️ <span data-i18n="en">Food Tour</span><span data-i18n="es">Ruta gastronómica</span></span>
           <span class="type-pill" style="background:#9C4A1F1A; color:#9C4A1F;">📜 <span data-i18n="en">Historical Tour</span><span data-i18n="es">Ruta histórica</span></span>
@@ -263,13 +285,15 @@
 
     <section class="section">
       <div class="wrap">
-        <div class="guide-cta">
+        <div class="guide-cta" data-reveal>
           <div data-i18n="en">
+            <span class="kicker">For local guides</span>
             <h2>Know a place inside out?</h2>
             <p>Create a self-guided tour and earn every time someone takes it — from anywhere in the world. Once you're signed up, becoming a guide is free and instant, right from your profile — no application needed.</p>
             <a class="button" href="#waitlist-email">Join the waitlist to get started</a>
           </div>
           <div data-i18n="es">
+            <span class="kicker">Para guías locales</span>
             <h2>¿Conoces un lugar a fondo?</h2>
             <p>Crea un tour autoguiado y gana cada vez que alguien lo haga — desde cualquier parte del mundo. En cuanto te registres, convertirte en guía es gratis e inmediato, directamente desde tu perfil — sin necesidad de solicitud.</p>
             <a class="button" href="#waitlist-email">Únete a la lista de espera</a>
