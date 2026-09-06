@@ -34,17 +34,36 @@
   // and activate the last one that has scrolled past the trigger line.
   // Manual, rather than IntersectionObserver — a thin trigger band leaves
   // long sections with nothing active while you're reading their body text.
+  //
+  // Trailing sections are often short, and near the bottom of the page two
+  // or more of them can end up on screen at once with no way to scroll
+  // further and separate them — there's no scroll position that
+  // distinguishes "reading section 10" from "reading section 11" if both
+  // fit in the viewport at max scroll. Position alone can't resolve that,
+  // so a click on a TOC link is trusted directly (see suppressSpyUntil
+  // below) instead of being immediately re-judged, and re-judged, by
+  // position once the browser's own anchor-jump fires its scroll events.
+  var suppressSpyUntil = 0;
+
+  tocLinks.forEach(function (a) {
+    a.addEventListener('click', function () {
+      tocLinks.forEach(function (b) { b.classList.toggle('active', b === a); });
+      suppressSpyUntil = Date.now() + 700;
+    });
+  });
+
   function updateTocSpy() {
     if (!tocLinks.length || !allHeadings.length) return;
+    if (Date.now() < suppressSpyUntil) return;
     var visible = allHeadings.filter(function (h) { return h.offsetParent !== null; });
     if (!visible.length) return;
     var current;
-    // Trailing sections are often short — once the page is scrolled to (or
-    // very near) its max, there may not be enough room left below them to
-    // ever push their heading past the 120px trigger line, so the loop
-    // below would get stuck on an earlier section forever. At max scroll,
-    // there's nothing left to scroll into view, so the last section is
-    // unambiguously the one being read.
+    // Once the page is scrolled to (or very near) its max with no click
+    // just having set the active link directly above, there may be no
+    // heading left whose top can still reach the 120px trigger line (the
+    // bug this guards against) — in that case the last visible heading is
+    // the most reasonable default for organic (non-click) scrolling all
+    // the way to the end.
     var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
     if (atBottom) {
       current = visible[visible.length - 1];
