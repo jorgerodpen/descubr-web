@@ -38,12 +38,24 @@
     if (!tocLinks.length || !allHeadings.length) return;
     var visible = allHeadings.filter(function (h) { return h.offsetParent !== null; });
     if (!visible.length) return;
-    var current = visible[0];
-    for (var i = 0; i < visible.length; i++) {
-      if (visible[i].getBoundingClientRect().top <= 120) {
-        current = visible[i];
-      } else {
-        break;
+    var current;
+    // Trailing sections are often short — once the page is scrolled to (or
+    // very near) its max, there may not be enough room left below them to
+    // ever push their heading past the 120px trigger line, so the loop
+    // below would get stuck on an earlier section forever. At max scroll,
+    // there's nothing left to scroll into view, so the last section is
+    // unambiguously the one being read.
+    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+    if (atBottom) {
+      current = visible[visible.length - 1];
+    } else {
+      current = visible[0];
+      for (var i = 0; i < visible.length; i++) {
+        if (visible[i].getBoundingClientRect().top <= 120) {
+          current = visible[i];
+        } else {
+          break;
+        }
       }
     }
     var href = '#' + current.id;
