@@ -96,7 +96,7 @@
         <!-- ================= ENGLISH ================= -->
         <div data-i18n="en">
       <h1>Privacy Policy</h1>
-      <p class="updated">Version 1.0 — last updated August 31, 2026</p>
+      <p class="updated">Version 1.0 — last updated September 6, 2026</p>
 
       <h2 id="en-1">1. Who we are<a class="anchor" href="#en-1" aria-label="Link to this section">#</a></h2>
       <p>
@@ -138,21 +138,34 @@
           processor, Stripe — we do not receive or store your full card
           number.</li>
         <li><strong>Technical data:</strong> basic diagnostic and crash data
-          from our error-monitoring tool, used only to find and fix bugs.</li>
+          from our error-monitoring tool, collected on our backend servers
+          only, used only to find and fix bugs.</li>
+        <li><strong>Push notification token:</strong> if you enable
+          notifications, your device's push token, used only to deliver
+          notifications to you.</li>
       </ul>
 
       <h2 id="en-3">3. How we use your data<a class="anchor" href="#en-3" aria-label="Link to this section">#</a></h2>
+      <p>Each use below relies on one of two legal bases under GDPR:
+        performing our contract with you, or our legitimate interest in
+        running a safe, working platform (which we've weighed against your
+        rights and interests). We don't rely on consent for any of these,
+        since none of them are optional extras — they're what running
+        DescubR requires.</p>
       <ul>
         <li>To create and run your account, and to let guides publish and
-          travelers purchase tours.</li>
-        <li>To process payments and grant access to purchased tours.</li>
+          travelers purchase tours. <em>(Contract.)</em></li>
+        <li>To process payments and grant access to purchased tours.
+          <em>(Contract.)</em></li>
         <li>To send transactional emails you've requested, such as
-          password-reset codes.</li>
+          password-reset codes. <em>(Contract.)</em></li>
         <li>To show you your position and nearby stops while you're on a
-          tour.</li>
+          tour. <em>(Contract — this is the core feature you're using.)</em></li>
         <li>To review reports and moderate content that violates our
-          guidelines.</li>
-        <li>To diagnose and fix technical problems.</li>
+          guidelines. <em>(Legitimate interest — keeping the platform safe
+          and trustworthy.)</em></li>
+        <li>To diagnose and fix technical problems. <em>(Legitimate
+          interest — keeping the service running securely.)</em></li>
       </ul>
       <p>We do not sell your data, and we do not use it for third-party
         advertising.</p>
@@ -166,12 +179,19 @@
           password-reset codes).</li>
         <li><strong>Cloudflare R2</strong> — storage for tour audio/images
           and guide verification documents.</li>
-        <li><strong>Sentry</strong> — error monitoring, to help us catch and
-          fix bugs.</li>
+        <li><strong>Sentry</strong> — error monitoring on our backend
+          servers, to help us catch and fix bugs. It does not receive crash
+          data from the mobile app itself.</li>
+        <li><strong>Expo</strong> — delivery of push notifications to your
+          device, using your device's push token.</li>
       </ul>
-      <p>These providers may process data outside the European Economic Area.
-        Where that happens, we rely on their standard contractual clauses or
-        equivalent safeguards recognized under GDPR.</p>
+      <p>All of these providers are US-based and may process data there.
+        For that, we rely on their self-certification under the EU-U.S.
+        Data Privacy Framework, backed by standard contractual clauses
+        where the Framework doesn't apply to a given transfer.</p>
+      <p>We may also disclose your data where required by law, in response
+        to valid legal process, or where necessary to protect our rights,
+        our users' safety, or the safety of others.</p>
 
       <h2 id="en-5">5. Data retention<a class="anchor" href="#en-5" aria-label="Link to this section">#</a></h2>
       <p>
@@ -179,6 +199,15 @@
         you delete your account, we remove your personal data, except where
         we're required to keep certain records (such as purchase/payment
         records) for legal, tax, or accounting obligations.
+      </p>
+      <p>
+        If you delete a guide account that has sold tours, we anonymize
+        rather than delete some data: your name, email, photo, bio, and
+        payout details are removed, and your tours are hidden from search
+        and new purchases, but the tours themselves are kept so that
+        travelers who already bought one keep the access they paid for.
+        Draft tours you never published, and their content, are deleted
+        outright.
       </p>
 
       <h2 id="en-6">6. Your rights<a class="anchor" href="#en-6" aria-label="Link to this section">#</a></h2>
@@ -227,7 +256,7 @@
         <!-- ================= ESPAÑOL ================= -->
         <div data-i18n="es">
       <h1>Política de privacidad</h1>
-      <p class="updated">Versión 1.0 — última actualización: 31 de agosto de 2026</p>
+      <p class="updated">Versión 1.0 — última actualización: 6 de septiembre de 2026</p>
 
       <h2 id="es-1">1. Quiénes somos<a class="anchor" href="#es-1" aria-label="Link to this section">#</a></h2>
       <p>
@@ -273,22 +302,36 @@
           nuestro procesador de pagos, Stripe — no recibimos ni almacenamos el
           número completo de tu tarjeta.</li>
         <li><strong>Datos técnicos:</strong> datos básicos de diagnóstico y de
-          fallos de nuestra herramienta de monitorización de errores, usados
+          fallos de nuestra herramienta de monitorización de errores,
+          recopilados únicamente en nuestros servidores backend, usados
           únicamente para encontrar y corregir problemas.</li>
+        <li><strong>Token de notificaciones push:</strong> si activas las
+          notificaciones, el token push de tu dispositivo, usado
+          únicamente para enviarte notificaciones.</li>
       </ul>
 
       <h2 id="es-3">3. Cómo usamos tus datos<a class="anchor" href="#es-3" aria-label="Link to this section">#</a></h2>
+      <p>Cada uso descrito abajo se apoya en una de dos bases jurídicas del
+        RGPD: la ejecución de nuestro contrato contigo, o nuestro interés
+        legítimo en mantener una plataforma segura y funcional (que hemos
+        ponderado frente a tus derechos e intereses). No nos basamos en el
+        consentimiento para ninguno de estos usos, ya que ninguno es un
+        extra opcional — son lo que requiere operar DescubR.</p>
       <ul>
         <li>Para crear y gestionar tu cuenta, y permitir que los guías
-          publiquen y los viajeros compren tours.</li>
-        <li>Para procesar pagos y dar acceso a los tours comprados.</li>
+          publiquen y los viajeros compren tours. <em>(Contrato.)</em></li>
+        <li>Para procesar pagos y dar acceso a los tours comprados.
+          <em>(Contrato.)</em></li>
         <li>Para enviarte correos transaccionales que hayas solicitado, como
-          códigos para restablecer tu contraseña.</li>
+          códigos para restablecer tu contraseña. <em>(Contrato.)</em></li>
         <li>Para mostrarte tu posición y las paradas cercanas mientras haces
-          un tour.</li>
+          un tour. <em>(Contrato — es la función principal que estás
+          usando.)</em></li>
         <li>Para revisar reportes y moderar contenido que incumpla nuestras
-          normas.</li>
-        <li>Para diagnosticar y corregir problemas técnicos.</li>
+          normas. <em>(Interés legítimo — mantener la plataforma segura y de
+          confianza.)</em></li>
+        <li>Para diagnosticar y corregir problemas técnicos. <em>(Interés
+          legítimo — mantener el servicio funcionando de forma segura.)</em></li>
       </ul>
       <p>No vendemos tus datos ni los usamos para publicidad de terceros.</p>
 
@@ -303,13 +346,21 @@
         <li><strong>Cloudflare R2</strong> — almacenamiento de audios e
           imágenes de los tours, y de los documentos de verificación de
           guías.</li>
-        <li><strong>Sentry</strong> — monitorización de errores, para
-          ayudarnos a detectar y corregir fallos.</li>
+        <li><strong>Sentry</strong> — monitorización de errores en nuestros
+          servidores backend, para ayudarnos a detectar y corregir fallos.
+          No recibe datos de fallos de la propia app móvil.</li>
+        <li><strong>Expo</strong> — envío de notificaciones push a tu
+          dispositivo, usando el token push de tu dispositivo.</li>
       </ul>
-      <p>Estos proveedores pueden procesar datos fuera del Espacio Económico
-        Europeo. Cuando esto ocurre, nos basamos en sus cláusulas
-        contractuales tipo u otras garantías equivalentes reconocidas por el
-        RGPD.</p>
+      <p>Todos estos proveedores tienen sede en EE. UU. y pueden procesar
+        datos allí. Para ello, nos basamos en su autocertificación conforme
+        al Marco de Privacidad de Datos UE-EE. UU. (Data Privacy Framework),
+        respaldada por cláusulas contractuales tipo cuando el Marco no
+        resulte aplicable a una transferencia concreta.</p>
+      <p>También podemos divulgar tus datos cuando lo exija la ley, en
+        respuesta a un requerimiento legal válido, o cuando sea necesario
+        para proteger nuestros derechos, la seguridad de nuestros usuarios o
+        la de terceros.</p>
 
       <h2 id="es-5">5. Conservación de datos<a class="anchor" href="#es-5" aria-label="Link to this section">#</a></h2>
       <p>
@@ -317,6 +368,15 @@
         tu cuenta, eliminamos tus datos personales, salvo que debamos
         conservar ciertos registros (como los de compra o pago) por
         obligaciones legales, fiscales o contables.
+      </p>
+      <p>
+        Si eliminas una cuenta de guía que ya ha vendido tours, anonimizamos
+        en lugar de eliminar ciertos datos: se elimina tu nombre, correo,
+        foto, biografía y datos de cobro, y tus tours se ocultan de la
+        búsqueda y de nuevas compras, pero los tours en sí se conservan para
+        que los viajeros que ya los compraron mantengan el acceso por el que
+        pagaron. Los tours en borrador que nunca publicaste, y su contenido,
+        se eliminan por completo.
       </p>
 
       <h2 id="es-6">6. Tus derechos<a class="anchor" href="#es-6" aria-label="Link to this section">#</a></h2>
