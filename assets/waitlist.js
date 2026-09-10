@@ -1,5 +1,5 @@
 (function () {
-  var API_URL = 'https://staging.descubr.com/waitlist';
+  var API_URL = 'https://api.descubr.com/waitlist';
 
   var COPY = {
     en: {
