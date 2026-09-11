@@ -4,6 +4,10 @@
   sending to a gestor/lawyer for review. noindex below keeps it out of
   search results. Once reviewed and finalized, this content should move
   into (or be linked properly from) the real Guide Terms page, not stay here.
+  Before that move: delete the ".internal-notes" block in each language
+  section below (bounded by its own INTERNAL REVIEW NOTES comments) — that
+  content is drafting/review history for the gestor, not agreement text,
+  and must never reach a real guide.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +53,38 @@
         background: #FBF0DC;
         color: #7A5200;
         border-color: #E8C878;
+      }
+    }
+    .internal-notes {
+      background: #FDEAEA;
+      color: #7A1414;
+      border: 2px dashed #D64545;
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .internal-notes ol { margin: 8px 0 0; padding-left: 20px; }
+    .internal-notes li { margin-bottom: 4px; }
+    .internal-notes-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-size: 12px;
+      margin: 0 0 8px;
+    }
+    :root[data-theme="dark"] .internal-notes,
+    :root:not([data-theme="light"]) .internal-notes {
+      background: #3A1414;
+      color: #F5A3A3;
+      border-color: #A33;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) .internal-notes {
+        background: #FDEAEA;
+        color: #7A1414;
+        border-color: #D64545;
       }
     }
     .doc-card mark {
@@ -144,17 +180,21 @@
         <!-- ================= ENGLISH ================= -->
         <div data-i18n="en">
           <h1>Self-Billing Agreement</h1>
-          <p class="updated">Draft — second gestor review received, targeted fixes applied, pending confirmation, not yet shown to any guide</p>
+          <p class="updated">Draft — not legal advice, not yet shown to any guide.</p>
 
-          <div class="draft-banner">
-            <strong>This is a working draft, not legal advice.</strong> This version supersedes the earlier 7-section draft — the gestor provided this more complete version directly and confirmed the rest of it matches how DescubR actually works. Three points were flagged and addressed:
+          <!-- ═══════ INTERNAL REVIEW NOTES — DELETE THIS ENTIRE BLOCK BEFORE THIS AGREEMENT IS EVER SHOWN TO A GUIDE. Not part of the Agreement text. ═══════ -->
+          <div class="internal-notes">
+            <p class="internal-notes-label">🛑 Internal review notes — remove before publishing, not part of the Agreement</p>
+            This version supersedes the earlier 7-section draft — the gestor provided this more complete version directly and confirmed the rest of it matches how DescubR actually works. Points flagged across two review rounds:
             <ol>
-              <li><strong>§6 (acceptance procedure)</strong> — required a real fix, not just wording. Guides can now actually review and accept/report an issue on each self-billed invoice through the platform (guide portal + app), not just receive a one-time email.</li>
-              <li><strong>§13/§16 (agreement version)</strong> — also built, not just documented. A version bump now genuinely requires re-acceptance before a guide's next sale, same pattern as Terms of Service.</li>
+              <li><strong>§6 (acceptance procedure)</strong> — required a real fix, not just wording. Guides can now actually review and accept/report an issue on each self-billed invoice through the platform (guide portal + app), not just receive a one-time email. The 15-day objection window is now a real stored deadline per invoice, not just copy on the page.</li>
+              <li><strong>§13/§16 (agreement version)</strong> — also built, not just documented. A version bump now genuinely requires re-acceptance before a guide's next sale, same pattern as Terms of Service. §16 no longer hedges re-acceptance as "where required by law" — the system requires it unconditionally on every version bump.</li>
               <li><strong>§11 (corrections)</strong> — wording tightened only, to avoid implying an automated refund→invoice workflow that doesn't exist.</li>
+              <li><strong>§5/§7 (invoice copy)</strong> — wording tightened from "may make available" to "will send"/"a copy," since RD 1619/2012 requires the invoice's issuer to actually remit a copy to the supplier, not just leave it available to look up.</li>
             </ol>
             Highlighted <mark>bracketed text</mark> marks placeholders still to be filled in. Please review, edit directly, or send comments back to <a href="mailto:hello@descubr.com">hello@descubr.com</a>.
           </div>
+          <!-- ═══════ END INTERNAL REVIEW NOTES ═══════ -->
 
           <h2 id="en-1">1. Parties<a class="anchor" href="#en-1" aria-label="Link to this section">#</a></h2>
           <p>This Self-Billing Agreement ("Agreement") is entered into between:</p>
@@ -189,7 +229,7 @@
           <p>Where required under Spanish invoicing rules, the invoice will include the wording <strong>"facturación por el destinatario"</strong> or the corresponding wording required by applicable law.</p>
 
           <h2 id="en-5">5. Invoice Period and Timing<a class="anchor" href="#en-5" aria-label="Link to this section">#</a></h2>
-          <p>DescubR may consolidate supplies made by the Guide during the same calendar month into a single self-billed invoice where permitted by applicable law. Self-billed invoices will be issued within the legally applicable invoicing period. DescubR may make the relevant invoice available electronically through the Guide's DescubR account or another electronic means agreed between the Parties. The invoice will be made available to the Guide so that the Guide can review and accept or object to it.</p>
+          <p>DescubR may consolidate supplies made by the Guide during the same calendar month into a single self-billed invoice where permitted by applicable law. Self-billed invoices will be issued within the legally applicable invoicing period. DescubR will send the Guide a copy of the relevant invoice electronically, through the Guide's DescubR account and, where applicable, by email, or another electronic means agreed between the Parties. The invoice will be sent to the Guide so that the Guide can review and accept or object to it, in accordance with the acceptance procedure described in Section 6.</p>
 
           <h2 id="en-6">6. Invoice Acceptance Procedure<a class="anchor" href="#en-6" aria-label="Link to this section">#</a></h2>
           <p>Each self-billed invoice issued under this Agreement will be subject to an acceptance procedure by the Guide. The Guide may review the invoice through the DescubR platform and:</p>
@@ -201,7 +241,7 @@
           <p>The Parties may use electronic records, including the Guide's authenticated account, timestamped acceptance, rejection or objection, to evidence the acceptance procedure. The acceptance procedure described above is intended to satisfy the requirement that each self-billed invoice be subject to an acceptance procedure by the Guide.</p>
 
           <h2 id="en-7">7. Copies and Electronic Records<a class="anchor" href="#en-7" aria-label="Link to this section">#</a></h2>
-          <p>DescubR will provide the Guide with a copy or electronic record of each self-billed invoice issued on the Guide's behalf. Invoices and related acceptance records may be made available through the Guide's DescubR account. The Parties may retain invoices and associated records electronically for the period required by applicable tax, accounting and other legal requirements.</p>
+          <p>DescubR will send the Guide a copy of each self-billed invoice issued on the Guide's behalf, satisfying the requirement to remit a copy of the invoice to the supplier. Invoices and related acceptance records will also remain available to the Guide at any time through the Guide's DescubR account. The Parties may retain invoices and associated records electronically for the period required by applicable tax, accounting and other legal requirements.</p>
 
           <h2 id="en-8">8. Tax and VAT Responsibilities<a class="anchor" href="#en-8" aria-label="Link to this section">#</a></h2>
           <p>The Guide remains responsible for complying with the tax obligations that legally apply to the Guide in respect of the supplies made to DescubR, including the correct tax treatment and reporting of VAT where applicable. DescubR is responsible for issuing the self-billed invoices in accordance with the applicable invoicing requirements and for complying with the obligations that legally apply to DescubR in connection with those invoices. Nothing in this Agreement transfers or excludes any statutory tax obligation that cannot legally be transferred between the Parties.</p>
@@ -230,7 +270,7 @@
           <p>This Agreement is governed by the laws of Spain, without prejudice to any mandatory provisions of applicable European Union law or other mandatory rules that may apply to a particular transaction. The Parties will seek to resolve any dispute arising from this Agreement in good faith before commencing formal proceedings. Any applicable jurisdiction clause will be determined in accordance with the mandatory rules governing the Parties and the relevant transaction.</p>
 
           <h2 id="en-16">16. Changes to this Agreement<a class="anchor" href="#en-16" aria-label="Link to this section">#</a></h2>
-          <p>DescubR may update this Agreement where reasonably necessary to reflect changes in applicable law, tax requirements, invoicing requirements or the operation of the Platform. Where a material change affects the Guide's rights or obligations, DescubR will provide the Guide with the updated version and, where required by law, obtain the Guide's renewed acceptance before applying the change to future transactions.</p>
+          <p>DescubR may update this Agreement where reasonably necessary to reflect changes in applicable law, tax requirements, invoicing requirements or the operation of the Platform. Where this Agreement is updated, DescubR will provide the Guide with the updated version and will require the Guide's renewed acceptance of the updated version before issuing any further self-billed invoice on the Guide's behalf.</p>
 
           <h2 id="en-17">17. Entire Agreement<a class="anchor" href="#en-17" aria-label="Link to this section">#</a></h2>
           <p>This Agreement constitutes the agreement between DescubR and the Guide concerning the self-billing of the Guide's supplies to DescubR. It does not replace or modify the separate terms governing the Guide's use of the DescubR platform, commercial arrangements, commissions, content, intellectual property, customer relationships or other matters unless expressly stated.</p>
@@ -246,17 +286,21 @@
         <!-- ================= ESPAÑOL ================= -->
         <div data-i18n="es">
           <h1>Acuerdo de Autofacturación</h1>
-          <p class="updated">Borrador — segunda revisión del gestor recibida, correcciones aplicadas, pendiente de confirmación, todavía no mostrado a ningún guía</p>
+          <p class="updated">Borrador — no constituye asesoramiento legal, todavía no mostrado a ningún guía.</p>
 
-          <div class="draft-banner">
-            <strong>Este es un borrador de trabajo, no constituye asesoramiento legal.</strong> Esta versión sustituye al borrador anterior de 7 apartados — el gestor facilitó directamente esta versión más completa y confirmó que el resto coincide con el funcionamiento real de DescubR. Se señalaron y abordaron tres puntos:
+          <!-- ═══════ NOTAS INTERNAS DE REVISIÓN — ELIMINAR TODO ESTE BLOQUE ANTES DE MOSTRAR ESTE ACUERDO A UN GUÍA. No forma parte del Acuerdo. ═══════ -->
+          <div class="internal-notes">
+            <p class="internal-notes-label">🛑 Notas internas de revisión — eliminar antes de publicar, no forman parte del Acuerdo</p>
+            Esta versión sustituye al borrador anterior de 7 apartados — el gestor facilitó directamente esta versión más completa y confirmó que el resto coincide con el funcionamiento real de DescubR. Puntos señalados en dos rondas de revisión:
             <ol>
-              <li><strong>§6 (procedimiento de aceptación)</strong> — necesitaba una corrección real, no solo de redacción. Los guías ya pueden revisar y aceptar/notificar un problema en cada factura por autofacturación a través de la plataforma (portal de guías + app), no solo recibir un correo puntual.</li>
-              <li><strong>§13/§16 (versión del acuerdo)</strong> — también implementado, no solo documentado. Un cambio de versión ahora obliga realmente a reaceptar antes de la siguiente venta del guía, el mismo patrón que los Términos del Servicio.</li>
+              <li><strong>§6 (procedimiento de aceptación)</strong> — necesitaba una corrección real, no solo de redacción. Los guías ya pueden revisar y aceptar/notificar un problema en cada factura por autofacturación a través de la plataforma (portal de guías + app), no solo recibir un correo puntual. El plazo de objeción de 15 días es ahora una fecha límite real y almacenada por factura, no solo un texto en la página.</li>
+              <li><strong>§13/§16 (versión del acuerdo)</strong> — también implementado, no solo documentado. Un cambio de versión ahora obliga realmente a reaceptar antes de la siguiente venta del guía, el mismo patrón que los Términos del Servicio. El §16 ya no condiciona la reaceptación a "cuando lo exija la normativa" — el sistema la exige siempre, en cada cambio de versión.</li>
               <li><strong>§11 (correcciones)</strong> — solo se ajustó la redacción, para no dar a entender un flujo automatizado de reembolso→factura que no existe.</li>
+              <li><strong>§5/§7 (copia de la factura)</strong> — redacción ajustada de "podrá poner a disposición" a "remitirá"/"una copia", ya que el RD 1619/2012 exige que quien expide la factura remita efectivamente una copia al proveedor, no solo dejarla disponible por si el guía la busca.</li>
             </ol>
             El texto <mark>entre corchetes resaltado</mark> son marcadores pendientes de completar. Por favor, revisa, edita directamente, o envía comentarios a <a href="mailto:hello@descubr.com">hello@descubr.com</a>.
           </div>
+          <!-- ═══════ FIN NOTAS INTERNAS DE REVISIÓN ═══════ -->
 
           <h2 id="es-1">1. Partes<a class="anchor" href="#es-1" aria-label="Link to this section">#</a></h2>
           <p>Este Acuerdo de Autofacturación ("Acuerdo") se celebra entre:</p>
@@ -291,7 +335,7 @@
           <p>Cuando así lo exija la normativa española de facturación, la factura incluirá la mención <strong>"facturación por el destinatario"</strong> o la mención correspondiente exigida por la normativa aplicable.</p>
 
           <h2 id="es-5">5. Periodo y Momento de Facturación<a class="anchor" href="#es-5" aria-label="Link to this section">#</a></h2>
-          <p>DescubR podrá agrupar las prestaciones realizadas por el Guía durante el mismo mes natural en una única factura por autofacturación, cuando la normativa aplicable lo permita. Las facturas por autofacturación se emitirán dentro del plazo de facturación legalmente aplicable. DescubR podrá poner la factura correspondiente a disposición del Guía por medios electrónicos a través de la cuenta de DescubR del Guía o mediante otro medio electrónico acordado entre las Partes. La factura se pondrá a disposición del Guía de forma que este pueda revisarla y aceptarla u objetarla.</p>
+          <p>DescubR podrá agrupar las prestaciones realizadas por el Guía durante el mismo mes natural en una única factura por autofacturación, cuando la normativa aplicable lo permita. Las facturas por autofacturación se emitirán dentro del plazo de facturación legalmente aplicable. DescubR remitirá al Guía una copia de la factura correspondiente por medios electrónicos, a través de la cuenta de DescubR del Guía y, cuando proceda, por correo electrónico, o mediante otro medio electrónico acordado entre las Partes. La factura se remitirá al Guía de forma que este pueda revisarla y aceptarla u objetarla, de acuerdo con el procedimiento de aceptación descrito en el apartado 6.</p>
 
           <h2 id="es-6">6. Procedimiento de Aceptación de la Factura<a class="anchor" href="#es-6" aria-label="Link to this section">#</a></h2>
           <p>Cada factura por autofacturación emitida al amparo de este Acuerdo estará sujeta a un procedimiento de aceptación por parte del Guía. El Guía podrá revisar la factura a través de la plataforma de DescubR y:</p>
@@ -303,7 +347,7 @@
           <p>Las Partes podrán utilizar registros electrónicos, incluida la cuenta autenticada del Guía y la aceptación, rechazo u objeción con fecha y hora, como evidencia del procedimiento de aceptación. El procedimiento de aceptación descrito anteriormente tiene por objeto satisfacer el requisito de que cada factura por autofacturación esté sujeta a un procedimiento de aceptación por parte del Guía.</p>
 
           <h2 id="es-7">7. Copias y Registros Electrónicos<a class="anchor" href="#es-7" aria-label="Link to this section">#</a></h2>
-          <p>DescubR facilitará al Guía una copia o registro electrónico de cada factura por autofacturación emitida en su nombre. Las facturas y los registros de aceptación relacionados podrán ponerse a disposición a través de la cuenta de DescubR del Guía. Las Partes podrán conservar las facturas y los registros asociados por medios electrónicos durante el plazo exigido por la normativa fiscal, contable y demás normativa aplicable.</p>
+          <p>DescubR remitirá al Guía una copia de cada factura por autofacturación emitida en su nombre, cumpliendo así la obligación de remitir una copia de la factura al proveedor. Las facturas y los registros de aceptación relacionados permanecerán también disponibles para el Guía en cualquier momento a través de su cuenta de DescubR. Las Partes podrán conservar las facturas y los registros asociados por medios electrónicos durante el plazo exigido por la normativa fiscal, contable y demás normativa aplicable.</p>
 
           <h2 id="es-8">8. Responsabilidades Fiscales y de IVA<a class="anchor" href="#es-8" aria-label="Link to this section">#</a></h2>
           <p>El Guía sigue siendo responsable del cumplimiento de las obligaciones fiscales que le sean legalmente aplicables respecto de las prestaciones realizadas a DescubR, incluido el tratamiento y la declaración correctos del IVA cuando proceda. DescubR es responsable de emitir las facturas por autofacturación de conformidad con los requisitos de facturación aplicables y de cumplir las obligaciones que le sean legalmente aplicables en relación con dichas facturas. Nada de lo dispuesto en este Acuerdo transfiere ni excluye ninguna obligación fiscal legal que no pueda transferirse legalmente entre las Partes.</p>
@@ -332,7 +376,7 @@
           <p>Este Acuerdo se rige por la legislación española, sin perjuicio de cualquier disposición imperativa del Derecho de la Unión Europea aplicable u otras normas imperativas que puedan resultar de aplicación a una operación concreta. Las Partes procurarán resolver de buena fe cualquier controversia derivada de este Acuerdo antes de iniciar un procedimiento formal. Cualquier cláusula de jurisdicción aplicable se determinará de conformidad con las normas imperativas que rijan a las Partes y a la operación correspondiente.</p>
 
           <h2 id="es-16">16. Modificaciones de este Acuerdo<a class="anchor" href="#es-16" aria-label="Link to this section">#</a></h2>
-          <p>DescubR podrá actualizar este Acuerdo cuando sea razonablemente necesario para reflejar cambios en la normativa aplicable, en los requisitos fiscales o de facturación, o en el funcionamiento de la Plataforma. Cuando un cambio material afecte a los derechos u obligaciones del Guía, DescubR le facilitará la versión actualizada y, cuando la normativa lo exija, obtendrá su aceptación renovada antes de aplicar el cambio a operaciones futuras.</p>
+          <p>DescubR podrá actualizar este Acuerdo cuando sea razonablemente necesario para reflejar cambios en la normativa aplicable, en los requisitos fiscales o de facturación, o en el funcionamiento de la Plataforma. Cuando este Acuerdo se actualice, DescubR facilitará al Guía la versión actualizada y exigirá su aceptación renovada de dicha versión antes de emitir cualquier factura por autofacturación adicional en su nombre.</p>
 
           <h2 id="es-17">17. Acuerdo Completo<a class="anchor" href="#es-17" aria-label="Link to this section">#</a></h2>
           <p>Este Acuerdo constituye el acuerdo entre DescubR y el Guía en relación con la autofacturación de las prestaciones del Guía a DescubR. No sustituye ni modifica los términos independientes que rigen el uso de la plataforma de DescubR por el Guía, las condiciones comerciales, comisiones, contenidos, propiedad intelectual, relaciones con los clientes u otras cuestiones, salvo que se indique expresamente lo contrario.</p>
