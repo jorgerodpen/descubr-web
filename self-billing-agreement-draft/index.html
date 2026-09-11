@@ -1,0 +1,222 @@
+<!--
+  Internal draft, not a public-facing page. Deliberately not linked from any
+  nav/footer and not in sitemap.xml — reachable only via direct link, for
+  sending to a gestor/lawyer for review. noindex below keeps it out of
+  search results. Once reviewed and finalized, this content should move
+  into (or be linked properly from) the real Guide Terms page, not stay here.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('descubr-theme'); } catch (e) {}
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    })();
+  </script>
+  <title>Self-Billing Agreement (Draft) — DescubR</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .draft-banner {
+      background: #FBF0DC;
+      color: #7A5200;
+      border: 1px solid #E8C878;
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    :root[data-theme="dark"] .draft-banner,
+    :root:not([data-theme="light"]) .draft-banner {
+      background: #3A2F14;
+      color: #E8B84B;
+      border-color: #5C4A05;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) .draft-banner {
+        background: #FBF0DC;
+        color: #7A5200;
+        border-color: #E8C878;
+      }
+    }
+    .doc-card mark {
+      background: #FCE9A8;
+      color: #5C4A05;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    :root[data-theme="dark"] .doc-card mark,
+    :root:not([data-theme="light"]) .doc-card mark {
+      background: #5C4A05;
+      color: #FBE9A8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress" aria-hidden="true"><div class="progress-fill" data-progress-fill></div></div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../"><img src="../assets/logo-mark.svg" alt="" width="26" height="26" class="wordmark-icon"><span class="word">Descub<span class="r">R</span></span></a>
+      <div class="site-nav">
+        <div class="menu-wrap">
+          <button class="menu-toggle" data-menu-toggle type="button" aria-expanded="false" aria-label="Menu">
+            <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
+          </button>
+          <nav class="site-menu" data-menu hidden>
+            <a href="../about/"><span data-i18n="en">About</span><span data-i18n="es">Sobre nosotros</span></a>
+            <a href="../faq/"><span data-i18n="en">FAQ</span><span data-i18n="es">Preguntas frecuentes</span></a>
+            <a href="../privacy/"><span data-i18n="en">Privacy Policy</span><span data-i18n="es">Política de privacidad</span></a>
+            <a href="../terms/"><span data-i18n="en">Terms of Service</span><span data-i18n="es">Términos del servicio</span></a>
+            <a href="../legal-notice/"><span data-i18n="en">Legal Notice</span><span data-i18n="es">Aviso legal</span></a>
+          </nav>
+        </div>
+        <select class="lang-select" data-lang-select aria-label="Language / Idioma">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+        </select>
+        <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2M10 16.2v2M3.7 3.7l1.4 1.4M14.9 14.9l1.4 1.4M1.8 10h2M16.2 10h2M3.7 16.3l1.4-1.4M14.9 5.1l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.2 12.4A7.2 7.2 0 1 1 7.6 2.8a5.6 5.6 0 0 0 9.6 9.6Z"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="docs-main">
+    <div class="docs-shell">
+      <nav class="toc" aria-label="Table of contents / Tabla de contenidos">
+        <span class="toc-label" data-i18n="en">On this page</span>
+        <span class="toc-label" data-i18n="es">En esta página</span>
+        <div class="toc-list" data-i18n="en">
+          <a href="#en-1">1. Purpose</a>
+          <a href="#en-2">2. Scope</a>
+          <a href="#en-3">3. How self-billing works</a>
+          <a href="#en-4">4. Right to object</a>
+          <a href="#en-5">5. Guide's tax obligations</a>
+          <a href="#en-6">6. Term and termination</a>
+          <a href="#en-7">7. Governing law</a>
+        </div>
+        <div class="toc-list" data-i18n="es">
+          <a href="#es-1">1. Objeto</a>
+          <a href="#es-2">2. Ámbito de aplicación</a>
+          <a href="#es-3">3. Funcionamiento</a>
+          <a href="#es-4">4. Derecho de oposición</a>
+          <a href="#es-5">5. Obligaciones fiscales del Guía</a>
+          <a href="#es-6">6. Duración y terminación</a>
+          <a href="#es-7">7. Ley aplicable</a>
+        </div>
+      </nav>
+
+      <article class="doc-card">
+        <!-- ================= ENGLISH ================= -->
+        <div data-i18n="en">
+          <h1>Self-Billing Agreement</h1>
+          <p class="updated">Draft — pending gestor / lawyer review, not yet shown to any guide</p>
+
+          <div class="draft-banner">
+            <strong>This is a working draft, not legal advice.</strong> It's a starting point built from the standard elements a self-billing (autofactura) agreement generally needs under EU VAT rules — not copied from any proprietary source, since these are formulaic terms rather than creative work. Highlighted <mark>bracketed text</mark> marks placeholders still to be filled in. Please review, edit directly, or send comments back to <a href="mailto:hello@descubr.com">hello@descubr.com</a>.
+          </div>
+
+          <p><strong>Between:</strong> <mark>[DESCUBR LEGAL NAME]</mark>, with tax ID <mark>[DESCUBR NIF]</mark> ("the Platform")<br>
+          <strong>And:</strong> the guide identified by the legal name and tax details they provide in their DescubR tax status declaration ("the Guide")</p>
+
+          <h2 id="en-1">1. Purpose<a class="anchor" href="#en-1" aria-label="Link to this section">#</a></h2>
+          <p>The Guide supplies self-guided tour content to end customers through the Platform. The Platform acts as the sales channel and collects payment on the Guide's behalf. This Agreement authorizes the Platform to issue <strong>self-billed invoices</strong> (facturas por autofacturación) on the Guide's behalf for the Guide's share of each sale, in place of the Guide issuing their own invoices to the Platform.</p>
+
+          <h2 id="en-2">2. Scope<a class="anchor" href="#en-2" aria-label="Link to this section">#</a></h2>
+          <p>This Agreement applies only where the Guide's declared tax status qualifies them for a self-billed invoice under applicable VAT rules (currently: Spain-resident, VAT-registered guides — "Case A" in the Platform's internal classification). It does not apply to, and creates no obligation regarding, sales where the Guide is not VAT-registered or is established outside Spain, which the Platform documents differently and which are not affected by this Agreement.</p>
+
+          <h2 id="en-3">3. How self-billing works<a class="anchor" href="#en-3" aria-label="Link to this section">#</a></h2>
+          <ul>
+            <li>The Platform will generate one self-billed invoice per calendar month, covering all applicable sales completed by the Guide in that period.</li>
+            <li>Each self-billed invoice will carry a unique, sequential number from a dedicated numbering series maintained by the Platform, will not skip or reuse numbers, and will include: issue date, both parties' legal name and tax identification number, a description of the services covered, the taxable base, the applicable VAT rate and amount, and the total.</li>
+            <li>The Platform will make each self-billed invoice available to the Guide no later than <mark>[X DAYS]</mark> after the end of the covered period.</li>
+          </ul>
+
+          <h2 id="en-4">4. The Guide's right to object<a class="anchor" href="#en-4" aria-label="Link to this section">#</a></h2>
+          <p>The Guide may object to the content of any specific self-billed invoice within <mark>[15/30] calendar days</mark> of it being made available, by contacting <mark>[DESCUBR SUPPORT CONTACT]</mark>. If the Guide does not object within this period, the invoice is deemed accepted. This procedure does not limit the Guide's other legal rights regarding incorrect invoices.</p>
+
+          <h2 id="en-5">5. Guide's own tax obligations<a class="anchor" href="#en-5" aria-label="Link to this section">#</a></h2>
+          <p>The Guide remains solely responsible for correctly declaring and remitting any VAT shown on a self-billed invoice issued under this Agreement to their own tax authority, and for keeping their declared tax status (registration status, VAT number, tax country, legal name) accurate and up to date with the Platform. The Platform relies on this declared status, verified against <mark>[VIES / the relevant registry]</mark> where applicable, to determine whether self-billing applies.</p>
+
+          <h2 id="en-6">6. Term and termination<a class="anchor" href="#en-6" aria-label="Link to this section">#</a></h2>
+          <p>This Agreement takes effect when the Guide accepts it and remains in force until either party terminates it with <mark>[X DAYS]</mark> written notice, or until the Guide's declared tax status no longer qualifies for self-billing under Section 2, whichever comes first. Termination does not affect the validity of self-billed invoices already issued.</p>
+
+          <h2 id="en-7">7. Governing law<a class="anchor" href="#en-7" aria-label="Link to this section">#</a></h2>
+          <p>This Agreement is governed by Spanish law. <mark>[Add dispute resolution / jurisdiction clause per gestor guidance.]</mark></p>
+
+          <p><em><strong>Acceptance:</strong> by checking the self-billing agreement box during tax status declaration in the DescubR app, the Guide confirms they have read and agree to the above.</em></p>
+        </div>
+
+        <!-- ================= ESPAÑOL ================= -->
+        <div data-i18n="es">
+          <h1>Acuerdo de Autofacturación</h1>
+          <p class="updated">Borrador — pendiente de revisión por gestor/abogado, todavía no mostrado a ningún guía</p>
+
+          <div class="draft-banner">
+            <strong>Este es un borrador de trabajo, no constituye asesoramiento legal.</strong> Es un punto de partida basado en los elementos estándar que suele exigir un acuerdo de autofacturación bajo la normativa de IVA de la UE — no copiado de ninguna fuente propietaria, ya que se trata de condiciones formularias y no de una obra creativa. El texto <mark>entre corchetes resaltado</mark> son marcadores pendientes de completar. Por favor, revisa, edita directamente, o envía comentarios a <a href="mailto:hello@descubr.com">hello@descubr.com</a>.
+          </div>
+
+          <p><strong>Entre:</strong> <mark>[NOMBRE LEGAL DE DESCUBR]</mark>, con NIF <mark>[NIF DE DESCUBR]</mark> ("la Plataforma")<br>
+          <strong>Y:</strong> el guía identificado por el nombre legal y los datos fiscales que facilite en su declaración de situación fiscal de DescubR ("el Guía")</p>
+
+          <h2 id="es-1">1. Objeto<a class="anchor" href="#es-1" aria-label="Link to this section">#</a></h2>
+          <p>El Guía suministra contenido de tours autoguiados a clientes finales a través de la Plataforma. La Plataforma actúa como canal de venta y cobra el pago en nombre del Guía. Este Acuerdo autoriza a la Plataforma a emitir <strong>facturas por autofacturación</strong> en nombre del Guía por la parte que le corresponde de cada venta, en sustitución de que el Guía emita sus propias facturas a la Plataforma.</p>
+
+          <h2 id="es-2">2. Ámbito de aplicación<a class="anchor" href="#es-2" aria-label="Link to this section">#</a></h2>
+          <p>Este Acuerdo se aplica únicamente cuando la situación fiscal declarada por el Guía le cualifica para la autofacturación conforme a la normativa de IVA aplicable (actualmente: guías residentes en España y dados de alta en IVA — "Caso A" en la clasificación interna de la Plataforma). No se aplica, y no genera obligación alguna, respecto a ventas en las que el Guía no esté dado de alta en IVA o esté establecido fuera de España, casos que la Plataforma documenta de forma distinta y que no quedan afectados por este Acuerdo.</p>
+
+          <h2 id="es-3">3. Funcionamiento de la autofacturación<a class="anchor" href="#es-3" aria-label="Link to this section">#</a></h2>
+          <ul>
+            <li>La Plataforma generará una factura por autofacturación al mes, que recogerá todas las ventas aplicables realizadas por el Guía en dicho periodo.</li>
+            <li>Cada factura por autofacturación llevará un número único y secuencial procedente de una serie de numeración específica mantenida por la Plataforma, sin saltos ni repeticiones, e incluirá: fecha de emisión, nombre legal y NIF de ambas partes, descripción de los servicios prestados, base imponible, tipo y cuota de IVA aplicables, y el importe total.</li>
+            <li>La Plataforma pondrá cada factura por autofacturación a disposición del Guía a más tardar <mark>[X DÍAS]</mark> tras el cierre del periodo correspondiente.</li>
+          </ul>
+
+          <h2 id="es-4">4. Derecho de oposición del Guía<a class="anchor" href="#es-4" aria-label="Link to this section">#</a></h2>
+          <p>El Guía podrá oponerse al contenido de cualquier factura por autofacturación concreta en un plazo de <mark>[15/30] días naturales</mark> desde su puesta a disposición, contactando con <mark>[CONTACTO DE SOPORTE DE DESCUBR]</mark>. Si el Guía no se opone dentro de dicho plazo, la factura se considerará aceptada. Este procedimiento no limita los demás derechos legales del Guía en relación con facturas incorrectas.</p>
+
+          <h2 id="es-5">5. Obligaciones fiscales propias del Guía<a class="anchor" href="#es-5" aria-label="Link to this section">#</a></h2>
+          <p>El Guía sigue siendo el único responsable de declarar e ingresar correctamente ante su propia autoridad fiscal cualquier IVA que figure en una factura por autofacturación emitida al amparo de este Acuerdo, así como de mantener actualizada y correcta la situación fiscal declarada a la Plataforma (situación de alta, número de IVA, país fiscal, nombre legal). La Plataforma se basa en esta situación declarada, verificada mediante <mark>[VIES / el registro correspondiente]</mark> cuando proceda, para determinar si es de aplicación la autofacturación.</p>
+
+          <h2 id="es-6">6. Duración y terminación<a class="anchor" href="#es-6" aria-label="Link to this section">#</a></h2>
+          <p>Este Acuerdo entra en vigor cuando el Guía lo acepta y permanece vigente hasta que cualquiera de las partes lo resuelva con un preaviso de <mark>[X DÍAS]</mark>, o hasta que la situación fiscal declarada del Guía deje de cualificar para la autofacturación conforme a la Sección 2, lo que ocurra primero. La terminación no afecta a la validez de las facturas por autofacturación ya emitidas.</p>
+
+          <h2 id="es-7">7. Ley aplicable<a class="anchor" href="#es-7" aria-label="Link to this section">#</a></h2>
+          <p>Este Acuerdo se rige por la legislación española. <mark>[Añadir cláusula de resolución de conflictos / jurisdicción según indicación del gestor.]</mark></p>
+
+          <p><em><strong>Aceptación:</strong> al marcar la casilla del acuerdo de autofacturación durante la declaración de situación fiscal en la app de DescubR, el Guía confirma que ha leído y acepta lo anterior.</em></p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <button class="back-to-top" data-back-to-top type="button" aria-label="Back to top">
+    <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 15V5M5 10l5-5 5 5"/></svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-copy">
+        <span data-i18n="en">Internal draft &middot; not linked from the site &middot; </span>
+        <span data-i18n="es">Borrador interno &middot; sin enlazar desde el sitio &middot; </span>
+        <a href="mailto:hello@descubr.com">hello@descubr.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../assets/lang.js"></script>
+  <script src="../assets/menu.js"></script>
+  <script src="../assets/theme.js"></script>
+</body>
+</html>
