@@ -96,7 +96,7 @@
         <!-- ================= ENGLISH ================= -->
         <div data-i18n="en">
       <h1>Privacy Policy</h1>
-      <p class="updated">Version 1.0 — last updated September 6, 2026</p>
+      <p class="updated">Version 1.0 — last updated September 11, 2026</p>
 
       <h2 id="en-1">1. Who we are<a class="anchor" href="#en-1" aria-label="Link to this section">#</a></h2>
       <p>
@@ -124,8 +124,11 @@
           and currency, and when your access to a tour expires.</li>
         <li><strong>Location data:</strong> while you're actively using a tour,
           the app uses your device's location to show your position on the
-          map and detect nearby stops. We do not track your location outside
-          of active tour use.</li>
+          map and detect nearby stops; when you browse or search for tours,
+          it can also use your location to sort results by distance and
+          power "Nearby." In both cases your location is used for that
+          request only — we don't build or store a history of where
+          you've been.</li>
         <li><strong>Guide content:</strong> if you're a guide, the tours,
           stops, audio, and images you upload to publish a tour.</li>
         <li><strong>Guide verification data:</strong> if you apply for "Pro"
@@ -184,8 +187,13 @@
           data from the mobile app itself.</li>
         <li><strong>Expo</strong> — delivery of push notifications to your
           device, using your device's push token.</li>
+        <li><strong>OpenStreetMap (Nominatim)</strong> — if you're a guide,
+          looking up a place name while building a tour sends that search
+          text to OpenStreetMap's geocoding service to find its coordinates.</li>
       </ul>
-      <p>All of these providers are US-based and may process data there.
+      <p>All of these providers are US-based and may process data there,
+        except OpenStreetMap, which is run by a UK-registered non-profit
+        (the OpenStreetMap Foundation).
         For that, we rely on their self-certification under the EU-U.S.
         Data Privacy Framework, backed by standard contractual clauses
         where the Framework doesn't apply to a given transfer.</p>
@@ -201,13 +209,13 @@
         records) for legal, tax, or accounting obligations.
       </p>
       <p>
-        If you delete a guide account that has sold tours, we anonymize
-        rather than delete some data: your name, email, photo, bio, and
-        payout details are removed, and your tours are hidden from search
-        and new purchases, but the tours themselves are kept so that
-        travelers who already bought one keep the access they paid for.
-        Draft tours you never published, and their content, are deleted
-        outright.
+        If you delete a guide account, we anonymize rather than delete some
+        data: your name, email, photo, bio, and payout details are removed.
+        Any tour you'd published is hidden from search and new purchases,
+        but kept so that travelers who already bought it keep the access
+        they paid for. Tours you never published — drafts, and anything
+        still pending or rejected — are deleted outright, along with their
+        video, audio, and images.
       </p>
 
       <h2 id="en-6">6. Your rights<a class="anchor" href="#en-6" aria-label="Link to this section">#</a></h2>
@@ -239,9 +247,9 @@
 
       <h2 id="en-9">9. Cookies and this website<a class="anchor" href="#en-9" aria-label="Link to this section">#</a></h2>
       <p>This website does not use cookies or third-party trackers. It stores
-        your language preference locally in your browser (via
-        <code>localStorage</code>) so the site remembers it on your next
-        visit — nothing is sent to a server.</p>
+        your language and light/dark theme preference locally in your
+        browser (via <code>localStorage</code>) so the site remembers them
+        on your next visit — nothing is sent to a server.</p>
 
       <h2 id="en-10">10. Changes to this policy<a class="anchor" href="#en-10" aria-label="Link to this section">#</a></h2>
       <p>We may update this policy as DescubR evolves. If we make a material
@@ -256,7 +264,7 @@
         <!-- ================= ESPAÑOL ================= -->
         <div data-i18n="es">
       <h1>Política de privacidad</h1>
-      <p class="updated">Versión 1.0 — última actualización: 6 de septiembre de 2026</p>
+      <p class="updated">Versión 1.0 — última actualización: 11 de septiembre de 2026</p>
 
       <h2 id="es-1">1. Quiénes somos<a class="anchor" href="#es-1" aria-label="Link to this section">#</a></h2>
       <p>
@@ -287,8 +295,11 @@
           la moneda, y cuándo caduca tu acceso a un tour.</li>
         <li><strong>Datos de ubicación:</strong> mientras usas activamente un
           tour, la app utiliza la ubicación de tu dispositivo para mostrar tu
-          posición en el mapa y detectar paradas cercanas. No rastreamos tu
-          ubicación fuera del uso activo de un tour.</li>
+          posición en el mapa y detectar paradas cercanas; cuando exploras o
+          buscas tours, también puede usar tu ubicación para ordenar los
+          resultados por distancia y mostrar "Cerca de ti". En ambos casos
+          tu ubicación se usa solo para esa solicitud — no creamos ni
+          guardamos un historial de dónde has estado.</li>
         <li><strong>Contenido de guía:</strong> si eres guía, los tours,
           paradas, audios e imágenes que subes para publicar un tour.</li>
         <li><strong>Datos de verificación de guía:</strong> si solicitas el
@@ -351,12 +362,19 @@
           No recibe datos de fallos de la propia app móvil.</li>
         <li><strong>Expo</strong> — envío de notificaciones push a tu
           dispositivo, usando el token push de tu dispositivo.</li>
+        <li><strong>OpenStreetMap (Nominatim)</strong> — si eres guía, buscar
+          un nombre de lugar mientras creas un tour envía ese texto de
+          búsqueda al servicio de geocodificación de OpenStreetMap para
+          obtener sus coordenadas.</li>
       </ul>
       <p>Todos estos proveedores tienen sede en EE. UU. y pueden procesar
-        datos allí. Para ello, nos basamos en su autocertificación conforme
-        al Marco de Privacidad de Datos UE-EE. UU. (Data Privacy Framework),
-        respaldada por cláusulas contractuales tipo cuando el Marco no
-        resulte aplicable a una transferencia concreta.</p>
+        datos allí, salvo OpenStreetMap, que está gestionado por una
+        organización sin ánimo de lucro registrada en el Reino Unido (la
+        OpenStreetMap Foundation). Para los proveedores con sede en EE. UU.,
+        nos basamos en su autocertificación conforme al Marco de Privacidad
+        de Datos UE-EE. UU. (Data Privacy Framework), respaldada por
+        cláusulas contractuales tipo cuando el Marco no resulte aplicable a
+        una transferencia concreta.</p>
       <p>También podemos divulgar tus datos cuando lo exija la ley, en
         respuesta a un requerimiento legal válido, o cuando sea necesario
         para proteger nuestros derechos, la seguridad de nuestros usuarios o
@@ -370,13 +388,14 @@
         obligaciones legales, fiscales o contables.
       </p>
       <p>
-        Si eliminas una cuenta de guía que ya ha vendido tours, anonimizamos
-        en lugar de eliminar ciertos datos: se elimina tu nombre, correo,
-        foto, biografía y datos de cobro, y tus tours se ocultan de la
-        búsqueda y de nuevas compras, pero los tours en sí se conservan para
-        que los viajeros que ya los compraron mantengan el acceso por el que
-        pagaron. Los tours en borrador que nunca publicaste, y su contenido,
-        se eliminan por completo.
+        Si eliminas una cuenta de guía, anonimizamos en lugar de eliminar
+        ciertos datos: se elimina tu nombre, correo, foto, biografía y
+        datos de cobro. Cualquier tour que hayas publicado se oculta de la
+        búsqueda y de nuevas compras, pero se conserva para que los
+        viajeros que ya lo compraron mantengan el acceso por el que
+        pagaron. Los tours que nunca publicaste — borradores, o pendientes
+        de revisión o rechazados — se eliminan por completo, junto con su
+        vídeo, audio e imágenes.
       </p>
 
       <h2 id="es-6">6. Tus derechos<a class="anchor" href="#es-6" aria-label="Link to this section">#</a></h2>
@@ -410,9 +429,9 @@
 
       <h2 id="es-9">9. Cookies y este sitio web<a class="anchor" href="#es-9" aria-label="Link to this section">#</a></h2>
       <p>Este sitio web no utiliza cookies ni rastreadores de terceros.
-        Guarda tu preferencia de idioma localmente en tu navegador (mediante
-        <code>localStorage</code>) para recordarla en tu próxima visita — no
-        se envía nada a ningún servidor.</p>
+        Guarda tu preferencia de idioma y de tema claro/oscuro localmente en
+        tu navegador (mediante <code>localStorage</code>) para recordarlas
+        en tu próxima visita — no se envía nada a ningún servidor.</p>
 
       <h2 id="es-10">10. Cambios en esta política<a class="anchor" href="#es-10" aria-label="Link to this section">#</a></h2>
       <p>Podemos actualizar esta política a medida que DescubR evoluciona. Si
