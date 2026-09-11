@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://descubr.com/privacy/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -32,9 +32,15 @@
   </url>
   <url>
     <loc>https://descubr.com/guide-terms/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://descubr.com/self-billing-agreement/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://descubr.com/legal-notice/</loc>
