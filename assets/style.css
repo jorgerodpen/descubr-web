@@ -1,9 +1,4 @@
-/* Self-hosted fonts (downloaded from Google Fonts) — avoids a runtime
-   request to fonts.googleapis.com/fonts.gstatic.com, which would leak
-   visitor IPs to Google despite this site's "no trackers" privacy claim.
-   Both files are variable fonts covering the Latin subset only (all EN/ES
-   copy on this site falls within U+0000-00FF plus common punctuation), with
-   a font-weight range so 400/500/600/700 all resolve from the same file. */
+/* Self-hosted fonts — keeps visitor IPs off Google's font CDN */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -26,11 +21,7 @@
   --background: #FFF8F0;
   --card: #FFFFFF;
   --text: #242321;
-  /* Darkened from #77736C/#847F77 — the originals measured 4.48:1 and
-     3.77:1 against --background, both under WCAG AA's 4.5:1 minimum for
-     normal-size text. These hit 5.33:1 / 4.61:1, keeping text-secondary
-     visibly darker than text-muted (same hierarchy as before). Dark mode's
-     tokens already passed (8.87:1 / 4.70:1) and are unchanged. */
+  /* darkened to clear WCAG AA contrast against --background */
   --text-secondary: #6B6761;
   --text-muted: #757169;
   --primary: #D63200;
@@ -44,10 +35,7 @@
   --font-display: 'Sora', var(--font-sans);
 }
 
-/* Dark palette — kept in sync with descubr-mobile/constants/theme.ts (dark
-   palette). Applies automatically to OS dark mode, and can be forced either
-   way by the header toggle (assets/theme.js), which stamps data-theme on
-   <html> and persists the choice in localStorage. */
+/* Dark palette — kept in sync with descubr-mobile/constants/theme.ts */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --background: #242321;
@@ -79,6 +67,10 @@
 }
 
 * { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
 
 html, body {
   margin: 0;
@@ -153,7 +145,7 @@ summary:focus-visible {
   padding-top: 18px;
   padding-bottom: 18px;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
 }
 
 .wordmark {
@@ -179,12 +171,55 @@ summary:focus-visible {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-/* Hidden hamburger menu — click to reveal About / FAQ / Privacy Policy */
+.site-nav-links {
+  display: none;
+  align-items: center;
+  gap: 22px;
+  margin-right: 4px;
+}
+
+.site-nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.site-nav-links a:hover,
+.site-nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-cta {
+  display: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.nav-cta:hover {
+  opacity: .92;
+  transform: translateY(-1px);
+}
+
+/* Full link list collapses into this on mobile; About/FAQ live inline above 760px instead. */
 .menu-wrap {
   position: relative;
+}
+
+@media (min-width: 760px) {
+  .menu-wrap { display: none; }
+  .site-nav-links,
+  .nav-cta { display: inline-flex; align-items: center; }
 }
 
 .menu-toggle {
@@ -247,8 +282,8 @@ summary:focus-visible {
   -webkit-appearance: none;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2377736C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 10px center;
-  padding: 6px 28px 6px 12px;
+  background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2377736C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 8px center;
+  padding: 6px 22px 6px 10px;
   font-size: 13px;
   font-weight: 600;
   font-family: var(--font-sans);
@@ -602,6 +637,7 @@ main ul, main ol {
   font-family: var(--font-sans);
   background: var(--card);
   color: var(--text);
+  scroll-margin-top: 96px;
 }
 
 .waitlist-form input[type="email"]:focus {
@@ -775,8 +811,7 @@ main ul, main ol {
 }
 
 /* Home page — guide CTA */
-/* Lighter-weight than .guide-cta — a note inside "How it works", not a
-   standalone section CTA, so it shouldn't compete with the guide CTA below it. */
+/* lighter-weight than .guide-cta so it doesn't compete with the CTA below it */
 .referral-note {
   display: flex;
   align-items: center;
@@ -869,8 +904,7 @@ main ul, main ol {
   box-shadow: 0 14px 30px rgba(var(--shadow-rgb), .24);
 }
 
-/* Home page — phone mockup (hero + "how it works" screenshots share this
-   chassis so the product feels like one continuous device, not a photo). */
+/* Home page — phone mockup shared by the hero and "how it works" screenshots */
 .phone-frame {
   position: relative;
   width: 260px;
@@ -946,8 +980,7 @@ main ul, main ol {
   .phone-frame { width: 220px; }
 }
 
-/* Scroll-reveal — see the 'js' class + IntersectionObserver in theme.js.
-   Elements stay fully visible if JS never runs, so this is enhancement only. */
+/* Scroll-reveal — see the 'js' class + IntersectionObserver in theme.js */
 .js [data-reveal] {
   opacity: 0;
   transform: translateY(24px);

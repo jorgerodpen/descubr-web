@@ -1,17 +1,10 @@
-// Dark-mode toggle, sticky-header glass state, reading-progress bar,
-// back-to-top button, docs table-of-contents scroll-spy, and scroll-reveal
-// for [data-reveal] elements. Every feature no-ops when its markup isn't on
-// the page, so this one file is safe to include on every page (see the
-// inline theme-init snippet in <head> for the pre-paint half of the
-// dark-mode logic, which avoids a flash).
+// Dark-mode toggle, sticky-header state, reading-progress bar, back-to-top
+// button, docs TOC scroll-spy, and scroll-reveal. Each feature no-ops if its
+// markup isn't on the page, so this file is safe to include everywhere.
 (function () {
   var root = document.documentElement;
   var toggle = document.querySelector('[data-theme-toggle]');
 
-  // Scroll-reveal: the 'js' class gates the .js [data-reveal] opacity/transform
-  // rule in style.css, so content stays visible by default if this throws or
-  // IntersectionObserver isn't supported — the class only hides things once
-  // we've also committed to revealing them below.
   try {
     root.classList.add('js');
     var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
@@ -54,20 +47,10 @@
   var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
   var allHeadings = Array.prototype.slice.call(document.querySelectorAll('.doc-card h2[id]'));
 
-  // Scroll-spy: walk the *currently visible* language's headings (the
-  // other language's are display:none, so offsetParent is null for them)
-  // and activate the last one that has scrolled past the trigger line.
-  // Manual, rather than IntersectionObserver — a thin trigger band leaves
-  // long sections with nothing active while you're reading their body text.
-  //
-  // Trailing sections are often short, and near the bottom of the page two
-  // or more of them can end up on screen at once with no way to scroll
-  // further and separate them — there's no scroll position that
-  // distinguishes "reading section 10" from "reading section 11" if both
-  // fit in the viewport at max scroll. Position alone can't resolve that,
-  // so a click on a TOC link is trusted directly (see suppressSpyUntil
-  // below) instead of being immediately re-judged, and re-judged, by
-  // position once the browser's own anchor-jump fires its scroll events.
+  // Walks the visible language's headings (the other language is
+  // display:none, so offsetParent is null there) and activates the last
+  // one past the trigger line. suppressSpyUntil trusts a TOC click
+  // directly for a moment instead of re-judging it mid-scroll.
   var suppressSpyUntil = 0;
 
   tocLinks.forEach(function (a) {
@@ -83,12 +66,8 @@
     var visible = allHeadings.filter(function (h) { return h.offsetParent !== null; });
     if (!visible.length) return;
     var current;
-    // Once the page is scrolled to (or very near) its max with no click
-    // just having set the active link directly above, there may be no
-    // heading left whose top can still reach the 120px trigger line (the
-    // bug this guards against) — in that case the last visible heading is
-    // the most reasonable default for organic (non-click) scrolling all
-    // the way to the end.
+    // near the bottom, short trailing sections can all fit on screen with
+    // none crossing the trigger line, so default to the last one
     var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
     if (atBottom) {
       current = visible[visible.length - 1];

@@ -38,6 +38,10 @@
     <div class="wrap">
       <a class="wordmark" href="../"><img src="../assets/logo-mark.svg" alt="" width="26" height="26" class="wordmark-icon"><span class="word">Descub<span class="r">R</span></span></a>
       <div class="site-nav">
+        <nav class="site-nav-links">
+          <a href="../about/"><span data-i18n="en">About</span><span data-i18n="es">Sobre nosotros</span></a>
+          <a href="../faq/"><span data-i18n="en">FAQ</span><span data-i18n="es">Preguntas frecuentes</span></a>
+        </nav>
         <div class="menu-wrap">
           <button class="menu-toggle" data-menu-toggle type="button" aria-expanded="false" aria-label="Menu">
             <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
@@ -55,6 +59,7 @@
           <option value="es">Español</option>
         </select>
         <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2M10 16.2v2M3.7 3.7l1.4 1.4M14.9 14.9l1.4 1.4M1.8 10h2M16.2 10h2M3.7 16.3l1.4-1.4M14.9 5.1l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.2 12.4A7.2 7.2 0 1 1 7.6 2.8a5.6 5.6 0 0 0 9.6 9.6Z"/></svg></button>
+        <a class="nav-cta" href="../#waitlist-email"><span data-i18n="en">Join waitlist</span><span data-i18n="es">Únete a la lista</span></a>
       </div>
     </div>
   </header>
@@ -127,7 +132,7 @@
           map and detect nearby stops; when you browse or search for tours,
           it can also use your location to sort results by distance and
           power "Nearby." In both cases your location is used for that
-          request only — we don't build or store a history of where
+          request only. We don't build or store a history of where
           you've been.</li>
         <li><strong>Guide content:</strong> if you're a guide, the tours,
           stops, audio, and images you upload to publish a tour.</li>
@@ -138,7 +143,7 @@
         <li><strong>Reviews and reports:</strong> ratings, reviews, and any
           reports you submit about a tour or stop.</li>
         <li><strong>Payment data:</strong> handled directly by our payment
-          processor, Stripe — we do not receive or store your full card
+          processor, Stripe. We do not receive or store your full card
           number.</li>
         <li><strong>Technical data:</strong> basic diagnostic and crash data
           from our error-monitoring tool, collected on our backend servers
@@ -153,7 +158,7 @@
         performing our contract with you, or our legitimate interest in
         running a safe, working platform (which we've weighed against your
         rights and interests). We don't rely on consent for any of these,
-        since none of them are optional extras — they're what running
+        since none of them are optional extras: they're what running
         DescubR requires.</p>
       <ul>
         <li>To create and run your account, and to let guides publish and
@@ -163,12 +168,12 @@
         <li>To send transactional emails you've requested, such as
           password-reset codes. <em>(Contract.)</em></li>
         <li>To show you your position and nearby stops while you're on a
-          tour. <em>(Contract — this is the core feature you're using.)</em></li>
+          tour. <em>(Contract: this is the core feature you're using.)</em></li>
         <li>To review reports and moderate content that violates our
-          guidelines. <em>(Legitimate interest — keeping the platform safe
+          guidelines. <em>(Legitimate interest: keeping the platform safe
           and trustworthy.)</em></li>
         <li>To diagnose and fix technical problems. <em>(Legitimate
-          interest — keeping the service running securely.)</em></li>
+          interest: keeping the service running securely.)</em></li>
       </ul>
       <p>We do not sell your data, and we do not use it for third-party
         advertising.</p>
@@ -177,17 +182,17 @@
       <p>We use a small number of service providers (data processors) to run
         DescubR. Each only receives the data it needs to do its job:</p>
       <ul>
-        <li><strong>Stripe</strong> — payment processing.</li>
-        <li><strong>Resend</strong> — sending transactional emails (like
+        <li><strong>Stripe</strong>: payment processing.</li>
+        <li><strong>Resend</strong>: sending transactional emails (like
           password-reset codes).</li>
-        <li><strong>Cloudflare R2</strong> — storage for tour audio/images
+        <li><strong>Cloudflare R2</strong>: storage for tour audio/images
           and guide verification documents.</li>
-        <li><strong>Sentry</strong> — error monitoring on our backend
+        <li><strong>Sentry</strong>: error monitoring on our backend
           servers, to help us catch and fix bugs. It does not receive crash
           data from the mobile app itself.</li>
-        <li><strong>Expo</strong> — delivery of push notifications to your
+        <li><strong>Expo</strong>: delivery of push notifications to your
           device, using your device's push token.</li>
-        <li><strong>OpenStreetMap (Nominatim)</strong> — if you're a guide,
+        <li><strong>OpenStreetMap (Nominatim)</strong>: if you're a guide,
           looking up a place name while building a tour sends that search
           text to OpenStreetMap's geocoding service to find its coordinates.</li>
       </ul>
@@ -213,8 +218,8 @@
         data: your name, email, photo, bio, and payout details are removed.
         Any tour you'd published is hidden from search and new purchases,
         but kept so that travelers who already bought it keep the access
-        they paid for. Tours you never published — drafts, and anything
-        still pending or rejected — are deleted outright, along with their
+        they paid for. Tours you never published (drafts, and anything
+        still pending or rejected) are deleted outright, along with their
         video, audio, and images.
       </p>
 
@@ -227,8 +232,8 @@
           directly from the app, under Profile → Delete Account).</li>
         <li>Restrict or object to certain processing.</li>
         <li>Request a copy of your data in a portable format.</li>
-        <li>Lodge a complaint with your local data protection authority — in
-          Spain, the
+        <li>Lodge a complaint with your local data protection authority. In
+          Spain, that's the
           <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia
           Española de Protección de Datos (AEPD)</a>.</li>
       </ul>
@@ -249,7 +254,7 @@
       <p>This website does not use cookies or third-party trackers. It stores
         your language and light/dark theme preference locally in your
         browser (via <code>localStorage</code>) so the site remembers them
-        on your next visit — nothing is sent to a server.</p>
+        on your next visit. Nothing is sent to a server.</p>
 
       <h2 id="en-10">10. Changes to this policy<a class="anchor" href="#en-10" aria-label="Link to this section">#</a></h2>
       <p>We may update this policy as DescubR evolves. If we make a material
@@ -298,7 +303,7 @@
           posición en el mapa y detectar paradas cercanas; cuando exploras o
           buscas tours, también puede usar tu ubicación para ordenar los
           resultados por distancia y mostrar "Cerca de ti". En ambos casos
-          tu ubicación se usa solo para esa solicitud — no creamos ni
+          tu ubicación se usa solo para esa solicitud. No creamos ni
           guardamos un historial de dónde has estado.</li>
         <li><strong>Contenido de guía:</strong> si eres guía, los tours,
           paradas, audios e imágenes que subes para publicar un tour.</li>
@@ -310,7 +315,7 @@
         <li><strong>Reseñas y reportes:</strong> valoraciones, reseñas y
           cualquier reporte que envíes sobre un tour o una parada.</li>
         <li><strong>Datos de pago:</strong> gestionados directamente por
-          nuestro procesador de pagos, Stripe — no recibimos ni almacenamos el
+          nuestro procesador de pagos, Stripe. No recibimos ni almacenamos el
           número completo de tu tarjeta.</li>
         <li><strong>Datos técnicos:</strong> datos básicos de diagnóstico y de
           fallos de nuestra herramienta de monitorización de errores,
@@ -327,7 +332,7 @@
         legítimo en mantener una plataforma segura y funcional (que hemos
         ponderado frente a tus derechos e intereses). No nos basamos en el
         consentimiento para ninguno de estos usos, ya que ninguno es un
-        extra opcional — son lo que requiere operar DescubR.</p>
+        extra opcional: son lo que requiere operar DescubR.</p>
       <ul>
         <li>Para crear y gestionar tu cuenta, y permitir que los guías
           publiquen y los viajeros compren tours. <em>(Contrato.)</em></li>
@@ -336,13 +341,13 @@
         <li>Para enviarte correos transaccionales que hayas solicitado, como
           códigos para restablecer tu contraseña. <em>(Contrato.)</em></li>
         <li>Para mostrarte tu posición y las paradas cercanas mientras haces
-          un tour. <em>(Contrato — es la función principal que estás
+          un tour. <em>(Contrato: es la función principal que estás
           usando.)</em></li>
         <li>Para revisar reportes y moderar contenido que incumpla nuestras
-          normas. <em>(Interés legítimo — mantener la plataforma segura y de
+          normas. <em>(Interés legítimo: mantener la plataforma segura y de
           confianza.)</em></li>
         <li>Para diagnosticar y corregir problemas técnicos. <em>(Interés
-          legítimo — mantener el servicio funcionando de forma segura.)</em></li>
+          legítimo: mantener el servicio funcionando de forma segura.)</em></li>
       </ul>
       <p>No vendemos tus datos ni los usamos para publicidad de terceros.</p>
 
@@ -351,18 +356,18 @@
         del tratamiento) para operar DescubR. Cada uno recibe únicamente los
         datos que necesita para su función:</p>
       <ul>
-        <li><strong>Stripe</strong> — procesamiento de pagos.</li>
-        <li><strong>Resend</strong> — envío de correos transaccionales (como
+        <li><strong>Stripe</strong>: procesamiento de pagos.</li>
+        <li><strong>Resend</strong>: envío de correos transaccionales (como
           los códigos para restablecer la contraseña).</li>
-        <li><strong>Cloudflare R2</strong> — almacenamiento de audios e
+        <li><strong>Cloudflare R2</strong>: almacenamiento de audios e
           imágenes de los tours, y de los documentos de verificación de
           guías.</li>
-        <li><strong>Sentry</strong> — monitorización de errores en nuestros
+        <li><strong>Sentry</strong>: monitorización de errores en nuestros
           servidores backend, para ayudarnos a detectar y corregir fallos.
           No recibe datos de fallos de la propia app móvil.</li>
-        <li><strong>Expo</strong> — envío de notificaciones push a tu
+        <li><strong>Expo</strong>: envío de notificaciones push a tu
           dispositivo, usando el token push de tu dispositivo.</li>
-        <li><strong>OpenStreetMap (Nominatim)</strong> — si eres guía, buscar
+        <li><strong>OpenStreetMap (Nominatim)</strong>: si eres guía, buscar
           un nombre de lugar mientras creas un tour envía ese texto de
           búsqueda al servicio de geocodificación de OpenStreetMap para
           obtener sus coordenadas.</li>
@@ -393,8 +398,8 @@
         datos de cobro. Cualquier tour que hayas publicado se oculta de la
         búsqueda y de nuevas compras, pero se conserva para que los
         viajeros que ya lo compraron mantengan el acceso por el que
-        pagaron. Los tours que nunca publicaste — borradores, o pendientes
-        de revisión o rechazados — se eliminan por completo, junto con su
+        pagaron. Los tours que nunca publicaste (borradores, o pendientes
+        de revisión o rechazados) se eliminan por completo, junto con su
         vídeo, audio e imágenes.
       </p>
 
@@ -408,7 +413,7 @@
         <li>Restringir u oponerte a determinados tratamientos.</li>
         <li>Solicitar una copia de tus datos en un formato portátil.</li>
         <li>Presentar una reclamación ante tu autoridad de protección de
-          datos — en España, la
+          datos: en España, la
           <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia
           Española de Protección de Datos (AEPD)</a>.</li>
       </ul>
@@ -431,7 +436,7 @@
       <p>Este sitio web no utiliza cookies ni rastreadores de terceros.
         Guarda tu preferencia de idioma y de tema claro/oscuro localmente en
         tu navegador (mediante <code>localStorage</code>) para recordarlas
-        en tu próxima visita — no se envía nada a ningún servidor.</p>
+        en tu próxima visita. No se envía nada a ningún servidor.</p>
 
       <h2 id="es-10">10. Cambios en esta política<a class="anchor" href="#es-10" aria-label="Link to this section">#</a></h2>
       <p>Podemos actualizar esta política a medida que DescubR evoluciona. Si
