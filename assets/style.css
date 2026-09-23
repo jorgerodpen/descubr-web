@@ -619,7 +619,7 @@ main ul, main ol {
   right: -140px;
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--primary) 22%, transparent), transparent 70%);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .hero::after {
@@ -627,7 +627,7 @@ main ul, main ol {
   left: -160px;
   width: 420px;
   height: 420px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent-purple) 18%, transparent), transparent 70%);
+  background: color-mix(in srgb, var(--accent-purple) 10%, transparent);
 }
 
 .hero-grid {
@@ -793,7 +793,7 @@ main ul, main ol {
   width: 32px;
   height: 32px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+  background: var(--primary);
   color: #fff;
   font-weight: 700;
   margin-bottom: 14px;
@@ -902,7 +902,7 @@ main ul, main ol {
 .guide-cta {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, var(--card), color-mix(in srgb, var(--primary) 6%, var(--card)));
+  background: color-mix(in srgb, var(--primary) 3%, var(--card));
 }
 
 .guide-cta::before {
@@ -913,7 +913,7 @@ main ul, main ol {
   width: 240px;
   height: 240px;
   border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent-purple) 20%, transparent), transparent 70%);
+  background: color-mix(in srgb, var(--accent-purple) 10%, transparent);
   filter: blur(6px);
   pointer-events: none;
 }
@@ -951,7 +951,7 @@ main ul, main ol {
   margin: 0 auto;
   padding: 10px;
   border-radius: 38px;
-  background: linear-gradient(160deg, #2b2926, #17161a);
+  background: #201e1b;
   box-shadow: 0 30px 60px -20px rgba(var(--shadow-rgb), .45), 0 10px 24px rgba(var(--shadow-rgb), .18);
 }
 
