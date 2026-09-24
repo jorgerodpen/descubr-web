@@ -601,33 +601,6 @@ main ul, main ol {
   position: relative;
   text-align: center;
   padding-top: 8px;
-  overflow: hidden;
-}
-
-.hero::before,
-.hero::after {
-  content: '';
-  position: absolute;
-  z-index: 0;
-  border-radius: 50%;
-  filter: blur(8px);
-  pointer-events: none;
-}
-
-.hero::before {
-  top: -160px;
-  right: -140px;
-  width: 480px;
-  height: 480px;
-  background: color-mix(in srgb, var(--primary) 12%, transparent);
-}
-
-.hero::after {
-  bottom: -180px;
-  left: -160px;
-  width: 420px;
-  height: 420px;
-  background: color-mix(in srgb, var(--accent-purple) 10%, transparent);
 }
 
 .hero-grid {
@@ -656,6 +629,22 @@ main ul, main ol {
 .hero-visual {
   position: relative;
   justify-self: center;
+}
+
+/* Apple-style product plinth: a single soft flat-color panel centered
+   behind the phone, instead of decorative shapes scattered in the corners. */
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 480px;
+  border-radius: 48px;
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  pointer-events: none;
 }
 
 .waitlist-form {
@@ -900,22 +889,7 @@ main ul, main ol {
 }
 
 .guide-cta {
-  position: relative;
-  overflow: hidden;
   background: color-mix(in srgb, var(--primary) 3%, var(--card));
-}
-
-.guide-cta::before {
-  content: '';
-  position: absolute;
-  top: -70px;
-  right: -70px;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--accent-purple) 10%, transparent);
-  filter: blur(6px);
-  pointer-events: none;
 }
 
 .guide-cta h2,
@@ -947,6 +921,7 @@ main ul, main ol {
 /* Home page — phone mockup shared by the hero and "how it works" screenshots */
 .phone-frame {
   position: relative;
+  z-index: 1;
   width: 260px;
   margin: 0 auto;
   padding: 10px;
@@ -976,6 +951,7 @@ main ul, main ol {
 
 .float-chip {
   position: absolute;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 6px;
