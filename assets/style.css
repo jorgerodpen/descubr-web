@@ -854,9 +854,9 @@ main ul, main ol {
 }
 
 .referral-note-icon {
-  font-size: 28px;
-  line-height: 1;
+  display: inline-flex;
   flex: 0 0 auto;
+  color: var(--primary);
 }
 
 .referral-note p {
@@ -964,6 +964,11 @@ main ul, main ol {
   color: var(--text);
   box-shadow: 0 12px 28px rgba(var(--shadow-rgb), .18);
   white-space: nowrap;
+}
+
+.float-chip-icon {
+  flex: 0 0 auto;
+  color: var(--primary);
 }
 
 .float-chip-a { top: 12%; left: -18px; }
