@@ -139,7 +139,10 @@
         <li><strong>Guide verification data:</strong> if you apply for "Pro"
           status as a guide, the credential details you provide (such as a
           license or accreditation number) and the supporting document you
-          upload, used only to review your application.</li>
+          upload, used only to review your application. The document is
+          stored privately, only our review team can open it, and it's
+          deleted as soon as your application is approved or rejected; the
+          credential details are kept as the record of your review.</li>
         <li><strong>Reviews and reports:</strong> ratings, reviews, and any
           reports you submit about a tour or stop.</li>
         <li><strong>Payment data:</strong> handled directly by our payment
@@ -195,7 +198,8 @@
           website, storing that email address and sending the launch
           announcement.</li>
         <li><strong>Cloudflare R2</strong>: storage for tour audio/images
-          and guide verification documents.</li>
+          and, in a separate private store, guide verification documents
+          until they've been reviewed.</li>
         <li><strong>Sentry</strong>: error monitoring on our backend
           servers, to help us catch and fix bugs. It does not receive crash
           data from the mobile app itself.</li>
@@ -245,6 +249,10 @@
         We keep a waitlist email until you unsubscribe or ask us to delete
         it, and delete the whole waitlist once the launch announcement has
         been sent.
+      </p>
+      <p>
+        A "Pro" verification document is deleted as soon as the application
+        is approved or rejected.
       </p>
 
       <h2 id="en-6">6. Your rights<a class="anchor" href="#en-6" aria-label="Link to this section">#</a></h2>
@@ -336,7 +344,10 @@
           estado "Pro" como guía, los datos de la credencial que aportas
           (por ejemplo, un número de licencia o acreditación) y el
           documento justificativo que subes, utilizados únicamente para
-          revisar tu solicitud.</li>
+          revisar tu solicitud. El documento se guarda de forma privada,
+          solo nuestro equipo de revisión puede abrirlo y se elimina en
+          cuanto tu solicitud se aprueba o se rechaza; los datos de la
+          credencial se conservan como registro de la revisión.</li>
         <li><strong>Reseñas y reportes:</strong> valoraciones, reseñas y
           cualquier reporte que envíes sobre un tour o una parada.</li>
         <li><strong>Datos de pago:</strong> gestionados directamente por
@@ -396,8 +407,8 @@
           la lista de espera de nuestro sitio web, almacenamiento de ese
           correo y envío del aviso de lanzamiento.</li>
         <li><strong>Cloudflare R2</strong>: almacenamiento de audios e
-          imágenes de los tours, y de los documentos de verificación de
-          guías.</li>
+          imágenes de los tours y, en un almacenamiento privado aparte, de
+          los documentos de verificación de guías hasta que se revisan.</li>
         <li><strong>Sentry</strong>: monitorización de errores en nuestros
           servidores backend, para ayudarnos a detectar y corregir fallos.
           No recibe datos de fallos de la propia app móvil.</li>
@@ -453,6 +464,10 @@
         Conservamos el correo de la lista de espera hasta que te des de baja
         o nos pidas eliminarlo, y eliminamos toda la lista una vez enviado
         el aviso de lanzamiento.
+      </p>
+      <p>
+        El documento de una verificación "Pro" se elimina en cuanto la
+        solicitud se aprueba o se rechaza.
       </p>
 
       <h2 id="es-6">6. Tus derechos<a class="anchor" href="#es-6" aria-label="Link to this section">#</a></h2>
