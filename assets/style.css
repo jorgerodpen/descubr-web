@@ -146,7 +146,7 @@ summary:focus-visible {
      Preguntas frecuentes / Únete a la lista) don't fit the body width and
      would wrap to a second line at every desktop size, unlike the shorter
      EN labels. */
-  max-width: 960px;
+  max-width: 1080px; /* same as the home page's .wrap-wide, so the logo lines up with the hero */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -226,12 +226,12 @@ summary:focus-visible {
   box-shadow: 0 2px 4px rgba(var(--shadow-rgb), .14), 0 10px 20px color-mix(in srgb, var(--primary) 40%, transparent);
 }
 
-/* Full link list collapses into this on mobile; About/FAQ live inline above 760px instead. */
+/* Full link list collapses into this below 900px; the three main links show inline above it. */
 .menu-wrap {
   position: relative;
 }
 
-@media (min-width: 760px) {
+@media (min-width: 900px) { /* three ES links + CTA need ~880px on one line */
   .menu-wrap { display: none; }
   .site-nav-links,
   .nav-cta { display: inline-flex; align-items: center; }
