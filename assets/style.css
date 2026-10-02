@@ -29,6 +29,7 @@
   --accent-purple: #8B3FE0;
   --border: #E8E1D5;
   --code-bg: #FDE7DE;
+  --badge-text: #B82B00; /* --primary is 4.09:1 on --code-bg; this is 5.2:1 */
   --shadow-rgb: 36, 35, 33;
 
   --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -48,6 +49,7 @@
     --accent-purple: #A66BF0;
     --border: #4A4742;
     --code-bg: #3A2620;
+    --badge-text: #FF7A4D;
     --shadow-rgb: 0, 0, 0;
   }
 }
@@ -63,6 +65,7 @@
   --accent-purple: #A66BF0;
   --border: #4A4742;
   --code-bg: #3A2620;
+  --badge-text: #FF7A4D;
   --shadow-rgb: 0, 0, 0;
 }
 
@@ -469,7 +472,7 @@ main ul, main ol {
   align-items: center;
   gap: 7px;
   background: var(--code-bg);
-  color: var(--primary);
+  color: var(--badge-text, var(--primary));
   font-size: 12px;
   font-weight: 700;
   padding: 4px 12px 4px 10px;
@@ -640,7 +643,7 @@ main ul, main ol {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 380px;
+  width: min(380px, 92vw); /* never wider than a 375px phone screen */
   height: 480px;
   border-radius: 48px;
   background: color-mix(in srgb, var(--primary) 10%, transparent);
