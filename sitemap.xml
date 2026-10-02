@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://descubr.com/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://descubr.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://descubr.com/?lang=es"/>
+    <lastmod>2026-10-02</lastmod>
+    <image:image><image:loc>https://descubr.com/assets/app-explore.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-map.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-walk.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-unlock.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-audio.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-complete.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-mytours.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-quiz.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-descoins.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-badges.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-explore-es.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-map-es.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-walk-es.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-unlock-es.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-audio-es.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-complete-es.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-mytours-es.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-quiz-es.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-descoins-es.jpg</image:loc></image:image>
+    <image:image><image:loc>https://descubr.com/assets/app-badges-es.jpg</image:loc></image:image>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

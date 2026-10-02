@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      data-title-es="DescubR: tours autoguiados creados por guías locales"
+      data-description-es="Tours a pie autoguiados creados por guías locales, con vídeo, audio y retos en cada parada, mapa sin conexión y la primera parada gratis. Descarga DescubR en iPhone y Android.">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,18 +14,33 @@
       }
     })();
   </script>
-  <title>DescubR</title>
-  <meta name="description" content="Self-guided tours created by local guides, anywhere in the world.">
+  <title>DescubR: self-guided tours made by local guides</title>
+  <meta name="description" content="Self-guided walking tours made by local guides, with video, audio and quizzes at every stop, offline maps and the first stop free. Get DescubR on iPhone and Android.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#FFF8F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#242321" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://descubr.com/">
+  <link rel="alternate" hreflang="en" href="https://descubr.com/">
+  <link rel="alternate" hreflang="es" href="https://descubr.com/?lang=es">
+  <link rel="alternate" hreflang="x-default" href="https://descubr.com/">
+  <!-- STORE LINK: once the iOS app is live, uncomment and add its App Store id
+       to get Safari's "Open in app" banner:
+  <meta name="apple-itunes-app" content="app-id=0000000000"> -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DescubR">
-  <meta property="og:title" content="DescubR">
-  <meta property="og:description" content="Self-guided tours created by local guides, anywhere in the world.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:title" content="DescubR: self-guided tours made by local guides">
+  <meta property="og:description" content="Walk the route at your own pace and unlock video, audio and quizzes at every stop. Works offline, first stop free. On iPhone and Android.">
   <meta property="og:url" content="https://descubr.com/">
   <meta property="og:image" content="https://descubr.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The DescubR app showing self-guided tours in Madrid">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DescubR">
-  <meta name="twitter:description" content="Self-guided tours created by local guides, anywhere in the world.">
+  <meta name="twitter:site" content="@descubr_app">
+  <meta name="twitter:title" content="DescubR: self-guided tours made by local guides">
+  <meta name="twitter:description" content="Walk the route at your own pace and unlock video, audio and quizzes at every stop. Works offline, first stop free.">
   <meta name="twitter:image" content="https://descubr.com/assets/og-image.png">
   <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -32,23 +49,71 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "DescubR",
-    "url": "https://descubr.com/",
-    "logo": "https://descubr.com/assets/favicon.png",
-    "sameAs": [
-      "https://www.tiktok.com/@descubr_app",
-      "https://www.instagram.com/descubr_app/",
-      "https://x.com/descubr_app"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://descubr.com/#organization",
+        "name": "DescubR",
+        "url": "https://descubr.com/",
+        "logo": "https://descubr.com/assets/favicon.png",
+        "email": "hello@descubr.com",
+        "sameAs": [
+          "https://www.tiktok.com/@descubr_app",
+          "https://www.instagram.com/descubr_app/",
+          "https://x.com/descubr_app"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://descubr.com/#website",
+        "name": "DescubR",
+        "url": "https://descubr.com/",
+        "inLanguage": ["en", "es"],
+        "publisher": { "@id": "https://descubr.com/#organization" }
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "DescubR",
+        "operatingSystem": "iOS, Android",
+        "applicationCategory": "TravelApplication",
+        "description": "Self-guided walking tours made by local guides, with video, audio, text and quizzes at every stop, offline downloads and Descoin rewards.",
+        "url": "https://descubr.com/",
+        "inLanguage": ["en", "es"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "screenshot": [
+          "https://descubr.com/assets/app-explore.jpg",
+          "https://descubr.com/assets/app-walk.jpg",
+          "https://descubr.com/assets/app-unlock.jpg",
+          "https://descubr.com/assets/app-audio.jpg"
+        ],
+        "publisher": { "@id": "https://descubr.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is the DescubR app free?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Downloading the app is free on iPhone and Android. Each tour has its own price, set by the guide who made it, and the first stop of every tour is free to try." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need an internet connection during a tour?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Not if you download the tour first. A downloaded tour keeps its video, audio and the map around its stops on your phone, so you can walk it with no signal." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long can I use a tour after buying it?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A tour stays in your account for 365 days, and you can walk it as many times as you like in that time." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I create and sell my own tour?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Becoming a guide is free and there's no application to fill in. You build the tour in the app or the guide portal, set your own price, and earn every time someone buys it." }
+          }
+        ]
+      }
     ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "DescubR",
-    "url": "https://descubr.com/"
   }
   </script>
 </head>
@@ -59,7 +124,8 @@
       <a class="wordmark" href="./"><img src="assets/logo-mark.svg" alt="" width="26" height="26" class="wordmark-icon"><span class="word">Descub<span class="r">R</span></span></a>
       <div class="site-nav">
         <nav class="site-nav-links">
-          <a href="about/"><span data-i18n="en">About</span><span data-i18n="es">Sobre nosotros</span></a>
+          <a href="#how-it-works"><span data-i18n="en">How it works</span><span data-i18n="es">Cómo funciona</span></a>
+          <a href="#for-guides"><span data-i18n="en">For guides</span><span data-i18n="es">Para guías</span></a>
           <a href="faq/"><span data-i18n="en">FAQ</span><span data-i18n="es">Preguntas frecuentes</span></a>
         </nav>
         <div class="menu-wrap">
@@ -67,6 +133,8 @@
             <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
           </button>
           <nav class="site-menu" data-menu hidden>
+            <a href="#how-it-works"><span data-i18n="en">How it works</span><span data-i18n="es">Cómo funciona</span></a>
+            <a href="#for-guides"><span data-i18n="en">For guides</span><span data-i18n="es">Para guías</span></a>
             <a href="about/"><span data-i18n="en">About</span><span data-i18n="es">Sobre nosotros</span></a>
             <a href="faq/"><span data-i18n="en">FAQ</span><span data-i18n="es">Preguntas frecuentes</span></a>
             <a href="privacy/"><span data-i18n="en">Privacy Policy</span><span data-i18n="es">Política de privacidad</span></a>
@@ -79,50 +147,48 @@
           <option value="es">Español</option>
         </select>
         <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2M10 16.2v2M3.7 3.7l1.4 1.4M14.9 14.9l1.4 1.4M1.8 10h2M16.2 10h2M3.7 16.3l1.4-1.4M14.9 5.1l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.2 12.4A7.2 7.2 0 1 1 7.6 2.8a5.6 5.6 0 0 0 9.6 9.6Z"/></svg></button>
-        <a class="nav-cta" href="#waitlist-email"><span data-i18n="en">Join waitlist</span><span data-i18n="es">Únete a la lista</span></a>
+        <a class="nav-cta" href="#download"><span data-i18n="en">Get the app</span><span data-i18n="es">Descarga la app</span></a>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <div class="wrap wrap-wide hero">
       <div class="hero-grid">
         <div class="hero-content">
           <div data-i18n="en">
-            <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Launching soon in Spain</span>
+            <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Now on iPhone and Android</span>
             <h1>Self-guided tours, from people who actually know the place</h1>
-            <p class="lede">Pick a tour, walk the route, and unlock video, audio and stories at every stop. No groups, no fixed schedule, all at your own pace.</p>
+            <p class="lede">Pick a tour, walk the route and unlock video, audio and stories at every stop. No group to keep up with and no schedule to stick to.</p>
           </div>
           <div data-i18n="es">
-            <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Muy pronto en España</span>
+            <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Ya disponible en iPhone y Android</span>
             <h1>Tours autoguiados, creados por quienes realmente conocen el lugar</h1>
-            <p class="lede">Elige un tour, recorre la ruta y desbloquea vídeo, audio e historias en cada parada. Sin grupos ni horarios fijos, todo a tu ritmo.</p>
+            <p class="lede">Elige un tour, recorre la ruta y desbloquea vídeo, audio e historias en cada parada. Sin grupo al que seguir ni horario que cumplir.</p>
           </div>
-
-          <form class="waitlist-form" data-waitlist-form>
-            <label class="sr-only" for="waitlist-email">
-              <span data-i18n="en">Email address</span>
-              <span data-i18n="es">Correo electrónico</span>
-            </label>
-            <input type="email" id="waitlist-email" required
-                   data-i18n-placeholder-en="you@example.com" data-i18n-placeholder-es="tu@ejemplo.com"
-                   placeholder="you@example.com">
-            <button type="submit">
-              <span data-i18n="en">Notify me</span>
-              <span data-i18n="es">Avísame</span>
-            </button>
-          </form>
-          <p class="waitlist-note">
-            <span data-i18n="en">We'll email you the moment DescubR launches. No spam. <a href="privacy/#en-3">How we use your email</a>.</span>
-            <span data-i18n="es">Te avisaremos en cuanto DescubR esté disponible. Sin spam. <a href="privacy/#es-3">Cómo usamos tu correo</a>.</span>
-          </p>
+          <!-- STORE LINK: replace both href="#download" with the App Store and Google Play URLs once the listings are live. -->
+          <div class="store-buttons">
+            <a class="store-btn" href="#download" data-store="ios">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M10.5 18.5h3"/></svg>
+              <span class="store-btn-text"><small><span data-i18n="en">Download on the</span><span data-i18n="es">Descárgala en el</span></small><strong>App Store</strong></span>
+            </a>
+            <a class="store-btn" href="#download" data-store="android">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M5.2 2.8a1 1 0 0 0-.7 1v16.4a1 1 0 0 0 .7 1L14 12 5.2 2.8Zm10.1 7.9L6.9 2.2l10.9 6.3-2.5 2.2Zm0 2.6 2.5 2.2-10.9 6.3 8.4-8.5Zm4.2-3.6-2.6-1.5-2.8 2.4 2.8 2.4 2.6-1.5a1 1 0 0 0 0-1.8Z"/></svg>
+              <span class="store-btn-text"><small><span data-i18n="en">Get it on</span><span data-i18n="es">Disponible en</span></small><strong>Google Play</strong></span>
+            </a>
+          </div>
+          <ul class="hero-points">
+            <li><span data-i18n="en">Free to download</span><span data-i18n="es">Descarga gratis</span></li>
+            <li><span data-i18n="en">First stop of every tour free</span><span data-i18n="es">La primera parada de cada tour es gratis</span></li>
+            <li><span data-i18n="en">Works offline</span><span data-i18n="es">Funciona sin conexión</span></li>
+          </ul>
         </div>
-
         <div class="hero-visual" data-reveal>
           <div class="phone-frame">
             <div class="phone-notch" aria-hidden="true"></div>
-            <img src="assets/how-it-works-discover.jpg" width="640" height="1397" loading="eager"
-                 alt="DescubR nearby map showing self-guided tour pins around Madrid">
+            <img src="assets/app-explore.jpg" data-src-es="assets/app-explore-es.jpg" data-alt-es="Pantalla Explorar de la app DescubR con tours autoguiados por Madrid, como una ruta nocturna y otra de Sol al Retiro" width="640" height="1428" fetchpriority="high"
+                 alt="DescubR app Explore screen listing self-guided tours in Madrid, including a tapas and vermouth crawl and a nightlife route">
           </div>
           <div class="float-chip float-chip-a">
             <svg class="float-chip-icon" viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z"/><circle cx="10" cy="8" r="2.2"/></svg>
@@ -130,172 +196,229 @@
             <span data-i18n="es">Tours cerca de ti</span>
           </div>
           <div class="float-chip float-chip-b">
-            <svg class="float-chip-icon" viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v-1a7 7 0 0 1 14 0v1"/><rect x="2.4" y="11" width="3.4" height="5" rx="1.4"/><rect x="14.2" y="11" width="3.4" height="5" rx="1.4"/></svg>
-            <span data-i18n="en">Video, audio &amp; stories</span>
-            <span data-i18n="es">Vídeo, audio e historias</span>
+            <svg class="float-chip-icon" viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 15.5h12"/></svg>
+            <span data-i18n="en">Download and go offline</span>
+            <span data-i18n="es">Descarga y úsalo sin conexión</span>
           </div>
         </div>
       </div>
     </div>
 
-    <section class="section">
-      <div class="wrap">
+    <!-- Why DescubR -->
+    <section class="section" aria-labelledby="why-title">
+      <div class="wrap wrap-wide">
         <span class="kicker">
-          <span data-i18n="en">The process</span>
-          <span data-i18n="es">El proceso</span>
+          <span data-i18n="en">Why DescubR</span>
+          <span data-i18n="es">Por qué DescubR</span>
         </span>
-        <h2 class="section-title">
-          <span data-i18n="en">How it works</span>
-          <span data-i18n="es">Cómo funciona</span>
+        <h2 class="section-title" id="why-title">
+          <span data-i18n="en">A guided tour that fits around your day</span>
+          <span data-i18n="es">Un tour guiado que se adapta a tu día</span>
         </h2>
         <p class="section-lede">
-          <span data-i18n="en">Six steps between you and your next tour.</span>
-          <span data-i18n="es">Seis pasos entre tú y tu próximo tour.</span>
+          <span data-i18n="en">All the stories of a good local guide, on your phone, whenever you feel like walking.</span>
+          <span data-i18n="es">Todas las historias de alguien que conoce bien el lugar, en tu móvil, cuando te apetezca salir a caminar.</span>
+        </p>
+        <div class="value-grid">
+          <div class="value-card" data-reveal>
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div data-i18n="en"><h3>Go when you want</h3><p>Start at nine in the morning or nine at night. Stop for a coffee and pick up where you left off.</p></div>
+            <div data-i18n="es"><h3>Ve cuando quieras</h3><p>Empieza a las nueve de la mañana o a las nueve de la noche. Para a tomar algo y sigue donde lo dejaste.</p></div>
+          </div>
+          <div class="value-card" data-reveal>
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5a7 7 0 1 0-14 0C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <div data-i18n="en"><h3>Made by locals</h3><p>Every route is written by someone who knows those streets, and our team reviews it before it goes live.</p></div>
+            <div data-i18n="es"><h3>Creado por gente del lugar</h3><p>Cada ruta la crea alguien que conoce bien esas calles, y nuestro equipo la revisa antes de publicarla.</p></div>
+          </div>
+          <div class="value-card" data-reveal>
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 21V7M12 7H8a2.5 2.5 0 1 1 0-5c3 0 4 5 4 5Zm0 0h4a2.5 2.5 0 1 0 0-5c-3 0-4 5-4 5Z"/></svg></span>
+            <div data-i18n="en"><h3>Try before you pay</h3><p>The first stop of every tour is free, so you know exactly what you're getting.</p></div>
+            <div data-i18n="es"><h3>Prueba antes de pagar</h3><p>La primera parada de cada tour es gratis, así sabes exactamente lo que vas a comprar.</p></div>
+          </div>
+          <div class="value-card" data-reveal>
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg></span>
+            <div data-i18n="en"><h3>No signal, no problem</h3><p>Download a tour before you head out. Video, audio and the map of the area keep working offline.</p></div>
+            <div data-i18n="es"><h3>Sin cobertura, sin problema</h3><p>Descarga el tour antes de salir. El vídeo, el audio y el mapa de la zona siguen funcionando sin conexión.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="wrap">
+        <span class="kicker">
+          <span data-i18n="en">How it works</span>
+          <span data-i18n="es">Cómo funciona</span>
+        </span>
+        <h2 class="section-title" id="how-title">
+          <span data-i18n="en">From the map to the last stop</span>
+          <span data-i18n="es">Del mapa a la última parada</span>
+        </h2>
+        <p class="section-lede">
+          <span data-i18n="en">This is what a tour looks like on your phone.</span>
+          <span data-i18n="es">Así se ve un tour en tu móvil.</span>
         </p>
 
         <div class="steps">
           <div class="step" data-reveal>
             <div class="step-shot">
-              <img src="assets/how-it-works-discover.jpg" width="640" height="1397" loading="lazy"
-                   alt="DescubR nearby map showing tour pins around the user's location">
+              <img src="assets/app-map.jpg" data-src-es="assets/app-map-es.jpg" data-alt-es="Mapa del centro de Madrid en DescubR con los tours autoguiados cercanos" width="640" height="1428" loading="lazy"
+                   alt="DescubR map of central Madrid with pins for nearby self-guided tours">
             </div>
             <div class="step-text">
               <span class="step-number">1</span>
-              <div data-i18n="en">
-                <h3>Find a tour near you</h3>
-                <p>Open the map and see self-guided tours around you, wherever you are.</p>
-              </div>
-              <div data-i18n="es">
-                <h3>Encuentra un tour cerca de ti</h3>
-                <p>Abre el mapa y descubre tours autoguiados a tu alrededor, estés donde estés.</p>
-              </div>
+              <div data-i18n="en"><h3>Find a tour near you</h3><p>Open the map and see the tours around you, wherever you are. Filter by food, history, art, nightlife and more.</p></div>
+              <div data-i18n="es"><h3>Encuentra un tour cerca de ti</h3><p>Abre el mapa y mira los tours que tienes alrededor, estés donde estés. Filtra por gastronomía, historia, arte, ocio nocturno y más.</p></div>
             </div>
           </div>
 
           <div class="step" data-reveal>
             <div class="step-shot">
-              <img src="assets/how-it-works-route.jpg" width="640" height="1397" loading="lazy"
-                   alt="DescubR tour detail screen showing the route overview and guide profile">
+              <img src="assets/app-walk.jpg" data-src-es="assets/app-walk-es.jpg" data-alt-es="Pantalla de un tour en DescubR con la primera parada y su ubicación en el mapa" width="640" height="1428" loading="lazy"
+                   alt="DescubR tour screen showing the first stop, its location on a map and the distance to walk there">
             </div>
             <div class="step-text">
               <span class="step-number">2</span>
-              <div data-i18n="en">
-                <h3>See the route before you go</h3>
-                <p>Check the stops, the guide, and what's included, so there are no surprises.</p>
-              </div>
-              <div data-i18n="es">
-                <h3>Consulta la ruta antes de empezar</h3>
-                <p>Revisa las paradas, quién guía el tour y qué incluye, así no hay sorpresas.</p>
-              </div>
+              <div data-i18n="en"><h3>Walk to the first stop</h3><p>The app shows you where the stop is and how far you have left. Prefer your usual maps app? One tap opens directions there.</p></div>
+              <div data-i18n="es"><h3>Camina hasta la primera parada</h3><p>La app te muestra dónde está la parada y cuánto te queda. ¿Prefieres tu app de mapas de siempre? Un toque y te abre la ruta allí.</p></div>
             </div>
           </div>
 
           <div class="step" data-reveal>
             <div class="step-shot">
-              <img src="assets/how-it-works-stops.jpg" width="640" height="1397" loading="lazy"
-                   alt="DescubR tour stop list showing video, text and other content types ready at each stop">
+              <img src="assets/app-unlock.jpg" data-src-es="assets/app-unlock-es.jpg" data-alt-es="DescubR anuncia un cofre oculto de Descoins en la azotea del Círculo de Bellas Artes, con un botón para ver el vídeo del guía" width="640" height="1428" loading="lazy"
+                   alt="DescubR screen announcing a hidden Descoin chest found at the Círculo de Bellas Artes rooftop, with a button to watch the guide's video">
+              <span class="reward-chip" aria-hidden="true">+ Descoins</span>
             </div>
             <div class="step-text">
               <span class="step-number">3</span>
-              <div data-i18n="en">
-                <h3>Check what's waiting at each stop</h3>
-                <p>Every stop shows what you'll get (a video, a story, a short game) before you even start walking.</p>
-              </div>
-              <div data-i18n="es">
-                <h3>Descubre qué te espera en cada parada</h3>
-                <p>Cada parada muestra lo que vas a encontrar (un vídeo, una historia, un breve juego) antes incluso de empezar a caminar.</p>
-              </div>
+              <div data-i18n="en"><h3>Unlock what's waiting there</h3><p>When you arrive, you find a hidden Descoin chest. Inside is the guide's video, an audio story, a short read or a quiz about that exact spot.</p></div>
+              <div data-i18n="es"><h3>Desbloquea lo que te espera</h3><p>Al llegar encuentras un cofre oculto de Descoins. Dentro está el vídeo del guía, una historia en audio, un texto corto o un reto sobre ese mismo lugar.</p></div>
             </div>
           </div>
 
           <div class="step" data-reveal>
             <div class="step-shot">
-              <img src="assets/how-it-works-walk.jpg" width="640" height="1397" loading="lazy"
-                   alt="DescubR active tour screen showing walking distance to the next stop">
+              <img src="assets/app-audio.jpg" data-src-es="assets/app-audio-es.jpg" data-alt-es="Reproductor de audio de DescubR en la parada del Mercado de San Miguel" width="640" height="1428" loading="lazy"
+                   alt="DescubR audio player at the Mercado de San Miguel stop">
             </div>
             <div class="step-text">
               <span class="step-number">4</span>
-              <div data-i18n="en">
-                <h3>Walk to the first stop</h3>
-                <p>Follow the distance counter, or tap Get Directions if you'd rather use your usual maps app.</p>
-              </div>
-              <div data-i18n="es">
-                <h3>Camina hasta la primera parada</h3>
-                <p>Sigue el contador de distancia, o toca "Cómo llegar" si prefieres tu app de mapas habitual.</p>
-              </div>
+              <div data-i18n="en"><h3>Listen, watch and look around</h3><p>Stories you won't find on a plaque, told by someone who knows them. Put your headphones in and keep your eyes on the street.</p></div>
+              <div data-i18n="es"><h3>Escucha, mira y descubre</h3><p>Historias que no vienen en ninguna placa, contadas por quien las conoce. Ponte los auriculares y no pierdas detalle de la calle.</p></div>
             </div>
           </div>
 
           <div class="step" data-reveal>
             <div class="step-shot">
-              <img src="assets/how-it-works-arrive.jpg" width="640" height="1397" loading="lazy"
-                   alt="DescubR active tour screen confirming arrival at a stop with a button to unlock the hidden Descoin chest">
+              <img src="assets/app-complete.jpg" data-src-es="assets/app-complete-es.jpg" data-alt-es="Pantalla de tour completado en DescubR para una ruta nocturna de cinco paradas por Madrid" width="640" height="1428" loading="lazy"
+                   alt="DescubR tour complete screen for a five-stop Madrid nightlife tour">
             </div>
             <div class="step-text">
               <span class="step-number">5</span>
-              <div data-i18n="en">
-                <h3>Arrive and tap to unlock</h3>
-                <p>Once you're at the stop, the app confirms it. Tap "Unlock hidden Descoin chest" to see what's waiting for you.</p>
-              </div>
-              <div data-i18n="es">
-                <h3>Llega y toca para desbloquear</h3>
-                <p>En cuanto estás en la parada, la app lo confirma. Toca "Desbloquear cofre oculto" y descubre lo que te espera.</p>
-              </div>
+              <div data-i18n="en"><h3>Finish, then do it again</h3><p>Tick off every stop and keep the tour for a whole year. Walk it again with friends, or redo it at night for a different city.</p></div>
+              <div data-i18n="es"><h3>Termínalo y repítelo</h3><p>Completa todas las paradas y quédate el tour durante un año entero. Vuelve a hacerlo con amigos, o repítelo de noche y verás otra ciudad.</p></div>
             </div>
           </div>
-
-          <div class="step" data-reveal>
-            <div class="step-shot">
-              <img src="assets/how-it-works-unlock.jpg" width="640" height="1397" loading="lazy"
-                   alt="DescubR screen revealing a stop's hidden Descoin chest with its unlocked video content">
-              <span class="reward-chip" aria-hidden="true">+15 Descoins</span>
-            </div>
-            <div class="step-text">
-              <span class="step-number">6</span>
-              <div data-i18n="en">
-                <h3>Unlock your hidden Descoin chest</h3>
-                <p>Reveal the video, story or challenge waiting at that spot, plus a handful of Descoins for finding it.</p>
-              </div>
-              <div data-i18n="es">
-                <h3>Desbloquea tu cofre oculto de Descoins</h3>
-                <p>Descubre el vídeo, historia o reto que te espera en ese punto, más un puñado de Descoins por encontrarlo.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="referral-note" data-reveal>
-          <span class="referral-note-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="4" rx="1"/><rect x="4" y="13" width="16" height="8" rx="1"/><path d="M12 9v12"/><path d="M12 9c-1.4-3-6-3-6 0h6Zm0 0c1.4-3 6-3 6 0h-6Z"/></svg>
-          </span>
-          <p data-i18n="en">
-            <strong>Bonus: invite friends.</strong> Share your code from the
-            app. When a friend signs up with it and buys their first tour, you both earn Descoins toward your next trip.
-          </p>
-          <p data-i18n="es">
-            <strong>Extra: invita a tus amigos.</strong> Comparte tu código
-            desde la app. Cuando alguien se registre con él y compre su primer tour, ganaréis Descoins tanto tú como esa persona para vuestro próximo viaje.
-          </p>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Offline -->
+    <section class="section" aria-labelledby="offline-title">
+      <div class="wrap wrap-wide">
+        <div class="feature-split" data-reveal>
+          <div class="feature-text">
+            <span class="kicker kicker-left">
+              <span data-i18n="en">Made for real streets</span>
+              <span data-i18n="es">Pensado para la calle</span>
+            </span>
+            <div data-i18n="en">
+              <h2 id="offline-title">Your tour keeps going when the signal doesn't</h2>
+              <p>Old town alleys, underground markets, a phone on roaming: tap download before you leave and the whole tour comes with you.</p>
+              <ul class="check-list">
+                <li>Video, audio and texts saved on your phone</li>
+                <li>The map around every stop, readable offline</li>
+                <li>Each stop's address, so you can always ask the way</li>
+                <li>Your progress syncs as soon as you're back online</li>
+              </ul>
+            </div>
+            <div data-i18n="es">
+              <h2>Tu tour sigue aunque se vaya la cobertura</h2>
+              <p>Callejones del casco antiguo, mercados subterráneos, el móvil en itinerancia: pulsa descargar antes de salir y el tour entero va contigo.</p>
+              <ul class="check-list">
+                <li>Vídeo, audio y textos guardados en tu móvil</li>
+                <li>El mapa alrededor de cada parada, también sin conexión</li>
+                <li>La dirección de cada parada, para que siempre puedas preguntar cómo llegar</li>
+                <li>Tu progreso se sincroniza en cuanto vuelves a tener conexión</li>
+              </ul>
+            </div>
+          </div>
+          <div class="feature-visual">
+            <div class="phone-frame phone-frame-sm">
+              <div class="phone-notch" aria-hidden="true"></div>
+              <img src="assets/app-mytours.jpg" data-src-es="assets/app-mytours-es.jpg" data-alt-es="Pantalla Mis Tours de DescubR con el tour comprado Royal Madrid (Palacio Real, Teatro Real y Jardines de Sabatini) y pestañas de favoritos y descargas" width="640" height="1064" loading="lazy"
+                   alt="DescubR My Tours screen with a purchased Royal Madrid tour and tabs for favourites and downloads">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rewards -->
+    <section class="section" aria-labelledby="rewards-title">
+      <div class="wrap wrap-wide">
+        <span class="kicker">
+          <span data-i18n="en">Rewards</span>
+          <span data-i18n="es">Recompensas</span>
+        </span>
+        <h2 class="section-title" id="rewards-title">
+          <span data-i18n="en">Explore more, pay less</span>
+          <span data-i18n="es">Explora más, paga menos</span>
+        </h2>
+        <p class="section-lede">
+          <span data-i18n="en">Stops, quizzes, reviews and new cities all earn Descoins. Swap them for discounts on your next tour and collect luggage tags along the way.</span>
+          <span data-i18n="es">Las paradas, los retos, las reseñas y las ciudades nuevas suman Descoins. Cámbialos por descuentos en tu próximo tour y colecciona etiquetas de equipaje por el camino.</span>
+        </p>
+        <div class="phone-row">
+          <figure data-reveal>
+            <img src="assets/app-quiz.jpg" data-src-es="assets/app-quiz-es.jpg" data-alt-es="Test de DescubR en la parada de Chueca sobre qué plaza de Madrid es punto de encuentro nocturno" width="640" height="1428" loading="lazy" alt="DescubR quiz at the Chueca stop asking which Madrid square is a late-night gathering spot">
+            <figcaption><span data-i18n="en">Get the quiz right first time</span><span data-i18n="es">Acierta el reto a la primera</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <img src="assets/app-descoins.jpg" data-src-es="assets/app-descoins-es.jpg" data-alt-es="Mercado de DescubR con el saldo de Descoins y descuentos para canjear en el próximo tour" width="640" height="1428" loading="lazy" alt="DescubR Marketplace showing a Descoin balance and discounts to redeem on the next tour">
+            <figcaption><span data-i18n="en">Swap Descoins for discounts</span><span data-i18n="es">Cambia Descoins por descuentos</span></figcaption>
+          </figure>
+          <figure data-reveal>
+            <img src="assets/app-badges.jpg" data-src-es="assets/app-badges-es.jpg" data-alt-es="Pantalla Etiquetas de equipaje de DescubR con el progreso en tours completados, ciudades visitadas y tests" width="640" height="1428" loading="lazy" alt="DescubR Luggage tags screen with progress on tours completed, cities visited and quizzes">
+            <figcaption><span data-i18n="en">Collect luggage tags</span><span data-i18n="es">Colecciona etiquetas de equipaje</span></figcaption>
+          </figure>
+        </div>
+        <div class="referral-note" data-reveal>
+          <span class="referral-note-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 11a2.8 2.8 0 1 0 0-5.6M17 19h3.5a4.5 4.5 0 0 0-3.2-4.3"/></svg></span>
+          <p data-i18n="en"><strong>Better with friends.</strong> Share your code from the app. When someone signs up with it and buys their first tour, you both earn Descoins.</p>
+          <p data-i18n="es"><strong>Mejor en compañía.</strong> Comparte tu código desde la app. Cuando alguien se registre con él y compre su primer tour, ganaréis Descoins tanto tú como esa persona.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tour types -->
+    <section class="section" aria-labelledby="types-title">
       <div class="wrap">
         <span class="kicker">
           <span data-i18n="en">Experiences</span>
           <span data-i18n="es">Experiencias</span>
         </span>
-        <h2 class="section-title">
+        <h2 class="section-title" id="types-title">
           <span data-i18n="en">A tour for every kind of curiosity</span>
           <span data-i18n="es">Un tour para cada tipo de curiosidad</span>
         </h2>
         <p class="section-lede">
-          <span data-i18n="en">Guides publish tours across all kinds of experiences.</span>
-          <span data-i18n="es">Hay tours de todo tipo de experiencias, cada uno publicado por su guía.</span>
+          <span data-i18n="en">Tapas crawls, royal palaces, street art, ghost stories after dark. Pick the city and the mood.</span>
+          <span data-i18n="es">Rutas de tapas, palacios reales, arte urbano, historias de fantasmas al caer la noche. Elige la ciudad y el plan.</span>
         </p>
-
-        <div class="type-grid" data-reveal>
+                <div class="type-grid" data-reveal>
           <span class="type-pill" style="background:#D632001A; color:#D63200;"><svg width="15" height="15" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M314.21,482.32,257.44,367.58l-44.89-57.39a72.82,72.82,0,0,1-10.13-37.05V144h15.67a40.22,40.22,0,0,1,40.23,40.22V367.58" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><path d="M127.9,293.05V218.53S165.16,144,202.42,144" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="370.1" y1="274.42" x2="304" y2="231" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="170.53" y1="478.36" x2="224" y2="400" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><circle cx="258.32" cy="69.48" r="37.26" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg> <span data-i18n="en">Walking Tour</span><span data-i18n="es">Ruta a pie</span></span>
           <span class="type-pill" style="background:#E0335B1A; color:#E0335B;"><svg width="15" height="15" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M57.49,47.74,425.92,416.17a37.28,37.28,0,0,1,0,52.72h0a37.29,37.29,0,0,1-52.72,0l-90-91.55A32,32,0,0,1,274,354.91v-5.53a32,32,0,0,0-9.52-22.78l-11.62-10.73a32,32,0,0,0-29.8-7.44h0A48.53,48.53,0,0,1,176.5,295.8L91.07,210.36C40.39,159.68,21.74,83.15,57.49,47.74Z" style="fill:none;stroke:currentColor;stroke-linejoin:round;stroke-width:32px"/><path d="M400,32l-77.25,77.25A64,64,0,0,0,304,154.51v14.86a16,16,0,0,1-4.69,11.32L288,192" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><path d="M320,224l11.31-11.31A16,16,0,0,1,342.63,208h14.86a64,64,0,0,0,45.26-18.75L480,112" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="440" y1="72" x2="360" y2="152" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><path d="M200,368,100.28,468.28a40,40,0,0,1-56.56,0h0a40,40,0,0,1,0-56.56L128,328" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg> <span data-i18n="en">Food Tour</span><span data-i18n="es">Ruta gastronómica</span></span>
           <span class="type-pill" style="background:#9C4A1F1A; color:#9C4A1F;"><svg width="15" height="15" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M256,160c16-63.16,76.43-95.41,208-96a15.94,15.94,0,0,1,16,16V368a16,16,0,0,1-16,16c-128,0-177.45,25.81-208,64-30.37-38-80-64-208-64-9.88,0-16-8.05-16-17.93V80A15.94,15.94,0,0,1,48,64C179.57,64.59,240,96.84,256,160Z" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="256" y1="160" x2="256" y2="448" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg> <span data-i18n="en">Historical Tour</span><span data-i18n="es">Ruta histórica</span></span>
@@ -308,20 +431,85 @@
       </div>
     </section>
 
-    <section class="section">
+    <!-- For guides -->
+    <section class="section" id="for-guides" aria-labelledby="guides-title">
       <div class="wrap">
         <div class="guide-cta" data-reveal>
           <div data-i18n="en">
             <span class="kicker">For local guides</span>
-            <h2>Know a place inside out?</h2>
-            <p>Create a self-guided tour and earn every time someone takes it, from anywhere in the world. Once you have an account, you can become a guide from your profile for free. There's no application to fill in.</p>
-            <a class="button" href="#waitlist-email">Join the waitlist to get started</a>
+            <h2 id="guides-title">Know a place inside out? Turn it into a tour.</h2>
+            <p>Record videos, write the stories, add a quiz or two and set your own price. Travelers buy your tour from anywhere in the world, and you earn every time. Becoming a guide is free and there's no application to fill in.</p>
+            <div class="cta-row">
+              <a class="button" href="https://guide.descubr.com" target="_blank" rel="noopener">Open the guide portal</a>
+              <a class="button button-ghost" href="#download">Or start in the app</a>
+            </div>
           </div>
           <div data-i18n="es">
             <span class="kicker">Para guías locales</span>
-            <h2>¿Conoces un lugar a fondo?</h2>
-            <p>Crea un tour autoguiado y gana cada vez que alguien lo haga, desde cualquier parte del mundo. Con tu cuenta creada, puedes hacerte guía gratis desde tu perfil. No hay que rellenar ninguna solicitud.</p>
-            <a class="button" href="#waitlist-email">Únete a la lista de espera</a>
+            <h2>¿Conoces un lugar a fondo? Conviértelo en un tour.</h2>
+            <p>Graba vídeos, escribe las historias, añade algún reto y pon tu propio precio. Gente de todo el mundo puede comprar tu tour, y ganas cada vez que alguien lo hace. Hacerte guía es gratis y no hay que rellenar ninguna solicitud.</p>
+            <div class="cta-row">
+              <a class="button" href="https://guide.descubr.com" target="_blank" rel="noopener">Abrir el portal de guías</a>
+              <a class="button button-ghost" href="#download">O empieza en la app</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" aria-labelledby="faq-title">
+      <div class="wrap">
+        <span class="kicker">
+          <span data-i18n="en">Questions</span>
+          <span data-i18n="es">Dudas</span>
+        </span>
+        <h2 class="section-title" id="faq-title">
+          <span data-i18n="en">Before you download</span>
+          <span data-i18n="es">Antes de descargar</span>
+        </h2>
+        <div class="faq-mini">
+          <div data-i18n="en">
+            <details class="faq-item"><summary>Is the app free?</summary><p>Downloading DescubR is free on iPhone and Android. Each tour has its own price, set by the guide who made it, and the first stop of every tour is free to try.</p></details>
+            <details class="faq-item"><summary>Do I need an internet connection during a tour?</summary><p>Not if you download it first. A downloaded tour keeps its video, audio and the map around its stops on your phone, so you can walk it with no signal.</p></details>
+            <details class="faq-item"><summary>How long can I use a tour after buying it?</summary><p>A tour stays in your account for 365 days, and you can walk it as many times as you like in that time.</p></details>
+            <details class="faq-item"><summary>Where are the tours?</summary><p>We're starting in Spain, with Madrid leading the way, and growing across Europe. Guides can publish a tour for any place in the world, so open the map wherever you are and see what's nearby.</p></details>
+            <p class="faq-more"><a href="faq/">Read all the questions</a></p>
+          </div>
+          <div data-i18n="es">
+            <details class="faq-item"><summary>¿La app es gratis?</summary><p>Descargar DescubR es gratis en iPhone y Android. Cada tour tiene su propio precio, fijado por quien lo creó, y la primera parada de cada tour se puede probar gratis.</p></details>
+            <details class="faq-item"><summary>¿Necesito conexión a internet durante el tour?</summary><p>No, si lo descargas antes. Un tour descargado guarda en tu móvil su vídeo, su audio y el mapa de la zona de sus paradas, así que puedes recorrerlo sin cobertura.</p></details>
+            <details class="faq-item"><summary>¿Cuánto tiempo puedo usar un tour después de comprarlo?</summary><p>El tour se queda en tu cuenta durante 365 días, y puedes recorrerlo tantas veces como quieras en ese tiempo.</p></details>
+            <details class="faq-item"><summary>¿Dónde hay tours?</summary><p>Empezamos en España, con Madrid a la cabeza, y vamos creciendo por Europa. Cada guía puede publicar un tour de cualquier lugar del mundo, así que abre el mapa estés donde estés y mira qué tienes cerca.</p></details>
+            <p class="faq-more"><a href="faq/">Ver todas las preguntas</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section class="section download" id="download" aria-labelledby="download-title">
+      <div class="wrap">
+        <div class="download-card" data-reveal>
+          <img src="assets/logo-mark.svg" alt="" width="56" height="56" class="download-logo">
+          <h2 id="download-title">
+            <span data-i18n="en">Your next walk is already in your pocket</span>
+            <span data-i18n="es">Tu próximo paseo ya está en tu bolsillo</span>
+          </h2>
+          <p>
+            <span data-i18n="en">Download DescubR, try the first stop of any tour for free and head out when it suits you.</span>
+            <span data-i18n="es">Descarga DescubR, prueba gratis la primera parada de cualquier tour y sal cuando te venga bien.</span>
+          </p>
+          <!-- STORE LINK: replace both href="#download" with the App Store and Google Play URLs once the listings are live. -->
+          <div class="store-buttons">
+            <a class="store-btn" href="#download" data-store="ios">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M10.5 18.5h3"/></svg>
+              <span class="store-btn-text"><small><span data-i18n="en">Download on the</span><span data-i18n="es">Descárgala en el</span></small><strong>App Store</strong></span>
+            </a>
+            <a class="store-btn" href="#download" data-store="android">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M5.2 2.8a1 1 0 0 0-.7 1v16.4a1 1 0 0 0 .7 1L14 12 5.2 2.8Zm10.1 7.9L6.9 2.2l10.9 6.3-2.5 2.2Zm0 2.6 2.5 2.2-10.9 6.3 8.4-8.5Zm4.2-3.6-2.6-1.5-2.8 2.4 2.8 2.4 2.6-1.5a1 1 0 0 0 0-1.8Z"/></svg>
+              <span class="store-btn-text"><small><span data-i18n="en">Get it on</span><span data-i18n="es">Disponible en</span></small><strong>Google Play</strong></span>
+            </a>
           </div>
         </div>
       </div>
@@ -354,6 +542,5 @@
   <script src="assets/lang.js"></script>
   <script src="assets/menu.js"></script>
   <script src="assets/theme.js"></script>
-  <script src="assets/waitlist.js"></script>
 </body>
 </html>
