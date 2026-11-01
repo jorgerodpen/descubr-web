@@ -628,7 +628,48 @@ main:has(> .hero) { padding: 0; }
 .hero .store-buttons,
 .hero .hero-points { justify-content: center; }
 
-.hero-visual { position: relative; }
+/* Two overlapping phones: the Explore list in front, the tour it leads to
+   tucked behind and a little higher, like opening the card */
+.hero-visual {
+  display: grid;
+  place-items: center;
+}
+
+.hero-visual {
+  --front-x: -120px;
+  --back-x: 120px;
+  --back-y: -40px;
+  --back-scale: .94;
+}
+
+@media (max-width: 480px) {
+  .hero-visual {
+    --front-x: -44px;
+    --back-x: 44px;
+    --back-y: -24px;
+    --back-scale: .92;
+  }
+}
+
+.hero-visual > .phone-frame { grid-area: 1 / 1; }
+.hero-visual .phone-front { z-index: 2; transform: translateX(var(--front-x)); }
+
+/* On load the detail phone slides out from behind the list, as if the card
+   was just tapped. Scroll depth (theme.js) uses `translate`, a separate
+   property, so it never fights this transform. */
+.hero-visual .phone-back {
+  z-index: 1;
+  transform: translate(var(--back-x), var(--back-y)) scale(var(--back-scale));
+  animation: card-open .9s cubic-bezier(.2, .9, .3, 1) .35s both;
+}
+
+@keyframes card-open {
+  from { transform: translate(var(--front-x), 0) scale(var(--back-scale)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual .phone-back { animation: none; }
+}
 
 .waitlist-form {
   display: flex;
@@ -1413,4 +1454,154 @@ main.docs-main {
   .hero .lede { color: var(--text); }
   .step-shot img,
   .phone-row img { border-color: var(--text-secondary); }
+}
+
+/* ================= How it works: pinned phone walkthrough (desktop) =================
+   theme.js clones the five screenshots into one pinned phone and adds a route
+   track; below 900px the steps stay stacked as before. */
+.steps-stage,
+.steps-track { display: none; }
+
+@media (min-width: 900px) {
+  #how-it-works .wrap { max-width: 1000px; }
+
+  .steps.is-pinned {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 96px;
+    row-gap: 0;
+    max-width: none;
+  }
+
+  .steps.is-pinned .steps-route { display: none; }
+
+  .steps.is-pinned .steps-stage {
+    display: block;
+    grid-column: 1;
+    grid-row: 1 / span 5;
+    align-self: start;
+    position: sticky;
+    top: 76px;
+  }
+
+  .steps-stage .phone-frame {
+    width: min(280px, calc((100vh - 120px) * .44));
+    margin: 0;
+  }
+
+  .stage-shot {
+    position: absolute;
+    inset: 11px;
+    opacity: 0;
+  }
+
+  .phone-notch + .stage-shot { position: relative; inset: auto; }
+  .stage-shot.is-prev { opacity: 1; z-index: 1; }
+  .stage-shot.is-active { opacity: 1; z-index: 2; transition: opacity .45s ease; }
+  .stage-shot img { border-radius: 35px; }
+
+  .steps.is-pinned .step,
+  .steps.is-pinned .step:nth-child(even) {
+    grid-column: 2;
+    flex-direction: row;
+    min-height: 82vh;
+  }
+
+  .steps.is-pinned .step-shot { display: none; }
+
+  .steps.is-pinned .step-text {
+    position: relative;
+    padding-left: 72px;
+    max-width: 440px;
+  }
+
+  /* each step's number becomes a stop on the route */
+  .steps.is-pinned .step-number {
+    position: absolute;
+    left: 0;
+    top: -6px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    border-radius: 50%;
+    background: var(--card);
+    border: 3px solid var(--border);
+    color: var(--text-secondary);
+    transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+  }
+
+  .steps.is-pinned .step.reached .step-number {
+    background: var(--ochre);
+    border-color: var(--ochre);
+    color: #1B1D24;
+  }
+
+  .steps.is-pinned .steps-track {
+    display: block;
+    position: absolute;
+    width: 0;
+    border-left: 3px dashed var(--border);
+    pointer-events: none;
+  }
+
+  .steps-track-fill {
+    position: absolute;
+    left: -3px;
+    top: 0;
+    width: 0;
+    border-left: 3px dashed var(--ochre);
+  }
+}
+
+/* ================= Rewards row: the payoff =================
+   When the row scrolls into view (theme.js), a "+20 Descoins" chip pops onto
+   the quiz and the Marketplace balance counts up to the 59 in the screenshot. */
+.reward-shot {
+  position: relative;
+  display: block;
+  container-type: inline-size;
+}
+
+.reward-pop {
+  position: absolute;
+  left: 50%;
+  top: 74%;
+  padding: 1.8cqw 4.4cqw;
+  border-radius: 999px;
+  background: var(--ochre);
+  color: #1B1D24;
+  font-size: 5.6cqw;
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-50%) scale(.6);
+  transition: transform .5s cubic-bezier(.3, 1.6, .5, 1), opacity .2s ease;
+}
+
+.phone-row.rewards-live .reward-pop {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* sits exactly over the balance printed in the screenshot (133-193 x 309-351 of 640x1428) */
+.coin-count {
+  position: absolute;
+  left: 20.4%;
+  top: 21%;
+  width: 17%;
+  height: 4.4%;
+  display: flex;
+  align-items: center;
+  background: #1D3EBF;
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-weight: var(--weight-display);
+  font-size: 7.9cqw;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
 }

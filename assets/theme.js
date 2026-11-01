@@ -1,5 +1,6 @@
 // Dark-mode toggle, sticky-header state, reading-progress bar, back-to-top
-// button, docs TOC scroll-spy, nav wayfinding and the home page's walking route. Each feature no-ops if its
+// button, docs TOC scroll-spy, nav wayfinding and the home page's motion
+// (walking route, pinned walkthrough, hero depth, rewards pop). Each feature no-ops if its
 // markup isn't on the page, so this file is safe to include everywhere.
 (function () {
   var root = document.documentElement;
@@ -171,6 +172,121 @@
         });
       }, { rootMargin: '0px 0px -30% 0px' });
       legs.forEach(function (leg) { routeObserver.observe(leg.to); });
+    }
+
+    // Desktop: one pinned phone shows the screenshot of whichever step is in
+    // the middle of the screen, and a route track fills down through the
+    // step numbers as you scroll. Built from the existing step screenshots.
+    var stepList = Array.prototype.slice.call(stepEls);
+    var stage = document.createElement('div');
+    stage.className = 'steps-stage';
+    stage.setAttribute('aria-hidden', 'true');
+    var stageFrame = document.createElement('div');
+    stageFrame.className = 'phone-frame';
+    stageFrame.innerHTML = '<div class="phone-notch"></div>';
+    var stageShots = stepList.map(function (step) {
+      var shot = step.querySelector('.step-shot').cloneNode(true);
+      shot.className = 'stage-shot';
+      shot.querySelectorAll('img').forEach(function (img) { img.loading = 'eager'; img.alt = ''; });
+      stageFrame.appendChild(shot);
+      return shot;
+    });
+    stage.appendChild(stageFrame);
+    steps.insertBefore(stage, steps.firstChild);
+    var track = document.createElement('div');
+    track.className = 'steps-track';
+    track.innerHTML = '<div class="steps-track-fill"></div>';
+    steps.appendChild(track);
+    var trackFill = track.firstChild;
+    var wide = window.matchMedia('(min-width: 900px)');
+    var shownStep = -1;
+
+    var updateWalkthrough = function () {
+      if (!wide.matches) return;
+      var box = steps.getBoundingClientRect();
+      var mid = window.innerHeight / 2;
+      var nodes = stepList.map(function (step) { return step.querySelector('.step-number').getBoundingClientRect(); });
+      var first = nodes[0], last = nodes[nodes.length - 1];
+      var x = first.left + first.width / 2 - box.left - 1.5;
+      var top = first.top + first.height / 2 - box.top;
+      var height = last.top + last.height / 2 - box.top - top;
+      track.style.left = x + 'px';
+      track.style.top = top + 'px';
+      track.style.height = height + 'px';
+      // the stop sits above its step's text, so fill to a line a bit below
+      // the middle: a stop lights up as its screenshot takes over the phone
+      var fillLine = window.innerHeight * 0.62;
+      var filled = Math.max(0, Math.min(height, fillLine - (box.top + top)));
+      trackFill.style.height = filled + 'px';
+      var active = 0, best = Infinity;
+      stepList.forEach(function (step, i) {
+        var nodeY = nodes[i].top + nodes[i].height / 2 - box.top - top;
+        step.classList.toggle('reached', nodeY <= filled + 1);
+        var r = step.getBoundingClientRect();
+        var d = Math.abs(r.top + r.height / 2 - mid);
+        if (d < best) { best = d; active = i; }
+      });
+      // the new screen fades in over the old one, which stays solid underneath,
+      // so the phone's dark frame never shows through mid-crossfade
+      if (active !== shownStep) {
+        stageShots.forEach(function (shot, i) {
+          shot.classList.toggle('is-prev', i === shownStep);
+          shot.classList.toggle('is-active', i === active);
+        });
+        shownStep = active;
+      }
+    };
+    var applyLayout = function () {
+      steps.classList.toggle('is-pinned', wide.matches);
+      updateWalkthrough();
+    };
+    if (wide.addEventListener) wide.addEventListener('change', applyLayout);
+    window.addEventListener('scroll', updateWalkthrough, { passive: true });
+    window.addEventListener('resize', updateWalkthrough);
+    applyLayout();
+  }
+
+  // Hero depth: as the page scrolls, the detail phone behind lags a little,
+  // so the two phones read as sitting at different distances.
+  var heroBack = document.querySelector('.hero-visual .phone-back');
+  var motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroBack && motionOk) {
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY || window.pageYOffset;
+      // capped: .hero clips at its bottom edge (its full-bleed white background)
+      heroBack.style.translate = '0 ' + Math.min(y * 0.12, 60).toFixed(1) + 'px';
+    }, { passive: true });
+  }
+
+  // Rewards row: once it's mostly on screen, pop the "+20 Descoins" chip and
+  // count the Marketplace balance up by those 20 coins, to the 59 shown.
+  var rewardsRow = document.querySelector('.phone-row');
+  var coinCount = document.querySelector('.coin-count');
+  if (rewardsRow && coinCount) {
+    var end = parseInt(coinCount.textContent, 10);
+    var playRewards = function () {
+      rewardsRow.classList.add('rewards-live');
+      if (!motionOk) return;
+      var start = end - 20, t0 = null;
+      var tick = function (t) {
+        if (t0 === null) t0 = t;
+        var p = Math.min(1, (t - t0 - 350) / 900);
+        if (p > 0) coinCount.textContent = Math.round(start + (end - start) * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    // show the pre-reward balance until the row is on screen, so there's no jump
+    if (motionOk && window.IntersectionObserver) coinCount.textContent = end - 20;
+    if (window.IntersectionObserver) {
+      var rewardsObserver = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        rewardsObserver.disconnect();
+        playRewards();
+      }, { threshold: 0.6 });
+      rewardsObserver.observe(rewardsRow);
+    } else {
+      playRewards();
     }
   }
 })();
