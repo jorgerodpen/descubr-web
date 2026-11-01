@@ -22,9 +22,13 @@
   --border: #DCE0E8;
   --tint: #E8ECFA;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-brand: 'Bricolage Grotesque', var(--font-display);
+  /* Same type as the app (descubr-mobile/constants/theme.ts Fonts): Bricolage
+     Grotesque in three weights only. 400 body, 500 emphasis and buttons,
+     800 for every heading. */
+  --font-sans: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --weight-medium: 500;
+  --weight-display: 800;
 }
 
 /* Dark palette — kept in sync with descubr-mobile/constants/theme.ts */
@@ -60,6 +64,9 @@
 
 * { box-sizing: border-box; }
 
+/* lets the FAQ answers animate to height: auto */
+:root { interpolate-size: allow-keywords; }
+
 html {
   scroll-behavior: smooth;
 }
@@ -72,6 +79,7 @@ html, body {
   font-family: var(--font-sans);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
   transition: background-color .2s ease, color .2s ease;
 }
 
@@ -122,7 +130,14 @@ summary:focus-visible {
   background: color-mix(in srgb, var(--card) 80%, transparent);
   -webkit-backdrop-filter: saturate(1.8) blur(20px);
   backdrop-filter: saturate(1.8) blur(20px);
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  /* no divider while the bar sits on the page's own top edge; it appears
+     once content actually scrolls underneath (theme.js sets .scrolled) */
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+
+.site-header.scrolled {
+  border-bottom-color: color-mix(in srgb, var(--border) 70%, transparent);
 }
 
 .site-header .wrap {
@@ -141,8 +156,8 @@ summary:focus-visible {
   align-items: center;
   gap: 8px;
   margin-right: 20px;
-  font-family: var(--font-brand);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: var(--weight-display);
   font-size: 19px;
   color: var(--text);
   text-decoration: none;
@@ -189,6 +204,7 @@ summary:focus-visible {
 
 .site-nav-links a.active {
   color: var(--text);
+  background: color-mix(in srgb, var(--text) 6%, transparent);
 }
 
 .nav-cta {
@@ -196,7 +212,7 @@ summary:focus-visible {
   gap: 6px;
   background: var(--fill);
   color: var(--primary-ink);
-  font-weight: 600;
+  font-weight: var(--weight-medium);
   font-size: 13px;
   padding: 6px 14px;
   margin-left: 8px;
@@ -206,7 +222,9 @@ summary:focus-visible {
   transition: opacity .15s ease;
 }
 
-.nav-cta:hover { opacity: .88; }
+@media (hover: hover) {
+  .nav-cta:hover { opacity: .88; }
+}
 
 /* Full link list collapses into this below 980px; the three main links show inline above it. */
 .menu-wrap {
@@ -250,18 +268,30 @@ summary:focus-visible {
   top: calc(100% + 10px);
   right: 0;
   min-width: 200px;
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  -webkit-backdrop-filter: saturate(1.8) blur(24px);
+  backdrop-filter: saturate(1.8) blur(24px);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
   border-radius: 16px;
   padding: 6px;
   box-shadow: 0 12px 32px rgba(16, 24, 40, .12);
   display: flex;
   flex-direction: column;
   z-index: 20;
+  /* anchored to the toggle above it: grows out of it and shrinks back into
+     it. Transitions (not keyframes) so a quick re-tap reverses mid-way. */
+  transform-origin: top right;
+  transition: opacity .18s ease, transform .28s cubic-bezier(.2, .9, .3, 1), display .28s allow-discrete;
 }
 
 .site-menu[hidden] {
   display: none;
+  opacity: 0;
+  transform: translateY(-6px) scale(.96);
+}
+
+@starting-style {
+  .site-menu:not([hidden]) { opacity: 0; transform: translateY(-6px) scale(.96); }
 }
 
 .site-menu a {
@@ -339,9 +369,9 @@ main {
 main h1 {
   font-family: var(--font-display);
   font-size: clamp(36px, 6vw, 56px);
-  line-height: 1.07;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: var(--weight-display);
   margin: 0 0 8px;
 }
 
@@ -364,6 +394,10 @@ main h3 {
   margin: 18px 0 6px;
 }
 
+/* Every heading uses the app's display weight; strong text its medium */
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--weight-display); }
+strong, b { font-weight: var(--weight-medium); }
+
 main p, main li {
   color: var(--text);
   font-size: 17px;
@@ -385,7 +419,7 @@ main p, main li {
 .key-facts th {
   width: 34%;
   color: var(--text-secondary);
-  font-weight: 600;
+  font-weight: var(--weight-medium);
 }
 
 main .updated {
@@ -407,7 +441,7 @@ main ul, main ol {
   cursor: pointer;
   padding: 22px 0;
   font-size: 19px;
-  font-weight: 600;
+  font-weight: var(--weight-medium);
   list-style: none;
 }
 
@@ -421,9 +455,19 @@ main ul, main ol {
   font-size: 24px;
   font-weight: 300;
   line-height: 1;
+  transition: transform .28s cubic-bezier(.2, .9, .3, 1);
 }
 
-.faq-item[open] summary::after { content: '\2212'; }
+/* browsers without ::details-content just open instantly, as before */
+.faq-item::details-content {
+  height: 0;
+  overflow: clip;
+  transition: height .32s cubic-bezier(.2, .9, .3, 1), content-visibility .32s allow-discrete;
+}
+
+.faq-item[open]::details-content { height: auto; }
+
+.faq-item[open] summary::after { transform: rotate(45deg); }
 
 .faq-item p {
   padding: 0 40px 24px 0;
@@ -570,8 +614,8 @@ main:has(> .hero) { padding: 0; }
   max-width: 900px;
   margin: 0 auto 20px;
   font-size: clamp(42px, 7.4vw, 80px);
-  line-height: 1.04;
-  letter-spacing: -0.025em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
 }
 
 .hero .lede {
@@ -619,7 +663,7 @@ main:has(> .hero) { padding: 0; }
   border: none;
   background: var(--fill);
   color: var(--primary-ink);
-  font-weight: 700;
+  font-weight: var(--weight-medium);
   font-size: 15px;
   font-family: var(--font-sans);
   cursor: pointer;
@@ -653,9 +697,9 @@ main:has(> .hero) { padding: 0; }
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(34px, 5.2vw, 56px);
-  line-height: 1.07;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  font-weight: var(--weight-display);
   text-align: center;
   max-width: 820px;
   margin: 0 auto 16px;
@@ -672,9 +716,11 @@ main:has(> .hero) { padding: 0; }
 
 /* Home page — how it works */
 .steps {
+  --step-gap: clamp(64px, 9vw, 112px);
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: clamp(64px, 9vw, 112px);
+  gap: var(--step-gap);
   max-width: 860px;
   margin: 0 auto;
 }
@@ -688,6 +734,37 @@ main:has(> .hero) { padding: 0; }
 .step:nth-child(even) {
   flex-direction: row-reverse;
 }
+
+/* The walking route between screenshots is an SVG drawn by theme.js */
+.steps-route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.route-line {
+  fill: none;
+  stroke: var(--ochre);
+  stroke-width: 3;
+  stroke-dasharray: 9 7;
+}
+
+/* Mask path that uncovers each leg of the route the first time it scrolls
+   into view, like the walk being traced. pathLength=1 in theme.js keeps
+   these values independent of the leg's real length. */
+.route-reveal {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 8;
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.1s cubic-bezier(.45, 0, .2, 1);
+}
+
+.route-reveal.shown { stroke-dashoffset: 0; }
 
 .step-shot {
   position: relative;
@@ -705,7 +782,7 @@ main:has(> .hero) { padding: 0; }
   border-radius: 999px;
   padding: 7px 14px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: var(--weight-medium);
   color: var(--primary-ink);
   white-space: nowrap;
 }
@@ -726,7 +803,7 @@ main:has(> .hero) { padding: 0; }
   display: block;
   color: var(--primary);
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: var(--weight-medium);
   font-size: 17px;
   margin-bottom: 10px;
 }
@@ -735,7 +812,7 @@ main:has(> .hero) { padding: 0; }
   font-family: var(--font-display);
   font-size: clamp(26px, 3.4vw, 34px);
   line-height: 1.12;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   margin: 0 0 12px;
 }
 
@@ -757,6 +834,9 @@ main:has(> .hero) { padding: 0; }
     flex: 0 0 auto;
     max-width: 240px;
   }
+
+  /* stacked steps put the text between screenshots, so there's no clean line to draw */
+  .steps-route { display: none; }
 }
 
 /* Home page — tour type grid */
@@ -778,7 +858,7 @@ main:has(> .hero) { padding: 0; }
   gap: 8px;
   padding: 12px 20px;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: var(--weight-medium);
   font-size: 16px;
 }
 
@@ -828,7 +908,7 @@ main:has(> .hero) { padding: 0; }
   font-family: var(--font-display);
   font-size: clamp(32px, 4.6vw, 48px);
   line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: var(--primary-ink);
   max-width: 720px;
   margin: 0 auto 18px;
@@ -846,7 +926,7 @@ main:has(> .hero) { padding: 0; }
   display: inline-block;
   background: var(--primary-ink);
   color: var(--fill);
-  font-weight: 600;
+  font-weight: var(--weight-medium);
   font-size: 17px;
   padding: 13px 26px;
   border-radius: 999px;
@@ -854,8 +934,8 @@ main:has(> .hero) { padding: 0; }
   transition: opacity .15s ease;
 }
 
-.guide-cta .button:hover {
-  opacity: 0.92;
+@media (hover: hover) {
+  .guide-cta .button:hover { opacity: 0.92; }
 }
 
 /* Home page — phone mockup shared by the hero and "how it works" screenshots */
@@ -943,7 +1023,7 @@ main.docs-main {
 
 .toc-label {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: var(--weight-medium);
   color: var(--text-muted);
   margin-bottom: 6px;
 }
@@ -965,7 +1045,7 @@ main.docs-main {
 
 .toc-list a.active {
   color: var(--primary);
-  font-weight: 700;
+  font-weight: var(--weight-medium);
   border-left-color: var(--primary);
 }
 
@@ -1060,7 +1140,7 @@ main.docs-main {
 .error-code {
   font-family: var(--font-display);
   font-size: clamp(72px, 14vw, 128px);
-  font-weight: 700;
+  font-weight: var(--weight-display);
   color: var(--primary);
   line-height: 1;
   margin: 0 0 8px;
@@ -1087,7 +1167,7 @@ main.docs-main {
   border: none;
   background: var(--fill);
   color: var(--primary-ink);
-  font-weight: 700;
+  font-weight: var(--weight-medium);
   font-size: 15px;
   font-family: var(--font-sans);
   text-decoration: none;
@@ -1119,7 +1199,9 @@ main.docs-main {
   transition: opacity .15s ease;
 }
 
-.store-btn:hover { opacity: .85; }
+@media (hover: hover) {
+  .store-btn:hover { opacity: .85; }
+}
 
 :root[data-theme="dark"] .store-btn { background: var(--text); color: var(--background); }
 @media (prefers-color-scheme: dark) {
@@ -1129,7 +1211,7 @@ main.docs-main {
 
 .store-btn-text { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
 .store-btn-text small { font-size: 11px; opacity: .8; }
-.store-btn-text strong { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
+.store-btn-text strong { font-family: var(--font-display); font-size: 18px; font-weight: var(--weight-medium); }
 
 .hero-points {
   list-style: none;
@@ -1165,7 +1247,7 @@ main.docs-main {
   padding: clamp(32px, 4vw, 48px);
 }
 
-.value-card h3 { font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 28px); line-height: 1.15; letter-spacing: -0.015em; margin: 20px 0 10px; }
+.value-card h3 { font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 28px); line-height: 1.15; letter-spacing: -0.02em; margin: 20px 0 10px; }
 .value-card p { margin: 0; color: var(--text-secondary); font-size: 17px; line-height: 1.5; }
 
 .value-icon {
@@ -1189,7 +1271,7 @@ main.docs-main {
   margin: 0 auto;
 }
 
-.feature-text h2 { font-family: var(--font-display); font-size: clamp(34px, 4.6vw, 48px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 20px; }
+.feature-text h2 { font-family: var(--font-display); font-size: clamp(34px, 4.6vw, 48px); line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 20px; }
 .feature-text p { color: var(--text-secondary); font-size: 19px; line-height: 1.45; margin: 0 0 28px; }
 
 .check-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
@@ -1228,7 +1310,7 @@ main.docs-main {
   border: 1px solid var(--border);
 }
 
-.phone-row figcaption { margin-top: 20px; font-weight: 600; font-size: 17px; }
+.phone-row figcaption { margin-top: 20px; font-weight: var(--weight-medium); font-size: 17px; }
 
 @media (max-width: 640px) {
   .phone-row { grid-template-columns: 1fr; max-width: 240px; gap: 32px; }
@@ -1252,10 +1334,83 @@ main.docs-main {
   text-align: center;
 }
 
-.download-card h2 { font-family: var(--font-display); font-size: clamp(36px, 5.6vw, 60px); line-height: 1.06; letter-spacing: -0.025em; max-width: 760px; margin: 24px auto 16px; }
+.download-card h2 { font-family: var(--font-display); font-size: clamp(36px, 5.6vw, 60px); line-height: 1.06; letter-spacing: -0.03em; max-width: 760px; margin: 24px auto 16px; }
 .download-card p { color: var(--text-secondary); font-size: clamp(19px, 2.1vw, 22px); line-height: 1.4; max-width: 560px; margin: 0 auto; }
 .download-logo { display: block; margin: 0 auto; width: 72px; height: 72px; }
 .download-card .store-buttons { justify-content: center; }
 
 /* Even out heading line lengths (no lone word on the last line) */
 .hero h1, .section-title, .feature-text h2, .download-card h2, .guide-cta h2, .value-card h3, .step-text h3 { text-wrap: balance; }
+
+/* ================= Response, touch and accessibility ================= */
+
+/* Feedback on press, not release: buttons give way the instant they're
+   touched and ease back when let go. Replaces the browser's grey tap flash. */
+.store-btn,
+.nav-cta,
+.guide-cta .button,
+.error-page .button,
+.menu-toggle,
+.theme-toggle,
+.faq-item summary {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .22s cubic-bezier(.2, .9, .3, 1), opacity .15s ease, background-color .15s ease, color .15s ease;
+}
+
+.store-btn:active,
+.nav-cta:active,
+.guide-cta .button:active,
+.error-page .button:active,
+.menu-toggle:active,
+.theme-toggle:active {
+  transform: scale(.96);
+  transition-duration: .06s;
+}
+
+.faq-item summary:active {
+  opacity: .6;
+  transition-duration: .06s;
+}
+
+/* Small text gets a little air; large headings are already tightened */
+.site-nav-links a,
+.nav-cta,
+.lang-select,
+.site-footer,
+.footer-nav a { letter-spacing: .01em; }
+
+/* Most visitors are travellers on a phone: 44px touch targets */
+@media (pointer: coarse) {
+  .menu-toggle,
+  .theme-toggle { width: 44px; height: 44px; }
+  .lang-select { min-height: 44px; }
+  .footer-nav a { display: inline-block; padding: 10px 0; }
+  .footer-nav { row-gap: 4px; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .site-header,
+  .site-menu {
+    background: var(--card);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .site-header,
+  .site-menu {
+    background: var(--card);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .site-header,
+  .site-header.scrolled { border-bottom-color: var(--text-secondary); }
+  .site-nav-links a,
+  .lang-select,
+  .footer-nav a,
+  .section-lede,
+  .hero .lede { color: var(--text); }
+  .step-shot img,
+  .phone-row img { border-color: var(--text-secondary); }
+}
