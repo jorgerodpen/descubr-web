@@ -40,16 +40,15 @@
   <link rel="stylesheet" href="../assets/style.css">
   <style>
     .doc-card mark {
-      background: #FCE9A8;
-      color: #5C4A05;
+      background: #FEF3D6;
+      color: #8A4006;
       padding: 1px 5px;
       border-radius: 4px;
       font-weight: 600;
     }
-    :root[data-theme="dark"] .doc-card mark,
-    :root:not([data-theme="light"]) .doc-card mark {
-      background: #5C4A05;
-      color: #FBE9A8;
+    :root[data-theme="dark"] .doc-card mark { background: #B45309; color: #FFFFFF; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .doc-card mark { background: #B45309; color: #FFFFFF; }
     }
     .doc-card .party-block { margin: 4px 0 18px; }
   </style>

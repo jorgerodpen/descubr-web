@@ -1,29 +1,10 @@
 // Dark-mode toggle, sticky-header state, reading-progress bar, back-to-top
-// button, docs TOC scroll-spy, and scroll-reveal. Each feature no-ops if its
+// button and docs TOC scroll-spy. Each feature no-ops if its
 // markup isn't on the page, so this file is safe to include everywhere.
 (function () {
   var root = document.documentElement;
   var toggle = document.querySelector('[data-theme-toggle]');
 
-  try {
-    root.classList.add('js');
-    var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
-    if (revealEls.length) {
-      if ('IntersectionObserver' in window) {
-        var revealObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-        revealEls.forEach(function (el) { revealObserver.observe(el); });
-      } else {
-        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
-      }
-    }
-  } catch (e) {}
 
   function isDark() {
     var attr = root.getAttribute('data-theme');
