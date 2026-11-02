@@ -654,21 +654,20 @@ main:has(> .hero) { padding: 0; }
 .hero-visual > .phone-frame { grid-area: 1 / 1; }
 .hero-visual .phone-front { z-index: 2; transform: translateX(var(--front-x)); }
 
-/* On load the detail phone slides out from behind the list, as if the card
-   was just tapped. Scroll depth (theme.js) uses `translate`, a separate
-   property, so it never fights this transform. */
+/* The detail phone slides out from behind the list, as if the card was just
+   tapped, once the phones are on screen (theme.js adds .will-open, then
+   .is-open). Scroll depth uses `translate`, a separate property, so it never
+   fights this transform. Without JS, or with reduced motion, it just sits in
+   place. */
 .hero-visual .phone-back {
   z-index: 1;
   transform: translate(var(--back-x), var(--back-y)) scale(var(--back-scale));
-  animation: card-open .9s cubic-bezier(.2, .9, .3, 1) .35s both;
+  transition: transform .9s cubic-bezier(.2, .9, .3, 1);
 }
 
-@keyframes card-open {
-  from { transform: translate(var(--front-x), 0) scale(var(--back-scale)); }
+.hero-visual.will-open:not(.is-open) .phone-back {
+  transform: translate(var(--front-x), 0) scale(var(--back-scale));
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-visual .phone-back { animation: none; }
 }
 
 .waitlist-form {
@@ -1629,7 +1628,7 @@ main.docs-main {
   transition: transform .5s cubic-bezier(.3, 1.6, .5, 1), opacity .2s ease;
 }
 
-.phone-row.rewards-live .reward-pop {
+.reward-shot.is-live .reward-pop {
   opacity: 1;
   transform: translateX(-50%) scale(1);
 }

@@ -267,10 +267,40 @@
     applyLayout();
   }
 
+  var motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Plays a moment each time el comes into view (at least `ratio` visible)
+  // and resets it once el has scrolled fully out of view, so it plays again
+  // on every pass, where people are actually looking.
+  function watch(el, ratio, enter, leave) {
+    if (!window.IntersectionObserver) { enter(); return; }
+    // never ask for more than fits: a tall screenshot on a short window
+    ratio = Math.min(ratio, (window.innerHeight * 0.85) / Math.max(1, el.offsetHeight));
+    var shown = false;
+    new IntersectionObserver(function (entries) {
+      var e = entries[entries.length - 1];
+      if (!shown && e.intersectionRatio >= ratio - 0.01) { shown = true; enter(); }
+      else if (shown && !e.isIntersecting) { shown = false; leave(); }
+    }, { threshold: [0, ratio] }).observe(el);
+  }
+
+  // Hero: the detail phone slides out from behind the list once the phones
+  // are half on screen (on a phone they start below the fold).
+  var heroVisual = document.querySelector('.hero-visual');
+  if (heroVisual && motionOk) {
+    var openTimer;
+    heroVisual.classList.add('will-open');
+    watch(heroVisual, 0.5, function () {
+      openTimer = setTimeout(function () { heroVisual.classList.add('is-open'); }, 250);
+    }, function () {
+      clearTimeout(openTimer);
+      heroVisual.classList.remove('is-open');
+    });
+  }
+
   // Hero depth: as the page scrolls, the detail phone behind lags a little,
   // so the two phones read as sitting at different distances.
   var heroBack = document.querySelector('.hero-visual .phone-back');
-  var motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (heroBack && motionOk) {
     window.addEventListener('scroll', function () {
       var y = window.scrollY || window.pageYOffset;
@@ -282,35 +312,40 @@
   // after the walkthrough has cloned its screenshots, so the clones follow too
   syncShots();
 
-  // Rewards row: once it's mostly on screen, pop the "+20 Descoins" chip and
-  // count the Marketplace balance up by those 20 coins, to the 59 shown.
-  var rewardsRow = document.querySelector('.phone-row');
+  // Rewards row: the "+20 Descoins" chip pops when the quiz screenshot is
+  // fully in view, and the Marketplace balance counts up by those 20 coins (to
+  // the 59 shown) when that screenshot is. Each waits for its own screenshot,
+  // so on phones, where they stack, each plays when you get to it, and both
+  // reset once off screen so they play again on the next pass.
+  var rewardPop = document.querySelector('.reward-pop');
   var coinCount = document.querySelector('.coin-count');
-  if (rewardsRow && coinCount) {
+  if (rewardPop) {
+    var popShot = rewardPop.parentElement, popTimer;
+    if (motionOk) watch(popShot, 0.9, function () {
+      popTimer = setTimeout(function () { popShot.classList.add('is-live'); }, 200);
+    }, function () {
+      clearTimeout(popTimer);
+      popShot.classList.remove('is-live');
+    });
+    else popShot.classList.add('is-live');
+  }
+  if (coinCount && motionOk) {
     var end = parseInt(coinCount.textContent, 10);
-    var playRewards = function () {
-      rewardsRow.classList.add('rewards-live');
-      if (!motionOk) return;
-      var start = end - 20, t0 = null;
+    var start = end - 20, countFrame;
+    // show the pre-reward balance until it's on screen, so there's no jump
+    coinCount.textContent = start;
+    watch(coinCount.parentElement, 0.9, function () {
+      var t0 = null;
       var tick = function (t) {
         if (t0 === null) t0 = t;
-        var p = Math.min(1, (t - t0 - 350) / 900);
+        var p = Math.min(1, (t - t0 - 450) / 1000);
         if (p > 0) coinCount.textContent = Math.round(start + (end - start) * (1 - Math.pow(1 - p, 3)));
-        if (p < 1) requestAnimationFrame(tick);
+        if (p < 1) countFrame = requestAnimationFrame(tick);
       };
-      requestAnimationFrame(tick);
-    };
-    // show the pre-reward balance until the row is on screen, so there's no jump
-    if (motionOk && window.IntersectionObserver) coinCount.textContent = end - 20;
-    if (window.IntersectionObserver) {
-      var rewardsObserver = new IntersectionObserver(function (entries) {
-        if (!entries[0].isIntersecting) return;
-        rewardsObserver.disconnect();
-        playRewards();
-      }, { threshold: 0.6 });
-      rewardsObserver.observe(rewardsRow);
-    } else {
-      playRewards();
-    }
+      countFrame = requestAnimationFrame(tick);
+    }, function () {
+      cancelAnimationFrame(countFrame);
+      coinCount.textContent = start;
+    });
   }
 })();
