@@ -987,7 +987,7 @@ main:has(> .hero) { padding: 0; }
   margin: 0 auto;
   padding: 11px;
   border-radius: 46px;
-  background: var(--text);
+  background: #1B1D24; /* fixed: a device, not text, so it stays dark in dark mode */
 }
 
 .phone-frame img {
@@ -1004,7 +1004,7 @@ main:has(> .hero) { padding: 0; }
   transform: translateX(-50%);
   width: 84px;
   height: 20px;
-  background: var(--text);
+  background: #1B1D24;
   border-radius: 0 0 12px 12px;
   z-index: 2;
 }
@@ -1242,6 +1242,11 @@ main.docs-main {
 
 @media (hover: hover) {
   .store-btn:hover { opacity: .85; }
+}
+
+:root[data-theme="dark"] .phone-frame { box-shadow: 0 0 0 1px rgba(255, 255, 255, .14); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .phone-frame { box-shadow: 0 0 0 1px rgba(255, 255, 255, .14); }
 }
 
 :root[data-theme="dark"] .store-btn { background: var(--text); color: var(--background); }
@@ -1604,4 +1609,10 @@ main.docs-main {
   line-height: 1;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
+}
+
+/* the dark Marketplace screenshot's card is lighter blue */
+:root[data-theme="dark"] .coin-count { background: #4664E0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .coin-count { background: #4664E0; }
 }

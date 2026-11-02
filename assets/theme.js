@@ -14,10 +14,25 @@
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 
+  // App screenshots follow the site's theme: app-x.jpg ↔ app-x-dark.jpg
+  // (Spanish ones too). Runs now, before lang.js swaps in the Spanish files
+  // on DOMContentLoaded, so a dark page doesn't fetch the light ones first.
+  function syncShots() {
+    var dark = isDark();
+    document.querySelectorAll('img[src*="assets/app-"]').forEach(function (img) {
+      var src = img.getAttribute('src');
+      var light = src.replace(/-dark\.jpg$/, '.jpg');
+      var want = dark ? light.replace(/\.jpg$/, '-dark.jpg') : light;
+      if (src !== want) img.setAttribute('src', want);
+    });
+  }
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncShots);
+
   if (toggle) {
     toggle.addEventListener('click', function () {
       var next = isDark() ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
+      syncShots();
       try { localStorage.setItem('descubr-theme', next); } catch (e) {}
     });
   }
@@ -257,6 +272,9 @@
       heroBack.style.translate = '0 ' + Math.min(y * 0.12, 60).toFixed(1) + 'px';
     }, { passive: true });
   }
+
+  // after the walkthrough has cloned its screenshots, so the clones follow too
+  syncShots();
 
   // Rewards row: once it's mostly on screen, pop the "+20 Descoins" chip and
   // count the Marketplace balance up by those 20 coins, to the 59 shown.

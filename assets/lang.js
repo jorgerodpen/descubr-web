@@ -33,7 +33,9 @@
     // Screenshots with a Spanish version: <img data-src-es data-alt-es>.
     if (es) {
       document.querySelectorAll('img[data-src-es]').forEach(function (img) {
-        img.src = img.getAttribute('data-src-es');
+        // keep the dark variant theme.js already picked (app-x-dark.jpg → app-x-es-dark.jpg)
+        var esSrc = img.getAttribute('data-src-es');
+        img.src = /-dark\.jpg$/.test(img.getAttribute('src')) ? esSrc.replace(/\.jpg$/, '-dark.jpg') : esSrc;
         if (img.hasAttribute('data-alt-es')) img.alt = img.getAttribute('data-alt-es');
       });
     }
