@@ -192,6 +192,7 @@
     // Desktop: one pinned phone shows the screenshot of whichever step is in
     // the middle of the screen, and a route track fills down through the
     // step numbers as you scroll. Built from the existing step screenshots.
+    // Phones get the same track down the left edge (no pinned phone).
     var stepList = Array.prototype.slice.call(stepEls);
     var stage = document.createElement('div');
     stage.className = 'steps-stage';
@@ -214,10 +215,11 @@
     steps.appendChild(track);
     var trackFill = track.firstChild;
     var wide = window.matchMedia('(min-width: 900px)');
+    var narrow = window.matchMedia('(max-width: 640px)');
     var shownStep = -1;
 
     var updateWalkthrough = function () {
-      if (!wide.matches) return;
+      if (!wide.matches && !narrow.matches) return;
       var box = steps.getBoundingClientRect();
       var mid = window.innerHeight / 2;
       var nodes = stepList.map(function (step) { return step.querySelector('.step-number').getBoundingClientRect(); });
@@ -243,7 +245,7 @@
       });
       // the new screen fades in over the old one, which stays solid underneath,
       // so the phone's dark frame never shows through mid-crossfade
-      if (active !== shownStep) {
+      if (wide.matches && active !== shownStep) {
         stageShots.forEach(function (shot, i) {
           shot.classList.toggle('is-prev', i === shownStep);
           shot.classList.toggle('is-active', i === active);
@@ -253,9 +255,13 @@
     };
     var applyLayout = function () {
       steps.classList.toggle('is-pinned', wide.matches);
+      steps.classList.toggle('is-tracked', narrow.matches);
       updateWalkthrough();
     };
-    if (wide.addEventListener) wide.addEventListener('change', applyLayout);
+    if (wide.addEventListener) {
+      wide.addEventListener('change', applyLayout);
+      narrow.addEventListener('change', applyLayout);
+    }
     window.addEventListener('scroll', updateWalkthrough, { passive: true });
     window.addEventListener('resize', updateWalkthrough);
     applyLayout();

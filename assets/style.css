@@ -1520,46 +1520,88 @@ main.docs-main {
     max-width: 440px;
   }
 
-  /* each step's number becomes a stop on the route */
-  .steps.is-pinned .step-number {
-    position: absolute;
-    left: 0;
-    top: -6px;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    margin: 0;
-    border-radius: 50%;
-    background: var(--card);
-    border: 3px solid var(--border);
-    color: var(--text-secondary);
-    transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+}
+
+/* Route stops and track, shared by the pinned desktop layout and the phone
+   layout (theme.js adds .is-pinned / .is-tracked at those widths) */
+.steps.is-pinned .step-number,
+.steps.is-tracked .step-number {
+  position: absolute;
+  left: 0;
+  top: -6px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border-radius: 50%;
+  background: var(--card);
+  border: 3px solid var(--border);
+  color: var(--text-secondary);
+  transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+}
+
+.steps.is-pinned .step.reached .step-number,
+.steps.is-tracked .step.reached .step-number {
+  background: var(--ochre);
+  border-color: var(--ochre);
+  color: #1B1D24;
+}
+
+.steps.is-pinned .steps-track,
+.steps.is-tracked .steps-track {
+  display: block;
+  position: absolute;
+  width: 0;
+  border-left: 3px dashed var(--border);
+  pointer-events: none;
+}
+
+.steps-track-fill {
+  position: absolute;
+  left: -3px;
+  top: 0;
+  width: 0;
+  border-left: 3px dashed var(--ochre);
+}
+
+/* Phones: the route runs down the left edge through the stops; each step's
+   screenshot stays dimmed until the route reaches it, then comes up to full */
+@media (max-width: 640px) {
+  .steps.is-tracked { gap: 56px; }
+
+  .steps.is-tracked .step,
+  .steps.is-tracked .step:nth-child(even) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
   }
 
-  .steps.is-pinned .step.reached .step-number {
-    background: var(--ochre);
-    border-color: var(--ochre);
-    color: #1B1D24;
+  .steps.is-tracked .step-text {
+    order: -1;
+    position: relative;
+    padding-left: 56px;
   }
 
-  .steps.is-pinned .steps-track {
-    display: block;
-    position: absolute;
-    width: 0;
-    border-left: 3px dashed var(--border);
-    pointer-events: none;
+  .steps.is-tracked .step-shot {
+    margin-left: 56px;
+    max-width: 220px;
+    opacity: .35;
+    transform: scale(.96);
+    transform-origin: top left;
+    transition: opacity .5s ease, transform .5s ease;
   }
 
-  .steps-track-fill {
-    position: absolute;
-    left: -3px;
-    top: 0;
-    width: 0;
-    border-left: 3px dashed var(--ochre);
+  .steps.is-tracked .step.reached .step-shot {
+    opacity: 1;
+    transform: none;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steps.is-tracked .step-shot { opacity: 1; transform: none; }
 }
 
 /* ================= Rewards row: the payoff =================
