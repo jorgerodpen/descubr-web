@@ -174,9 +174,11 @@ summary:focus-visible {
 
 /* follows the theme toggle, not just the system setting */
 :root[data-theme="dark"] .wordmark-icon,
+:root[data-theme="dark"] .hero-brand-icon,
 :root[data-theme="dark"] .download-logo { content: url('logo-mark-dark.svg'); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .wordmark-icon,
+  :root:not([data-theme="light"]) .hero-brand-icon,
   :root:not([data-theme="light"]) .download-logo { content: url('logo-mark-dark.svg'); }
 }
 
@@ -596,11 +598,38 @@ main ul, main ol {
 /* The home page's sections run edge to edge, so main drops its own padding there */
 main:has(> .hero) { padding: 0; }
 
-/* Centered, product-page style: headline, then the phone on its own below it */
+/* Phones: centered, headline then the phones below. Wide screens: text left,
+   phones right, so the logo, the headline and the app all fit in the first screen. */
 .hero {
-  padding-top: clamp(56px, 9vw, 104px);
+  padding-top: clamp(40px, 6vw, 72px);
   padding-bottom: clamp(56px, 8vw, 96px);
   text-align: center;
+}
+
+.hero-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-weight: var(--weight-display);
+  font-size: 30px;
+  color: var(--text);
+}
+
+.hero-brand .r { color: var(--primary); }
+.hero-brand-icon { height: 40px; width: auto; display: block; }
+
+/* Phones: keep the two phones in the first screen — store buttons side by side, tighter spacing */
+@media (max-width: 480px) {
+  .hero-brand { font-size: 24px; margin-bottom: 12px; }
+  .hero-brand-icon { height: 32px; }
+  .hero .lede { font-size: 17px; }
+  .hero .store-buttons { flex-wrap: nowrap; gap: 8px; margin-top: 24px; }
+  .hero .store-btn { min-width: 0; padding: 8px 12px 8px 10px; gap: 8px; }
+  .hero .store-btn-text strong { font-size: 16px; }
+  .hero .hero-points { font-size: 13px; gap: 4px 14px; margin-top: 16px; }
+  .hero-grid { gap: 36px; }
 }
 
 .hero-grid {
@@ -613,7 +642,7 @@ main:has(> .hero) { padding: 0; }
 .hero h1 {
   max-width: 900px;
   margin: 0 auto 20px;
-  font-size: clamp(42px, 7.4vw, 80px);
+  font-size: clamp(38px, 6.4vw, 64px);
   line-height: 1.02;
   letter-spacing: -0.01em;
 }
@@ -627,6 +656,25 @@ main:has(> .hero) { padding: 0; }
 
 .hero .store-buttons,
 .hero .hero-points { justify-content: center; }
+
+@media (min-width: 1000px) {
+  .hero { text-align: left; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 470px;
+    align-items: center;
+    gap: 40px;
+  }
+  .hero h1 { margin-left: 0; font-size: clamp(44px, 4.2vw, 58px); }
+  /* slightly smaller phones here so the text column stays wide */
+  .hero-visual { --front-x: -95px; --back-x: 95px; }
+  .hero-visual .phone-frame { width: 270px; }
+  .hero .lede { margin-left: 0; font-size: 20px; }
+  .hero .store-buttons,
+  .hero .hero-points { justify-content: flex-start; }
+  /* the back phone sits higher, so leave it room at the top */
+  .hero-visual { padding-top: 40px; }
+}
 
 /* Two overlapping phones: the Explore list in front, the tour it leads to
    tucked behind and a little higher, like opening the card */
