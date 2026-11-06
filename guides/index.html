@@ -159,6 +159,12 @@
           <li>
             <div data-i18n="en"><h3>Build your route</h3><p>Drop your stops on the map and fill each one with a video, an audio track, a story or a quiz. Each stop unlocks when the traveler gets there.</p></div>
             <div data-i18n="es"><h3>Crea tu ruta</h3><p>Coloca tus paradas en el mapa y llena cada una con un vídeo, un audio, una historia o un cuestionario. Cada parada se desbloquea cuando el viajero llega.</p></div>
+            <figure class="portal-shot">
+              <img src="../assets/portal-stop.jpg" data-src-es="../assets/portal-stop-es.jpg" width="526" height="776" loading="lazy"
+                   alt="A stop in the guide portal's tour editor: its title, meeting point, teaser, a map pin in central Madrid, unlock radius, content type and text"
+                   data-alt-es="Una parada en el editor de tours del portal de guías: título, punto de encuentro, adelanto, un pin en el mapa del centro de Madrid, radio de desbloqueo, tipo de contenido y texto">
+              <figcaption><span data-i18n="en">A stop in the guide portal: pin it on the map, pick what travelers get there, write or upload it.</span><span data-i18n="es">Una parada en el portal de guías: márcala en el mapa, elige qué encuentra el viajero allí y escríbelo o súbelo.</span></figcaption>
+            </figure>
           </li>
           <li>
             <div data-i18n="en"><h3>Set up payouts</h3><p>Connect your bank account through Stripe and fill in your tax details. It takes a few minutes and you only do it once.</p></div>
@@ -219,14 +225,25 @@
     <!-- Pro -->
     <section class="section" aria-labelledby="pro-title">
       <div class="wrap">
-        <h2 class="section-title" id="pro-title">
-          <span data-i18n="en">Already an official guide? Show it</span>
-          <span data-i18n="es">¿Ya eres guía oficial? Que se note</span>
-        </h2>
-        <p class="section-lede">
-          <span data-i18n="en">You don't need a licence to publish on DescubR. If you have one, send us your credentials and your profile and tours get a Pro badge, so travelers know they're in expert hands.</span>
-          <span data-i18n="es">No necesitas licencia para publicar en DescubR. Si la tienes, envíanos tu acreditación y tu perfil y tus tours llevarán la insignia Pro, para que los viajeros sepan que están en manos expertas.</span>
-        </p>
+        <div class="feature-split">
+          <div class="feature-text">
+            <!-- the badge exactly as travelers see it in the app, at a size you can read; theme.js spins it once each time it scrolls into view -->
+            <span class="pro-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.4 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7Z"/></svg>Pro</span>
+            <div data-i18n="en">
+              <h2 id="pro-title">Already an official guide? Show it</h2>
+              <p>You don't need a licence to publish on DescubR. If you have one, send us your credentials and the Pro badge appears next to your name on every tour, so travelers know they're in expert hands.</p>
+            </div>
+            <div data-i18n="es">
+              <h2>¿Ya eres guía oficial? Que se note</h2>
+              <p>No necesitas licencia para publicar en DescubR. Si la tienes, envíanos tu acreditación y la insignia Pro aparecerá junto a tu nombre en todos tus tours, para que los viajeros sepan que están en manos expertas.</p>
+            </div>
+          </div>
+          <div class="phone-frame phone-frame-sm">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <img src="../assets/app-detail.jpg" data-src-es="../assets/app-detail-es.jpg" data-alt-es="Página de un tour en DescubR con la guía Elena Vidal y su insignia Pro" width="640" height="1428" loading="lazy"
+                 alt="A tour's page in DescubR showing its guide, Elena Vidal, with the Pro badge">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -291,6 +308,7 @@
         <a href="../privacy/"><span data-i18n="en">Privacy Policy</span><span data-i18n="es">Política de privacidad</span></a>
         <a href="../terms/"><span data-i18n="en">Terms of Service</span><span data-i18n="es">Términos del servicio</span></a>
         <a href="../legal-notice/"><span data-i18n="en">Legal Notice</span><span data-i18n="es">Aviso legal</span></a>
+        <a href="../guides/" class="active"><span data-i18n="en">For guides</span><span data-i18n="es">Para guías</span></a>
         <a href="https://guide.descubr.com" target="_blank" rel="noopener"><span data-i18n="en">Guide portal</span><span data-i18n="es">Portal de guías</span></a>
       </nav>
       <div class="social-links">
@@ -308,6 +326,6 @@
 
   <script src="../assets/lang.js?v=20261105"></script>
   <script src="../assets/menu.js"></script>
-  <script src="../assets/theme.js?v=20261105"></script>
+  <script src="../assets/theme.js?v=20261106"></script>
 </body>
 </html>

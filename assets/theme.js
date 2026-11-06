@@ -298,6 +298,13 @@
     });
   }
 
+  // Guides page: the Pro badge turns once each time it scrolls into view
+  var proBadge = document.querySelector('.pro-badge');
+  if (proBadge && motionOk) {
+    watch(proBadge, 1, function () { proBadge.classList.add('spin'); },
+                       function () { proBadge.classList.remove('spin'); });
+  }
+
   // Hero depth: as the page scrolls, the detail phone behind lags a little,
   // so the two phones read as sitting at different distances.
   var heroBack = document.querySelector('.hero-visual .phone-back');
