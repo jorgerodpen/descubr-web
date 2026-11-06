@@ -232,12 +232,16 @@
           in the app to see tours close to you.</p>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item" data-anchor="delete-account">
         <summary>How do I delete my account?</summary>
         <p>Go to Profile → Delete Account in the app. This permanently removes
           your account, including your Descoins balance and any unused
           discount codes; see our <a href="../privacy/">Privacy Policy</a> for
           what happens to your data afterward.</p>
+        <p>No longer have the app? Email <a href="mailto:hello@descubr.com">hello@descubr.com</a>
+          from the address you signed up with and ask us to delete your account, or only
+          some of your data (such as your reviews or profile picture). We'll confirm by
+          email and do it within 30 days.</p>
       </details>
 
       <details class="faq-item">
@@ -417,13 +421,17 @@
           en la app para ver los tours próximos a ti.</p>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item" data-anchor="delete-account">
         <summary>¿Cómo elimino mi cuenta?</summary>
         <p>Ve a Perfil → Eliminar cuenta en la app. Esto elimina tu cuenta de
           forma permanente, incluido tu saldo de Descoins y cualquier código
           de descuento sin usar; consulta nuestra
           <a href="../privacy/">Política de privacidad</a> para saber qué ocurre
           con tus datos después.</p>
+        <p>¿Ya no tienes la app? Escribe a <a href="mailto:hello@descubr.com">hello@descubr.com</a>
+          desde el correo con el que te registraste y pídenos que eliminemos tu cuenta, o solo
+          parte de tus datos (como tus reseñas o tu foto de perfil). Te lo confirmaremos por
+          correo y lo haremos en un plazo de 30 días.</p>
       </details>
 
       <details class="faq-item">
@@ -467,5 +475,16 @@
   <script src="../assets/lang.js?v=20261105"></script>
   <script src="../assets/menu.js"></script>
   <script src="../assets/theme.js?v=20261105"></script>
+  <script>
+    // after load, so the page language is already applied when picking the visible answer
+    window.addEventListener('load', function () {
+      var id = location.hash.slice(1);
+      if (!id) return;
+      var items = document.querySelectorAll('details[data-anchor="' + id + '"]');
+      items.forEach(function (d) { d.open = true; });
+      var shown = Array.prototype.find.call(items, function (d) { return d.offsetParent !== null; });
+      if (shown) shown.scrollIntoView({ block: 'center', behavior: 'instant' });
+    });
+  </script>
 </body>
 </html>
