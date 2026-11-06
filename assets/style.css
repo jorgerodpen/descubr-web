@@ -1685,3 +1685,57 @@ main.docs-main {
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .coin-count { background: #4664E0; }
 }
+
+/* ================= Guides page ================= */
+.guide-hero-cta { margin-top: 32px; }
+.guide-hero-cta .button {
+  display: inline-block;
+  background: var(--fill);
+  color: var(--primary-ink);
+  font-weight: var(--weight-medium);
+  font-size: 17px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1.5px solid var(--fill);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .22s cubic-bezier(.2, .9, .3, 1), opacity .15s ease;
+}
+.guide-hero-cta .button.button-ghost { background: transparent; color: var(--primary); border-color: var(--primary); }
+.guide-hero-cta .button:active { transform: scale(.96); transition-duration: .06s; }
+.hero .guide-hero-cta + .hero-points { margin-top: 20px; }
+@media (min-width: 1000px) { .guide-hero-cta { justify-content: flex-start; } }
+
+/* The steps really are a sequence, so they're numbered */
+.guide-steps { list-style: none; counter-reset: step; max-width: 720px; margin: 0 auto; padding: 0; }
+.guide-steps li { counter-increment: step; position: relative; padding: 0 0 36px 64px; }
+.guide-steps li:last-child { padding-bottom: 0; }
+.guide-steps li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 0;
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--fill); color: var(--primary-ink);
+  font-family: var(--font-display); font-weight: var(--weight-medium); font-size: 18px;
+}
+/* the walking route between the numbers, as on the home page */
+.guide-steps li:not(:last-child)::after {
+  content: ""; position: absolute; left: 19px; top: 48px; bottom: 8px;
+  border-left: 3px dashed var(--ochre);
+}
+.guide-steps h3 { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 26px); line-height: 1.15; margin: 6px 0 8px; }
+.guide-steps p { margin: 0; color: var(--text-secondary); font-size: 18px; line-height: 1.5; }
+
+/* Earnings example: a receipt-like breakdown */
+.earn-card { background: var(--card); border-radius: 28px; padding: clamp(28px, 4vw, 44px); max-width: 560px; margin: 0 auto; }
+.section:nth-of-type(even) .earn-card { background: var(--background); }
+.earn-title { font-family: var(--font-display); font-size: 22px; margin: 0 0 20px; }
+.earn-rows { margin: 0; }
+.earn-rows div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 18px; }
+.earn-rows dt { color: var(--text-secondary); }
+.earn-rows dd { margin: 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.earn-rows .earn-total { border-bottom: 0; padding-top: 16px; font-family: var(--font-display); font-size: 26px; }
+.earn-rows .earn-total dt { color: var(--text); }
+.earn-rows .earn-total dd { color: var(--primary); }
+.earn-scale { margin: 16px 0 0; color: var(--text-secondary); font-size: 17px; line-height: 1.45; }
+.earn-note { text-align: center; color: var(--text-secondary); font-size: 17px; line-height: 1.5; max-width: 560px; margin: 28px auto 0; }

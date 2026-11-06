@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('descubr-theme'); } catch (e) {}
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    })();
+  </script>
+  <title>For guides · DescubR</title>
+  <meta name="description" content="Earn from the places you know. Build a self-guided tour once, set your price and get paid every time a traveler walks it.">
+  <link rel="canonical" href="https://descubr.com/guides/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DescubR">
+  <meta property="og:title" content="For guides · DescubR">
+  <meta property="og:description" content="Earn from the places you know. Build a self-guided tour once, set your price and get paid every time a traveler walks it.">
+  <meta property="og:url" content="https://descubr.com/guides/">
+  <meta property="og:image" content="https://descubr.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="For guides · DescubR">
+  <meta name="twitter:description" content="Earn from the places you know. Build a self-guided tour once, set your price and get paid every time a traveler walks it.">
+  <meta name="twitter:image" content="https://descubr.com/assets/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../assets/style.css?v=20261106">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../"><img src="../assets/logo-mark.svg" alt="" width="26" height="26" class="wordmark-icon"><span class="word">Descub<span class="r">R</span></span></a>
+      <div class="site-nav">
+        <nav class="site-nav-links">
+          <a href="../#how-it-works"><span data-i18n="en">How it works</span><span data-i18n="es">Cómo funciona</span></a>
+          <a href="../guides/" class="active"><span data-i18n="en">For guides</span><span data-i18n="es">Para guías</span></a>
+          <a href="../faq/"><span data-i18n="en">FAQ</span><span data-i18n="es">Preguntas frecuentes</span></a>
+        </nav>
+        <div class="menu-wrap">
+          <button class="menu-toggle" data-menu-toggle type="button" aria-expanded="false" aria-label="Menu">
+            <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
+          </button>
+          <nav class="site-menu" data-menu hidden>
+            <a href="../#how-it-works"><span data-i18n="en">How it works</span><span data-i18n="es">Cómo funciona</span></a>
+            <a href="../guides/" class="active"><span data-i18n="en">For guides</span><span data-i18n="es">Para guías</span></a>
+            <a href="../faq/"><span data-i18n="en">FAQ</span><span data-i18n="es">Preguntas frecuentes</span></a>
+            <a href="../about/"><span data-i18n="en">About</span><span data-i18n="es">Sobre nosotros</span></a>
+            <a href="../privacy/"><span data-i18n="en">Privacy Policy</span><span data-i18n="es">Política de privacidad</span></a>
+            <a href="../terms/"><span data-i18n="en">Terms of Service</span><span data-i18n="es">Términos del servicio</span></a>
+            <a href="../legal-notice/"><span data-i18n="en">Legal Notice</span><span data-i18n="es">Aviso legal</span></a>
+          </nav>
+        </div>
+        <select class="lang-select" data-lang-select aria-label="Language / Idioma">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+        </select>
+        <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2M10 16.2v2M3.7 3.7l1.4 1.4M14.9 14.9l1.4 1.4M1.8 10h2M16.2 10h2M3.7 16.3l1.4-1.4M14.9 5.1l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.2 12.4A7.2 7.2 0 1 1 7.6 2.8a5.6 5.6 0 0 0 9.6 9.6Z"/></svg></button>
+        <a class="nav-cta" href="https://guide.descubr.com" target="_blank" rel="noopener"><span data-i18n="en">Start as a guide</span><span data-i18n="es">Empieza como guía</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <div class="wrap wrap-wide hero">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="hero-brand"><img src="../assets/logo-mark.svg" alt="" width="44" height="44" class="hero-brand-icon"><span>Descub<span class="r">R</span></span></p>
+          <div data-i18n="en">
+            <h1>Turn the city you know into a tour that sells every day</h1>
+            <p class="lede">Record your route once, with your stories, videos and audio, and travelers walk it whenever they like. You set the price and get paid for every sale, even on your days off.</p>
+          </div>
+          <div data-i18n="es">
+            <h1>Convierte la ciudad que conoces en un tour que se vende cada día</h1>
+            <p class="lede">Graba tu ruta una vez, con tus historias, vídeos y audios, y los viajeros la recorren cuando quieran. Tú pones el precio y cobras cada venta, también en tus días libres.</p>
+          </div>
+          <div class="cta-row guide-hero-cta">
+            <a class="button" href="https://guide.descubr.com" target="_blank" rel="noopener"><span data-i18n="en">Create your first tour</span><span data-i18n="es">Crea tu primer tour</span></a>
+            <a class="button button-ghost" href="#earnings"><span data-i18n="en">See what you'd earn</span><span data-i18n="es">Mira cuánto ganarías</span></a>
+          </div>
+          <ul class="hero-points">
+            <li><span data-i18n="en">Free to join</span><span data-i18n="es">Unirse es gratis</span></li>
+            <li><span data-i18n="en">No application</span><span data-i18n="es">Sin solicitud</span></li>
+            <li><span data-i18n="en">You set the price</span><span data-i18n="es">Tú pones el precio</span></li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <div class="phone-frame phone-front">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <img src="../assets/app-explore.jpg" data-src-es="../assets/app-explore-es.jpg" data-alt-es="Pantalla Explorar de la app DescubR, donde los viajeros encuentran los tours cerca de ellos" width="640" height="1428" fetchpriority="high"
+                 alt="DescubR app Explore screen, where travelers find tours near them">
+          </div>
+          <div class="phone-frame phone-back">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <img src="../assets/app-detail.jpg" data-src-es="../assets/app-detail-es.jpg" data-alt-es="Página de un tour en DescubR con la duración, la distancia, las paradas, la guía y el mapa de la ruta" width="640" height="1428" loading="lazy"
+                 alt="A tour's page in DescubR with its duration, distance, stops, guide and route map">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why -->
+    <section class="section" aria-labelledby="why-title">
+      <div class="wrap wrap-wide">
+        <h2 class="section-title" id="why-title">
+          <span data-i18n="en">Your knowledge, working while you don't</span>
+          <span data-i18n="es">Lo que sabes, trabajando por ti</span>
+        </h2>
+        <p class="section-lede">
+          <span data-i18n="en">A walking tour usually ends when you stop talking. On DescubR, the same tour can be walked by one traveler in the morning and ten more by the weekend.</span>
+          <span data-i18n="es">Un tour a pie suele acabar cuando dejas de hablar. En DescubR, el mismo tour lo puede hacer un viajero por la mañana y diez más antes del fin de semana.</span>
+        </p>
+        <div class="value-grid">
+          <div class="value-card">
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div data-i18n="en"><h3>Make it once, sell it again and again</h3><p>No group sizes, no booking slots, no standing in the rain waiting for no-shows. Every sale after the first is time you didn't have to spend.</p></div>
+            <div data-i18n="es"><h3>Créalo una vez, véndelo una y otra vez</h3><p>Sin tamaños de grupo, sin horarios de reserva, sin esperar bajo la lluvia a quien no aparece. Cada venta después de la primera es tiempo que no has tenido que invertir.</p></div>
+          </div>
+          <div class="value-card">
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
+            <div data-i18n="en"><h3>Your price, your call</h3><p>Choose what your tour costs and change it whenever you like. Price changes go live straight away, with no review.</p></div>
+            <div data-i18n="es"><h3>Tu precio, tu decisión</h3><p>Decide cuánto cuesta tu tour y cámbialo cuando quieras. Los cambios de precio se aplican al momento, sin revisión.</p></div>
+          </div>
+          <div class="value-card">
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+            <div data-i18n="en"><h3>Travelers find you</h3><p>Your tour shows up on the map for people nearby and in search for anyone planning a trip. The first stop is free, so they hear how you tell a story before they buy.</p></div>
+            <div data-i18n="es"><h3>Los viajeros te encuentran</h3><p>Tu tour aparece en el mapa para quien está cerca y en las búsquedas de quien planea un viaje. La primera parada es gratis, así escuchan cómo cuentas las historias antes de comprar.</p></div>
+          </div>
+          <div class="value-card">
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>
+            <div data-i18n="en"><h3>We handle the paperwork</h3><p>DescubR takes the payments, charges and declares the VAT, and issues the invoices. Your earnings land in your bank account automatically.</p></div>
+            <div data-i18n="es"><h3>Nosotros nos encargamos del papeleo</h3><p>DescubR cobra los pagos, aplica y declara el IVA y emite las facturas. Tus ganancias llegan a tu cuenta bancaria automáticamente.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 class="section-title" id="how-title">
+          <span data-i18n="en">From idea to first sale</span>
+          <span data-i18n="es">De la idea a la primera venta</span>
+        </h2>
+        <p class="section-lede">
+          <span data-i18n="en">All you need is your phone and a route you love showing people.</span>
+          <span data-i18n="es">Solo necesitas tu móvil y una ruta que te encante enseñar.</span>
+        </p>
+        <ol class="guide-steps">
+          <li>
+            <div data-i18n="en"><h3>Sign up</h3><p>Create a free account in the guide portal or tap "Become a guide" in the app. You can start straight away.</p></div>
+            <div data-i18n="es"><h3>Regístrate</h3><p>Crea una cuenta gratis en el portal de guías o pulsa "Conviértete en guía" en la app. Puedes empezar al momento.</p></div>
+          </li>
+          <li>
+            <div data-i18n="en"><h3>Build your route</h3><p>Drop your stops on the map and fill each one with a video, an audio track, a story or a quiz. Each stop unlocks when the traveler gets there.</p></div>
+            <div data-i18n="es"><h3>Crea tu ruta</h3><p>Coloca tus paradas en el mapa y llena cada una con un vídeo, un audio, una historia o un cuestionario. Cada parada se desbloquea cuando el viajero llega.</p></div>
+          </li>
+          <li>
+            <div data-i18n="en"><h3>Set up payouts</h3><p>Connect your bank account through Stripe and fill in your tax details. It takes a few minutes and you only do it once.</p></div>
+            <div data-i18n="es"><h3>Configura tus cobros</h3><p>Conecta tu cuenta bancaria a través de Stripe y rellena tus datos fiscales. Son unos minutos y solo se hace una vez.</p></div>
+          </li>
+          <li>
+            <div data-i18n="en"><h3>Send it for review</h3><p>Our team checks every tour before it goes live. If something needs changing, you'll see why and can resubmit whenever you're ready.</p></div>
+            <div data-i18n="es"><h3>Envíalo a revisión</h3><p>Nuestro equipo revisa cada tour antes de publicarlo. Si hay que cambiar algo, verás el motivo y podrás volver a enviarlo cuando quieras.</p></div>
+          </li>
+          <li>
+            <div data-i18n="en"><h3>Go live and earn</h3><p>Once it's approved, travelers can find and buy your tour. Follow your sales and payouts from the app.</p></div>
+            <div data-i18n="es"><h3>Publícalo y gana</h3><p>Una vez aprobado, los viajeros pueden encontrar y comprar tu tour. Sigue tus ventas y cobros desde la app.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Earnings -->
+    <section class="section" id="earnings" aria-labelledby="earn-title">
+      <div class="wrap">
+        <h2 class="section-title" id="earn-title">
+          <span data-i18n="en">What you take home</span>
+          <span data-i18n="es">Lo que te llevas</span>
+        </h2>
+        <p class="section-lede">
+          <span data-i18n="en">You keep 65% of every sale, after VAT. No sign-up fee, no monthly fee.</span>
+          <span data-i18n="es">Te quedas con el 65% de cada venta, después del IVA. Sin cuota de alta ni cuota mensual.</span>
+        </p>
+        <div class="earn-card">
+          <div data-i18n="en">
+            <p class="earn-title">A tour priced at €12, sold in Spain</p>
+            <dl class="earn-rows">
+              <div><dt>The traveler pays</dt><dd>€12.00</dd></div>
+              <div><dt>VAT (21%), which DescubR declares</dt><dd>−€2.08</dd></div>
+              <div><dt>DescubR's commission (35%)</dt><dd>−€3.47</dd></div>
+              <div class="earn-total"><dt>You get</dt><dd>€6.45</dd></div>
+            </dl>
+            <p class="earn-scale">Sold 40 times a month, that's €258 from a tour you made once.</p>
+          </div>
+          <div data-i18n="es">
+            <p class="earn-title">Un tour de 12 €, vendido en España</p>
+            <dl class="earn-rows">
+              <div><dt>El viajero paga</dt><dd>12,00 €</dd></div>
+              <div><dt>IVA (21%), que declara DescubR</dt><dd>−2,08 €</dd></div>
+              <div><dt>Comisión de DescubR (35%)</dt><dd>−3,47 €</dd></div>
+              <div class="earn-total"><dt>Recibes</dt><dd>6,45 €</dd></div>
+            </dl>
+            <p class="earn-scale">Vendido 40 veces al mes, son 258&nbsp;€ de un tour que creaste una vez.</p>
+          </div>
+        </div>
+        <p class="earn-note">
+          <span data-i18n="en">Want more visibility? You can raise your own commission to rank higher in Recommended, and drop back to 35% whenever you like.</span>
+          <span data-i18n="es">¿Quieres más visibilidad? Puedes subir tu comisión para aparecer más arriba en Recomendados, y volver al 35% cuando quieras.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Pro -->
+    <section class="section" aria-labelledby="pro-title">
+      <div class="wrap">
+        <h2 class="section-title" id="pro-title">
+          <span data-i18n="en">Already an official guide? Show it</span>
+          <span data-i18n="es">¿Ya eres guía oficial? Que se note</span>
+        </h2>
+        <p class="section-lede">
+          <span data-i18n="en">You don't need a licence to publish on DescubR. If you have one, send us your credentials and your profile and tours get a Pro badge, so travelers know they're in expert hands.</span>
+          <span data-i18n="es">No necesitas licencia para publicar en DescubR. Si la tienes, envíanos tu acreditación y tu perfil y tus tours llevarán la insignia Pro, para que los viajeros sepan que están en manos expertas.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" aria-labelledby="gfaq-title">
+      <div class="wrap">
+        <h2 class="section-title" id="gfaq-title">
+          <span data-i18n="en">Questions guides ask us</span>
+          <span data-i18n="es">Lo que nos preguntan los guías</span>
+        </h2>
+        <div class="faq-mini">
+          <div data-i18n="en">
+            <details class="faq-item"><summary>Who owns my tour?</summary><p>You do. You're its author, and you give DescubR a licence to host, show and sell access to it.</p></details>
+            <details class="faq-item"><summary>Do I need special equipment?</summary><p>No. A recent phone records good enough video and audio. What travelers pay for is your knowledge and how you tell it.</p></details>
+            <details class="faq-item"><summary>Can I change a tour after it's live?</summary><p>Yes. Prices change instantly. Content edits are saved as a draft and reviewed, while the published version keeps selling unchanged.</p></details>
+            <details class="faq-item"><summary>Do I have to deal with VAT?</summary><p>DescubR is the seller, so we charge and declare the VAT on each sale. You tell us your tax status once, and we send you self-billed invoices or statements for your records.</p></details>
+            <details class="faq-item"><summary>Where can I make a tour?</summary><p>Anywhere in the world. We're starting in Spain, with Madrid leading the way, so tours there reach our first travelers.</p></details>
+            <p class="faq-more"><a href="../guide-terms/">Read the full Guide Terms</a></p>
+          </div>
+          <div data-i18n="es">
+            <details class="faq-item"><summary>¿De quién es mi tour?</summary><p>Tuyo. Tú eres el autor, y le das a DescubR una licencia para alojarlo, mostrarlo y vender el acceso.</p></details>
+            <details class="faq-item"><summary>¿Necesito un equipo especial?</summary><p>No. Un móvil actual graba vídeo y audio de sobra. Lo que pagan los viajeros es lo que sabes y cómo lo cuentas.</p></details>
+            <details class="faq-item"><summary>¿Puedo cambiar un tour ya publicado?</summary><p>Sí. El precio cambia al momento. Los cambios de contenido se guardan como borrador y se revisan, mientras la versión publicada sigue vendiéndose igual.</p></details>
+            <details class="faq-item"><summary>¿Tengo que encargarme del IVA?</summary><p>DescubR es quien vende, así que aplicamos y declaramos el IVA de cada venta. Nos indicas tu situación fiscal una vez y te enviamos autofacturas o resúmenes para tu contabilidad.</p></details>
+            <details class="faq-item"><summary>¿Dónde puedo crear un tour?</summary><p>En cualquier lugar del mundo. Empezamos en España, con Madrid a la cabeza, así que los tours de allí llegan a nuestros primeros viajeros.</p></details>
+            <p class="faq-more"><a href="../guide-terms/">Lee los Términos para guías completos</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="guide-cta">
+          <div data-i18n="en">
+            <h2 id="cta-title">Your first tour is a walk you already know</h2>
+            <p>Sign up free, build it at your own pace and send it for review when it's ready.</p>
+            <div class="cta-row">
+              <a class="button" href="https://guide.descubr.com" target="_blank" rel="noopener">Create your first tour</a>
+              <a class="button button-ghost" href="mailto:hello@descubr.com">Email us</a>
+            </div>
+          </div>
+          <div data-i18n="es">
+            <h2>Tu primer tour es un paseo que ya conoces</h2>
+            <p>Regístrate gratis, créalo a tu ritmo y envíalo a revisión cuando esté listo.</p>
+            <div class="cta-row">
+              <a class="button" href="https://guide.descubr.com" target="_blank" rel="noopener">Crea tu primer tour</a>
+              <a class="button button-ghost" href="mailto:hello@descubr.com">Escríbenos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav class="footer-nav">
+        <a href="../about/"><span data-i18n="en">About</span><span data-i18n="es">Sobre nosotros</span></a>
+        <a href="../faq/"><span data-i18n="en">FAQ</span><span data-i18n="es">Preguntas frecuentes</span></a>
+        <a href="../privacy/"><span data-i18n="en">Privacy Policy</span><span data-i18n="es">Política de privacidad</span></a>
+        <a href="../terms/"><span data-i18n="en">Terms of Service</span><span data-i18n="es">Términos del servicio</span></a>
+        <a href="../legal-notice/"><span data-i18n="en">Legal Notice</span><span data-i18n="es">Aviso legal</span></a>
+        <a href="https://guide.descubr.com" target="_blank" rel="noopener"><span data-i18n="en">Guide portal</span><span data-i18n="es">Portal de guías</span></a>
+      </nav>
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@descubr_app" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82c-1.02-.88-1.66-2.17-1.66-3.6h-3.06v13.44c0 1.62-1.32 2.94-2.94 2.94a2.94 2.94 0 0 1 0-5.88c.28 0 .55.04.8.11V9.72a6.02 6.02 0 0 0-.8-.06c-3.32 0-6 2.68-6 6s2.68 6 6 6 6-2.68 6-6V9.2a8.16 8.16 0 0 0 4.76 1.53V7.67a4.85 4.85 0 0 1-3.1-1.85z"/></svg></a>
+        <a href="https://www.instagram.com/descubr_app/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://x.com/descubr_app" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.5 8.57L23 22h-6.9l-5.4-7.06L4.6 22H1.5l8.02-9.17L1 2h7.06l4.88 6.46L18.9 2zm-1.2 18h1.9L7.4 3.9H5.36L17.7 20z"/></svg></a>
+      </div>
+      <p class="footer-copy">
+        <span data-i18n="en">&copy; 2026 DescubR. All rights reserved.</span>
+        <span data-i18n="es">&copy; 2026 DescubR. Todos los derechos reservados.</span>
+        &nbsp;&middot;&nbsp;<a href="mailto:hello@descubr.com">hello@descubr.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../assets/lang.js?v=20261105"></script>
+  <script src="../assets/menu.js"></script>
+  <script src="../assets/theme.js?v=20261105"></script>
+</body>
+</html>
