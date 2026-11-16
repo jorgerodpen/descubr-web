@@ -1758,3 +1758,7 @@ main.docs-main {
 .portal-shot { margin: 24px 0 0; max-width: 420px; }
 .portal-shot img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--border); background: #fff; }
 .portal-shot figcaption { margin-top: 10px; color: var(--text-muted); font-size: 15px; line-height: 1.45; }
+
+/* Testers page: step buttons */
+.testers-cta { justify-content: flex-start; margin-top: 14px; }
+.testers-cta .button { display: inline-block; background: var(--fill); color: var(--primary-ink); font-weight: var(--weight-medium); font-size: 17px; padding: 12px 22px; border-radius: 999px; text-decoration: none; }
